@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dkyvi2g4debs8"]
+
+[ext_resource type="Texture2D" uid="uid://bbfl67fusgkfw" path="res://art/Horse Pack/Horses/2.png" id="1_ofn5t"]
+[ext_resource type="Texture2D" uid="uid://begrqx415n600" path="res://art/Horse Pack/Horses/1.png" id="2_g3ufs"]
+[ext_resource type="Texture2D" uid="uid://cywlohrjv6e0h" path="res://art/Horse Pack/Horses/3.png" id="3_j1rib"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0u43"]
+atlas = ExtResource("1_ofn5t")
+region = Rect2(17, 19, 17, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26hme"]
+atlas = ExtResource("2_g3ufs")
+region = Rect2(17, 19, 17, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o3ap"]
+atlas = ExtResource("3_j1rib")
+region = Rect2(17, 19, 17, 19)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0u43")
+}],
+"loop": true,
+"name": &"black",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26hme")
+}],
+"loop": true,
+"name": &"blonde",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o3ap")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
