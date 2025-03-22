@@ -23,6 +23,8 @@ var gender: String
 
 var isFole: bool
 
+var dead: bool
+
 var color: String
 
 func _init():
