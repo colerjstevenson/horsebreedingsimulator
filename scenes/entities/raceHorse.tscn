@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk71525gyo2ht"]
+
+[ext_resource type="Script" path="res://scripts/race_horse.gd" id="1_w6egy"]
+[ext_resource type="SpriteFrames" uid="uid://enjq801e2as6" path="res://animation/race_horse.tres" id="2_bofcs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnwsv"]
+size = Vector2(138, 115)
+
+[node name="horse" type="CharacterBody2D"]
+z_index = -1
+script = ExtResource("1_w6egy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(-1.99998, -54)
+scale = Vector2(4.121, 4.5)
+sprite_frames = ExtResource("2_bofcs")
+animation = &"black_right_running"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_wnwsv")

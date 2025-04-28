@@ -1,18 +1,36 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6lg1i8npojwy"]
+[gd_scene load_steps=12 format=3 uid="uid://c6lg1i8npojwy"]
 
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="1_n6y56"]
+[ext_resource type="Script" path="res://scripts/breeder.gd" id="1_v18u3"]
 [ext_resource type="Script" path="res://scripts/backButton.gd" id="2_0gyva"]
+[ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="2_jinnr"]
+[ext_resource type="Theme" uid="uid://bjldftgjbp5df" path="res://themes/Button.tres" id="3_711yo"]
+[ext_resource type="Texture2D" uid="uid://uorcffu85i7e" path="res://art/UI/UI_Wood_D_Border.png" id="4_yb7ru"]
+[ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="5_mlupi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m18fy"]
+atlas = ExtResource("2_jinnr")
+region = Rect2(160, 176, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7fra"]
+atlas = ExtResource("4_yb7ru")
+region = Rect2(321, 449, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0xad"]
+atlas = ExtResource("4_yb7ru")
+region = Rect2(225, 449, 30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3abw3"]
 atlas = ExtResource("1_n6y56")
 region = Rect2(223.527, 287.623, 32.8422, 32.8422)
 
-[node name="Node2D" type="Node2D"]
+[node name="Breeder" type="Node2D"]
+script = ExtResource("1_v18u3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 713.0
 offset_bottom = 1285.0
-color = Color(0.902247, 0.328562, 0.916041, 1)
+color = Color(0.409833, 0.643863, 0.801575, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
@@ -22,7 +40,7 @@ offset_right = 535.0
 offset_bottom = 140.0
 text = "Breeding Center"
 
-[node name="Control" type="Control" parent="."]
+[node name="breederButtons" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 25.0
@@ -30,13 +48,87 @@ offset_top = 22.0
 offset_right = 65.0
 offset_bottom = 62.0
 
-[node name="TextureButton" type="TextureButton" parent="Control"]
+[node name="maleSelector" type="TextureButton" parent="breederButtons"]
 texture_filter = 1
 layout_mode = 0
-offset_right = 94.0
-offset_bottom = 89.0
+offset_left = 145.0
+offset_top = 750.0
+offset_right = 513.0
+offset_bottom = 833.0
+texture_normal = SubResource("AtlasTexture_m18fy")
+stretch_mode = 0
+
+[node name="maleText" type="RichTextLabel" parent="breederButtons/maleSelector"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 6.0
+offset_top = 19.0
+offset_right = 366.0
+offset_bottom = 60.0
+mouse_filter = 1
+theme = ExtResource("3_711yo")
+bbcode_enabled = true
+text = "[center]Select Stallion[center]"
+
+[node name="femaleSelector" type="TextureButton" parent="breederButtons"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 143.0
+offset_top = 1056.0
+offset_right = 511.0
+offset_bottom = 1139.0
+texture_normal = SubResource("AtlasTexture_m18fy")
+stretch_mode = 0
+
+[node name="femaleText" type="RichTextLabel" parent="breederButtons/femaleSelector"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 1.0
+offset_top = 20.0
+offset_right = 369.0
+offset_bottom = 61.0
+mouse_filter = 1
+theme = ExtResource("3_711yo")
+bbcode_enabled = true
+text = "[center]Select Mare[center]"
+
+[node name="BreedButton" type="TextureButton" parent="breederButtons"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 258.0
+offset_top = 866.0
+offset_right = 396.0
+offset_bottom = 996.0
+texture_normal = SubResource("AtlasTexture_j7fra")
+texture_disabled = SubResource("AtlasTexture_j0xad")
+stretch_mode = 0
+
+[node name="BreedingScreen" type="ColorRect" parent="."]
+visible = false
+offset_right = 713.0
+offset_bottom = 1285.0
+color = Color(0.409833, 0.643863, 0.801575, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BreedingScreen"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 563.0
+offset_right = 592.0
+offset_bottom = 650.0
+theme = ExtResource("5_mlupi")
+text = "Breeding in Progress..."
+
+[node name="BackButton" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 25.0
+offset_top = 22.0
+offset_right = 119.0
+offset_bottom = 111.0
 texture_normal = SubResource("AtlasTexture_3abw3")
 stretch_mode = 0
 script = ExtResource("2_0gyva")
 
-[connection signal="pressed" from="Control/TextureButton" to="Control/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="breederButtons/maleSelector" to="." method="openMales"]
+[connection signal="pressed" from="breederButtons/femaleSelector" to="." method="openFemales"]
+[connection signal="pressed" from="breederButtons/BreedButton" to="." method="_breed_pressed"]
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

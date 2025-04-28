@@ -1,0 +1,221 @@
+[gd_scene load_steps=10 format=3 uid="uid://cji72tvd5k1nu"]
+
+[ext_resource type="Script" path="res://scripts/stats_window.gd" id="1_5hii8"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="2_rr3ga"]
+[ext_resource type="FontFile" uid="uid://mfdjupiwfar2" path="res://Fonts/PixeloidSans-mLxMm.ttf" id="3_u6mwr"]
+[ext_resource type="SpriteFrames" uid="uid://dkyvi2g4debs8" path="res://animation/horse_heads.tres" id="4_yiywn"]
+[ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="5_kpbp2"]
+[ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="6_d46at"]
+
+[sub_resource type="Theme" id="Theme_34pxo"]
+default_font_size = 37
+RichTextLabel/fonts/normal_font = ExtResource("3_u6mwr")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3w1"]
+atlas = ExtResource("5_kpbp2")
+region = Rect2(257, 274, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q24dl"]
+atlas = ExtResource("6_d46at")
+region = Rect2(0, 0, 70, 18)
+
+[node name="Stats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5hii8")
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 69.0
+offset_top = 105.0
+offset_right = 654.0
+offset_bottom = 1025.0
+theme = ExtResource("2_rr3ga")
+
+[node name="Name" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 46.0
+offset_right = 564.0
+offset_bottom = 111.0
+theme = SubResource("Theme_34pxo")
+text = "HORSE NAME"
+fit_content = true
+scroll_active = false
+
+[node name="Head" type="AnimatedSprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(111.19, 117.265)
+scale = Vector2(8.8012, 8.91951)
+sprite_frames = ExtResource("4_yiywn")
+animation = &"blonde"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 261.0
+offset_right = 564.0
+offset_bottom = 884.0
+theme = ExtResource("2_rr3ga")
+
+[node name="Speed" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+tooltip_text = "Effects the top speed
+of the horse"
+theme = ExtResource("2_rr3ga")
+text = "SPEED
+"
+fit_content = true
+
+[node name="SpeedBar" type="ProgressBar" parent="Panel/VBoxContainer/Speed"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("2_rr3ga")
+value = 28.04
+show_percentage = false
+
+[node name="Stamina" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+tooltip_text = "Effects how long a horse 
+can maintain its top speed"
+theme = ExtResource("2_rr3ga")
+text = "STAMINA"
+fit_content = true
+
+[node name="StaminaBar" type="ProgressBar" parent="Panel/VBoxContainer/Stamina"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("2_rr3ga")
+value = 28.04
+show_percentage = false
+
+[node name="Acceleration" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+tooltip_text = "Effects how quickly a horse 
+reaches its top speed"
+theme = ExtResource("2_rr3ga")
+theme_override_font_sizes/normal_font_size = 0
+text = "ACCELERATION"
+fit_content = true
+
+[node name="AccBar" type="ProgressBar" parent="Panel/VBoxContainer/Acceleration"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("2_rr3ga")
+value = 28.04
+show_percentage = false
+
+[node name="Vitality" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+tooltip_text = "Effects how quickly a horse 
+recovers between races"
+theme = ExtResource("2_rr3ga")
+theme_override_font_sizes/normal_font_size = 0
+text = "VITALITY"
+fit_content = true
+
+[node name="VitalityBar" type="ProgressBar" parent="Panel/VBoxContainer/Vitality"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("2_rr3ga")
+value = 31.89
+show_percentage = false
+
+[node name="Fertility" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+tooltip_text = "Effects the likelihood 
+of successfully breeding"
+theme = ExtResource("2_rr3ga")
+theme_override_font_sizes/normal_font_size = 0
+text = "FERTILITY"
+fit_content = true
+
+[node name="FertilityBar" type="ProgressBar" parent="Panel/VBoxContainer/Fertility"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("2_rr3ga")
+value = 31.89
+show_percentage = false
+
+[node name="Close" type="TextureButton" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.534
+anchor_top = -0.462
+anchor_right = -0.534
+anchor_bottom = -0.462
+offset_left = 323.39
+offset_top = 434.04
+offset_right = 381.39
+offset_bottom = 493.04
+texture_normal = SubResource("AtlasTexture_dp3w1")
+stretch_mode = 0
+
+[node name="sex" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 145.0
+offset_right = 394.0
+offset_bottom = 185.0
+text = "Sex: "
+fit_content = true
+scroll_active = false
+
+[node name="wins" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 199.0
+offset_right = 396.0
+offset_bottom = 239.0
+text = "Wins: "
+fit_content = true
+scroll_active = false
+
+[node name="age" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 142.0
+offset_right = 534.0
+offset_bottom = 182.0
+text = "Age: "
+fit_content = true
+scroll_active = false
+
+[node name="auctionButton" type="TextureButton" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 151.0
+offset_top = 825.0
+offset_right = 428.0
+offset_bottom = 888.0
+texture_normal = SubResource("AtlasTexture_q24dl")
+stretch_mode = 0
+
+[connection signal="pressed" from="Panel/Close" to="." method="_close_window"]
+[connection signal="pressed" from="Panel/auctionButton" to="." method="_launch_auction"]

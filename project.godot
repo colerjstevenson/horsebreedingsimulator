@@ -17,6 +17,8 @@ config/features=PackedStringArray("4.3", "Mobile")
 [autoload]
 
 HorseManager="*res://scripts/horseManager.gd"
+Game="*res://scripts/helpers.gd"
+BreedingManager="*res://scripts/breedingManager.gd"
 
 [display]
 

@@ -1,0 +1,179 @@
+[gd_scene load_steps=8 format=3 uid="uid://cji72tvd5k1nu"]
+
+[ext_resource type="Script" path="res://scripts/stats_window.gd" id="1_s1p0p"]
+[ext_resource type="SpriteFrames" uid="uid://dkyvi2g4debs8" path="res://animation/horse_heads.tres" id="2_3c6vb"]
+[ext_resource type="FontFile" uid="uid://mfdjupiwfar2" path="res://Fonts/PixeloidSans-mLxMm.ttf" id="2_c63j6"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="4_jvqf3"]
+[ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="5_7dqgo"]
+
+[sub_resource type="Theme" id="Theme_34pxo"]
+default_font_size = 37
+RichTextLabel/fonts/normal_font = ExtResource("2_c63j6")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3w1"]
+atlas = ExtResource("5_7dqgo")
+region = Rect2(257, 274, 14, 14)
+
+[node name="Stats" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s1p0p")
+
+[node name="Panel" type="Panel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 69.0
+offset_top = 105.0
+offset_right = 654.0
+offset_bottom = 1025.0
+theme = ExtResource("4_jvqf3")
+
+[node name="Name" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 46.0
+offset_right = 564.0
+offset_bottom = 111.0
+theme = SubResource("Theme_34pxo")
+text = "HORSE NAME"
+
+[node name="Head" type="AnimatedSprite2D" parent="Panel"]
+texture_filter = 1
+position = Vector2(111.19, 117.265)
+scale = Vector2(8.8012, 8.91951)
+sprite_frames = ExtResource("2_3c6vb")
+animation = &"blonde"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 261.0
+offset_right = 564.0
+offset_bottom = 884.0
+theme = ExtResource("4_jvqf3")
+
+[node name="Speed" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+theme = ExtResource("4_jvqf3")
+text = "SPEED
+"
+fit_content = true
+
+[node name="SpeedBar" type="ProgressBar" parent="Panel/VBoxContainer/Speed"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("4_jvqf3")
+value = 28.04
+show_percentage = false
+
+[node name="Stamina" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+theme = ExtResource("4_jvqf3")
+text = "STAMINA"
+fit_content = true
+
+[node name="StaminaBar" type="ProgressBar" parent="Panel/VBoxContainer/Stamina"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("4_jvqf3")
+value = 28.04
+show_percentage = false
+
+[node name="Acceleration" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+theme = ExtResource("4_jvqf3")
+theme_override_font_sizes/normal_font_size = 0
+text = "ACCELERATION"
+fit_content = true
+
+[node name="AccBar" type="ProgressBar" parent="Panel/VBoxContainer/Acceleration"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("4_jvqf3")
+value = 28.04
+show_percentage = false
+
+[node name="Vitality" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+theme = ExtResource("4_jvqf3")
+theme_override_font_sizes/normal_font_size = 0
+text = "VITALITY"
+fit_content = true
+
+[node name="VitalityBar" type="ProgressBar" parent="Panel/VBoxContainer/Vitality"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("4_jvqf3")
+value = 31.89
+show_percentage = false
+
+[node name="Fertility" type="RichTextLabel" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(201.205, 0)
+layout_mode = 2
+theme = ExtResource("4_jvqf3")
+theme_override_font_sizes/normal_font_size = 0
+text = "FERTILITY"
+fit_content = true
+
+[node name="FertilityBar" type="ProgressBar" parent="Panel/VBoxContainer/Fertility"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 27.0
+theme = ExtResource("4_jvqf3")
+value = 31.89
+show_percentage = false
+
+[node name="Close" type="TextureButton" parent="Panel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.534
+anchor_top = -0.462
+anchor_right = -0.534
+anchor_bottom = -0.462
+offset_left = 323.39
+offset_top = 434.04
+offset_right = 381.39
+offset_bottom = 493.04
+texture_normal = SubResource("AtlasTexture_dp3w1")
+stretch_mode = 0
+
+[node name="sex" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 109.0
+offset_right = 350.0
+offset_bottom = 149.0
+text = "Sex: "
+
+[node name="age" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 110.0
+offset_right = 532.0
+offset_bottom = 150.0
+text = "Age: "
+
+[connection signal="pressed" from="Panel/Close" to="." method="_close_window"]

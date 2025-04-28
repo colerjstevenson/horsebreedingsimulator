@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://b0wtt88qeuk5v"]
+
+[ext_resource type="FontFile" uid="uid://mfdjupiwfar2" path="res://Fonts/PixeloidSans-mLxMm.ttf" id="1_du0jk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hq87e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bs2yq"]
+
+[resource]
+default_font_size = 28
+Button/styles/focus = SubResource("StyleBoxEmpty_hq87e")
+Button/styles/pressed = SubResource("StyleBoxEmpty_bs2yq")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/fonts/normal_font = ExtResource("1_du0jk")

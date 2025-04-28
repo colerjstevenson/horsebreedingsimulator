@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://04h0bha3cylt"]
+
+[ext_resource type="FontFile" uid="uid://mfdjupiwfar2" path="res://Fonts/PixeloidSans-mLxMm.ttf" id="1_8mmlr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snlvo"]
+bg_color = Color(1.34766e-06, 0.688783, 0.753041, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urdp8"]
+bg_color = Color(2.88785e-07, 0.463898, 0.507589, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(4.81307e-07, 0.391938, 0.42957, 1)
+shadow_size = 2
+shadow_offset = Vector2(3.99, 2.895)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nblib"]
+bg_color = Color(0.784314, 0.807843, 0.0627451, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+default_font_size = 25
+Panel/styles/panel = SubResource("StyleBoxFlat_snlvo")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_urdp8")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_nblib")
+RichTextLabel/fonts/normal_font = ExtResource("1_8mmlr")
+VBoxContainer/constants/separation = 90

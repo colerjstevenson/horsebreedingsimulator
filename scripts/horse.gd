@@ -9,6 +9,9 @@ enum HorseState {
 	STATE_EATING
 }
 
+var mut_rate = 10 # rate of mutation
+var dom_ratio = 65 # ration of dominant gene
+
 var current_state = HorseState.STATE_WALKING
 var state_timer = 0.0
 var random = RandomNumberGenerator.new()
@@ -17,41 +20,85 @@ var screen_width
 var screen_height
 
 var stats = {}
+var wins
 
 var horse_name: String
-var gender: String
-
-var isFole: bool
-
-var dead: bool
-
+var sex: String
+var pregnant: bool
+var age: int
 var color: String
 
 func _init():
 	randomize()
-	
+	sex = "Female" if randf_range(0,100) > 50 else "Male"
 	position = Vector2(randf_range(100, 600), randf_range(100, 700))
-	
-	stats["speed"] = randf_range(0, 100)
-	stats["acceleration"] = randf_range(0, 100)
-	stats["stamina"] = randf_range(0, 100)
-	stats["energy"] = 100
-	stats["fertility"] = randf_range(0, 100)
-	
-	gender = "female" if randf_range(0,100) > 50 else "male"
-	horse_name = get_horse_name()
-	
-	color = horseColors.pick_random()
-	
-	print(horse_name)
-	
-	
-	
+	wins = []
+	pregnant = false
 
 func _ready():
 	screen_width = get_viewport().size.x
 	screen_height = get_viewport().size.y
 	set_state(HorseState.STATE_WALKING)
+
+
+#set up for start of game horses
+func setup():
+	stats["speed"] = randf_range(0, 100)
+	stats["acceleration"] = randf_range(0, 100)
+	stats["stamina"] = randf_range(0, 100)
+	stats["vitality"] = 100
+	stats["fertility"] = randf_range(50, 100)
+	
+	color = horseColors.pick_random()
+	horse_name = get_horse_name()
+	age = randi_range(0,3)
+	print(horse_name)
+
+
+
+
+# returns a new horse bred from the inputs
+# or returns null if breeding failed
+func breed(mother: Horse, father: Horse): 
+	if mother.fireBlanks() or father.fireBlanks():
+		return null
+	
+	if mother.stats["fertility"] > father.stats["fertility"]:
+		merge_genes(mother, father)
+	else:
+		merge_genes(father, mother)
+		
+	age = 0
+	stats["vitality"] = 100
+	horse_name = get_horse_name()
+	
+	return self
+	
+	
+func merge_genes(dom, sub):
+	var properties = ["speed", "acceleration", "stamina", "fertility"]
+	
+	for p in properties:
+		if randf_range(0, 100) > dom_ratio:
+			stats[p] = sub.stats[p]
+		else:
+			stats[p] = dom.stats[p]
+			
+			
+	if randf_range(0, 100) > dom_ratio:
+		color = sub.color
+	else:
+		color = dom.color 
+
+
+
+
+
+#used to determine sucessful breeding
+func fireBlanks():
+	return randf_range(0, 100) > stats["fertility"]
+
+
 
 func set_state(new_state: HorseState):
 	current_state = new_state
@@ -70,11 +117,15 @@ func set_state(new_state: HorseState):
 			velocity = Vector2.ZERO
 			update_animation("eating")
 
+
+
 func update_animation(action: String):
-	var anim_name = "blonde_"
+	var anim_name = color + "_"
 	anim_name += "right_" if velocity.x >= 0 else "left_"
 	anim_name += action
 	$AnimatedSprite2D.play(anim_name)
+
+
 
 func _physics_process(delta: float) -> void:
 	state_timer -= delta
@@ -93,6 +144,7 @@ func _physics_process(delta: float) -> void:
 			update_animation("walking")
 			
 
+# return random horse name from list
 func get_horse_name() -> String:
 	var file = FileAccess.open("res://horseNames.txt", FileAccess.READ)
 	if file:

@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=3 uid="uid://depuktqopbhji"]
+
+[ext_resource type="Script" path="res://scripts/race.gd" id="1_riihp"]
+[ext_resource type="Theme" uid="uid://xeokutvtevub" path="res://themes/scrollTheme.tres" id="2_oji8l"]
+[ext_resource type="Texture2D" uid="uid://dgpn1e22lju3p" path="res://art/race/race_tile.png" id="3_vx1f3"]
+[ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="4_trng1"]
+[ext_resource type="Texture2D" uid="uid://ci7pv7rixxss2" path="res://art/race/race_tile_start.png" id="5_dmmka"]
+[ext_resource type="Texture2D" uid="uid://c7tosvwpww2t5" path="res://art/race/race_tile_finish.png" id="6_kpaml"]
+[ext_resource type="PackedScene" uid="uid://bk71525gyo2ht" path="res://scenes/entities/raceHorse.tscn" id="7_tqpdw"]
+[ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="8_uefs7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uca8x"]
+atlas = ExtResource("8_uefs7")
+region = Rect2(0, 0, 70, 18)
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_riihp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 721.0
+offset_bottom = 1278.0
+color = Color(0.631144, 0.543004, 0.248737, 1)
+
+[node name="Track" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 721.0
+offset_bottom = 721.0
+theme = ExtResource("2_oji8l")
+
+[node name="StartTile" type="TextureRect" parent="Track"]
+layout_mode = 2
+texture = ExtResource("5_dmmka")
+expand_mode = 2
+
+[node name="text" type="RichTextLabel" parent="Track/StartTile"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 290.0
+offset_top = 287.0
+offset_right = 426.0
+offset_bottom = 336.0
+theme = ExtResource("4_trng1")
+bbcode_enabled = true
+text = "[center]Start"
+
+[node name="EndTile" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 720.0
+offset_top = -1.0
+offset_right = 1440.0
+offset_bottom = 639.0
+texture = ExtResource("6_kpaml")
+expand_mode = 2
+
+[node name="text" type="RichTextLabel" parent="EndTile"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 289.0
+offset_top = 256.0
+offset_right = 425.0
+offset_bottom = 305.0
+theme = ExtResource("4_trng1")
+bbcode_enabled = true
+text = "[center]100"
+
+[node name="MainTile" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 720.0
+offset_bottom = 640.0
+texture = ExtResource("3_vx1f3")
+expand_mode = 2
+
+[node name="text" type="RichTextLabel" parent="MainTile"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 290.0
+offset_top = 257.0
+offset_right = 426.0
+offset_bottom = 306.0
+theme = ExtResource("4_trng1")
+bbcode_enabled = true
+text = "[center]0"
+
+[node name="horse" parent="." instance=ExtResource("7_tqpdw")]
+position = Vector2(320, 660)
+
+[node name="startButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 36.0
+offset_right = 551.0
+offset_bottom = 136.0
+texture_normal = SubResource("AtlasTexture_uca8x")
+stretch_mode = 0
+
+[connection signal="pressed" from="startButton" to="." method="_start_race"]

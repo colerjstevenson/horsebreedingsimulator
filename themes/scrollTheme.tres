@@ -11,6 +11,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_snwpc"]
 
 [resource]
+HBoxContainer/constants/separation = 0
 HScrollBar/styles/grabber = SubResource("StyleBoxEmpty_cfdby")
 HScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_18qbp")
 HScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_ylqdi")

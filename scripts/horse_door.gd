@@ -18,3 +18,11 @@ func setup(horse_in: Horse):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_pressed():
+	var stat_window =  preload("res://scenes/controls/StatsWindow.tscn")
+	var window = stat_window.instantiate()
+	window.setup(horse)
+	var scene = get_tree().current_scene
+	scene.add_child(window)
