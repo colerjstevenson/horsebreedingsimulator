@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.3", "Mobile")
 HorseManager="*res://scripts/horseManager.gd"
 Game="*res://scripts/helpers.gd"
 BreedingManager="*res://scripts/breedingManager.gd"
+Season="*res://scripts/season_manager.gd"
 
 [display]
 
@@ -30,6 +31,10 @@ window/stretch/scale=0.75
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg")
 
 [input_devices]
 

@@ -1,8 +1,17 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bjldftgjbp5df"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bjldftgjbp5df"]
 
 [ext_resource type="FontFile" uid="uid://mfdjupiwfar2" path="res://Fonts/PixeloidSans-mLxMm.ttf" id="1_jccuy"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6nbe"]
+bg_color = Color(0.57966, 0.345358, 0.20536, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+metadata/done = false
+
 [resource]
+Panel/styles/panel = SubResource("StyleBoxFlat_m6nbe")
 RichTextLabel/colors/default_color = Color(1, 0.266667, 1, 1)
 RichTextLabel/font_sizes/normal_font_size = 30
 RichTextLabel/fonts/normal_font = ExtResource("1_jccuy")

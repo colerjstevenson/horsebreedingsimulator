@@ -2,9 +2,9 @@ extends Node
 
 
 func _ready():
-	$MoneyLabel.text = "Money: " + str(HorseManager.money)
+	$MoneyLabel.text = "Money: " + str(Season.money)
 	
-	$DateLabel.text = "[right]Season " + str(HorseManager.season) + "   Week " + str(HorseManager.week)
+	$DateLabel.text = "[right]Season " + str(Season.season) + "   Week " + str(Season.week)
 	for horse in HorseManager.horses:
 		add_child(horse)
 

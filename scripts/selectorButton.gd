@@ -7,9 +7,13 @@ func setup(horse_in: Horse):
 	horse = horse_in
 	$Button/head.play(horse.color)
 	$Button/name.text = horse.horse_name
+	if horse.pregnant:
+		$Button.disabled = true
+		$Button/pregnant.visible = true
+		
 	return self
-	
-	
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7qa8qi6sdc86"]
+
+[ext_resource type="Script" path="res://scripts/callender_cell.gd" id="1_iiv67"]
+[ext_resource type="Theme" uid="uid://bjldftgjbp5df" path="res://themes/Button.tres" id="2_8sk5o"]
+[ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="3_kw5b7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrtwg"]
+atlas = ExtResource("3_kw5b7")
+region = Rect2(22, 8, 19, 18)
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchor_right = 0.878
+anchor_bottom = 0.11
+offset_right = -0.160034
+offset_bottom = 0.199997
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = ExtResource("1_iiv67")
+
+[node name="Button" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 621.0
+offset_bottom = 137.0
+theme = ExtResource("2_8sk5o")
+color = Color(0.499455, 0.271887, 0.149675, 1)
+
+[node name="name" type="RichTextLabel" parent="Button"]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 12.0
+offset_right = 573.0
+offset_bottom = 64.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "Name of the Race"
+
+[node name="length" type="RichTextLabel" parent="Button"]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 51.0
+offset_right = 242.0
+offset_bottom = 91.0
+theme_override_colors/default_color = Color(0.65834, 0.65834, 0.65834, 1)
+text = "1000m"
+
+[node name="purse" type="RichTextLabel" parent="Button"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 51.0
+offset_right = 392.0
+offset_bottom = 91.0
+theme_override_colors/default_color = Color(0.658824, 0.658824, 0.658824, 1)
+text = "$100"
+
+[node name="crown" type="TextureRect" parent="Button"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 15.0
+offset_top = 19.0
+offset_right = 88.0
+offset_bottom = 86.0
+texture = SubResource("AtlasTexture_nrtwg")
+
+[node name="horse" type="RichTextLabel" parent="Button"]
+visible = false
+layout_mode = 0
+offset_left = 109.0
+offset_top = 87.0
+offset_right = 440.0
+offset_bottom = 127.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "horse name"
+
+[node name="win" type="RichTextLabel" parent="Button"]
+visible = false
+layout_mode = 0
+offset_left = 538.0
+offset_top = 15.0
+offset_right = 635.0
+offset_bottom = 125.0
+theme_override_colors/default_color = Color(0, 0.749434, 0, 1)
+theme_override_font_sizes/normal_font_size = 78
+text = "W"
+
+[node name="loss" type="RichTextLabel" parent="Button"]
+visible = false
+layout_mode = 0
+offset_left = 554.0
+offset_top = 16.0
+offset_right = 651.0
+offset_bottom = 126.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 78
+text = "L"

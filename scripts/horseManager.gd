@@ -5,19 +5,11 @@ var Horse = preload("res://scenes/entities/horse.tscn")
 var horses = []
 var store = []
 
-var money
-
-var season
-var week
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	money = 500
-	season = 1
-	week = 1
-	
 	setup_horses()
 	refresh_store()
 
@@ -66,13 +58,5 @@ func calc_horse_price(horse: Horse):
 	return int(base + (statsTotal*statFactor) - (horse.age*ageFactor) + (winsFactor*horse.wins.size()))
 
 
-func progressTime():
-	week += 1
-	if week > 16:
-		week = 1
-		season += 1
-		for h in horses:
-			h.age += 1
-	
-	refresh_store()
+
 	

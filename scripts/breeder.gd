@@ -8,6 +8,14 @@ var femaleHorse = null
 func _ready() -> void:
 	if BreedingManager.breeder_state == "IP":
 		$BreedingScreen.visible = true
+	
+	if BreedingManager.breeder_state == "FAIL":
+		$FailedScreen.visible = true
+		BreedingManager.breeder_state = "READY"
+		
+	if BreedingManager.breeder_state == "PREGO":
+		$PregoScreen/text.text = BreedingManager.mother.horse_name + " is pregnant!\nThey're expect to give birth at the end of the season!"
+		$PregoScreen.visible = true
 			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,5 +71,7 @@ func _breed_pressed():
 	BreedingManager.mother = femaleHorse
 	$BreedingScreen.visible = true
 	
-	
+
+func _close_messgae():
+	$FailedScreen.visible = false
 	

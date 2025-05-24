@@ -11,7 +11,7 @@ func name_generator():
 	var rng = RandomNumberGenerator.new()
 	
 	#get first name
-	var file = FileAccess.open("res://first-names.txt", FileAccess.READ)
+	var file = FileAccess.open("res://lists/first-names.txt", FileAccess.READ)
 	if file:
 		var selected_line = ""
 		var line_count = 0
@@ -27,7 +27,7 @@ func name_generator():
 		return "John Doe"
 
 	#get last name
-	file = FileAccess.open("res://last-names.txt", FileAccess.READ)
+	file = FileAccess.open("res://lists/last-names.txt", FileAccess.READ)
 	if file:
 		var selected_line = ""
 		var line_count = 0

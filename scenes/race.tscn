@@ -76,8 +76,9 @@ text = "[center]100"
 [node name="MainTile" type="TextureRect" parent="."]
 visible = false
 layout_mode = 2
+offset_top = 86.0
 offset_right = 720.0
-offset_bottom = 640.0
+offset_bottom = 726.0
 texture = ExtResource("3_vx1f3")
 expand_mode = 2
 
@@ -85,9 +86,9 @@ expand_mode = 2
 texture_filter = 1
 layout_mode = 0
 offset_left = 290.0
-offset_top = 257.0
+offset_top = 259.0
 offset_right = 426.0
-offset_bottom = 306.0
+offset_bottom = 308.0
 theme = ExtResource("4_trng1")
 bbcode_enabled = true
 text = "[center]0"

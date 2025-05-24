@@ -51,8 +51,8 @@ func setup():
 	
 	color = horseColors.pick_random()
 	horse_name = get_horse_name()
-	age = randi_range(0,3)
-	print(horse_name)
+	age = randi_range(1,3)
+	#print(horse_name)
 
 
 
@@ -146,7 +146,7 @@ func _physics_process(delta: float) -> void:
 
 # return random horse name from list
 func get_horse_name() -> String:
-	var file = FileAccess.open("res://horseNames.txt", FileAccess.READ)
+	var file = FileAccess.open("res://lists/horseNames.txt", FileAccess.READ)
 	if file:
 		var selected_line = ""
 		var line_count = 0

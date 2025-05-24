@@ -68,6 +68,7 @@ func end_auction():
 	await pause()
 	if current_bidder == "PLAYER":
 		HorseManager.horses.append(horse)
+		Season.money -= current_bid
 	
 	HorseManager.store.erase(horse)
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
@@ -80,11 +81,11 @@ func _process(delta: float) -> void:
 
 
 func player_bid():
-	
-	current_bid += bid_increment
-	current_bidder = "PLAYER"
-	no_bid_rounds = 0
-	print_msg("you bid $" + str(current_bid))
+	if Season.money >= current_bid+bid_increment and current_bidder != "PLAYER":
+		current_bid += bid_increment
+		current_bidder = "PLAYER"
+		no_bid_rounds = 0
+		print_msg("you bid $" + str(current_bid))
 
 
 func pause():

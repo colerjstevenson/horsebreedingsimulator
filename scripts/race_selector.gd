@@ -23,7 +23,7 @@ func _start_race():
 	get_tree().get_root().add_child(inst)
 	get_tree().current_scene.queue_free()
 	get_tree().current_scene = inst
-	get_tree().current_scene.setup(800, "bellmont_stakes", horse)
+	get_tree().current_scene.setup(Season.week-1, horse)
 	
 	
 	

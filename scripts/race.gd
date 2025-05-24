@@ -4,15 +4,23 @@ var race_state
 
 var length
 var race_name
-
+var prize
+var week
 var time
 
 var horses = []
 var leader
 
-func setup(_length, _name, _player):
-	length = _length
-	race_name = _name
+func setup(_week, _player):
+	week = _week
+	length = Season.races[week].length
+	race_name = Season.races[week].race_name
+	prize = Season.races[week].purse
+	Season.races[week].horse = _player
+	
+	print(length)
+	print(race_name)
+	print(prize)
 	
 	$EndTile/text.text = "[center]" + str(length)
 	
@@ -59,10 +67,15 @@ func _start_race():
 		h.run()
 
 func finish_race():
-	HorseManager.progressTime()
+	Season.races[week].result = "L"
+	
 	if horses[-1].pos == leader:
-		horses[-1].wins.append(race_name)
-		HorseManager.money += 500
+		horses[-1].horse.wins.append(race_name)
+		Season.money += prize
+		Season.races[week].result = "W"
+		
+	Season.progressTime()
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

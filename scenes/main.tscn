@@ -94,9 +94,19 @@ script = SubResource("GDScript_cb58y")
 [node name="RaceButton" type="TextureButton" parent="Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 90.0
+offset_left = 38.0
+offset_top = 1108.0
+offset_right = 553.0
+offset_bottom = 1230.0
+texture_normal = SubResource("AtlasTexture_l7x7t")
+stretch_mode = 0
+
+[node name="Calender" type="TextureButton" parent="Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 558.0
 offset_top = 1103.0
-offset_right = 605.0
+offset_right = 673.0
 offset_bottom = 1225.0
 texture_normal = SubResource("AtlasTexture_l7x7t")
 stretch_mode = 0
@@ -104,7 +114,7 @@ stretch_mode = 0
 [node name="MoneyLabel" type="RichTextLabel" parent="."]
 offset_left = 27.0
 offset_top = 13.0
-offset_right = 254.0
+offset_right = 362.0
 offset_bottom = 67.0
 theme = ExtResource("5_jq12b")
 text = "Money: 0"

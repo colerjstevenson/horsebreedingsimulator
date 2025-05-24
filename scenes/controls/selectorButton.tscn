@@ -60,4 +60,16 @@ mouse_filter = 1
 bbcode_enabled = true
 text = "Horse Name"
 
+[node name="pregnant" type="RichTextLabel" parent="Button"]
+visible = false
+layout_mode = 0
+offset_left = 159.0
+offset_top = 76.0
+offset_right = 594.0
+offset_bottom = 118.0
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+bbcode_enabled = true
+text = "Breeding"
+
 [connection signal="pressed" from="Button" to="." method="_pressed"]
