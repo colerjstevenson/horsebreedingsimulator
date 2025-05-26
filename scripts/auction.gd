@@ -6,6 +6,7 @@ var horse: Horse
 var current_bid
 var current_bidder
 
+var player_sale
 
 var no_bid_rounds
 
@@ -25,6 +26,8 @@ func start_auction(_horse: Horse):
 	horse = _horse
 	current_bid = floor(HorseManager.calc_horse_price(horse) / 100)*100
 	
+	player_sale = horse in HorseManager.horses
+	$BidButton.visible = not player_sale
 	$horseImg.play(horse.color + "_left_standing")
 	print_msg("starting auction at $" + str(current_bid))
 	await pause()
@@ -66,11 +69,14 @@ func auction_loop():
 
 func end_auction():
 	await pause()
-	if current_bidder == "PLAYER":
-		HorseManager.horses.append(horse)
-		Season.money -= current_bid
-	
-	HorseManager.store.erase(horse)
+	if player_sale:
+		Season.money += current_bid
+		HorseManager.horses.erase(horse)
+	else:
+		if current_bidder == "PLAYER":
+			HorseManager.horses.append(horse)
+			Season.money -= current_bid
+		HorseManager.store.erase(horse)
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 

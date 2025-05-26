@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf05mjhcwgegs"]
+[gd_scene load_steps=11 format=3 uid="uid://cf05mjhcwgegs"]
 
 [ext_resource type="Script" path="res://scripts/auction_menu.gd" id="1_r0rxc"]
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="1_ssq67"]
+[ext_resource type="Texture2D" uid="uid://ullende40irc" path="res://art/UI/Pixel UI/Colors/Cyan/cyan_spritesheet.png" id="2_crn7k"]
 [ext_resource type="Script" path="res://scripts/backButton.gd" id="2_t4txg"]
+[ext_resource type="Theme" uid="uid://bjldftgjbp5df" path="res://themes/Button.tres" id="3_82xcy"]
 [ext_resource type="Texture2D" uid="uid://deok2v6fn8pdd" path="res://art/UI/Pixel UI/Colors/Yellow/yellow_spritesheet.png" id="4_57w68"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_adlkw"]
@@ -12,6 +14,10 @@ region = Rect2(0, 0, 70, 18)
 [sub_resource type="AtlasTexture" id="AtlasTexture_vs8a8"]
 atlas = ExtResource("4_57w68")
 region = Rect2(0, 98, 70, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7pv4"]
+atlas = ExtResource("2_crn7k")
+region = Rect2(0, 0, 70, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cwg8e"]
 atlas = ExtResource("1_ssq67")
@@ -48,6 +54,45 @@ offset_right = 687.0
 offset_bottom = 899.0
 columns = 2
 
+[node name="Sell" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 259.0
+offset_right = 20.0
+offset_bottom = 259.0
+
+[node name="StartButton" type="TextureButton" parent="Sell"]
+texture_filter = 1
+offset_left = 206.0
+offset_top = 537.0
+offset_right = 493.0
+offset_bottom = 634.0
+texture_normal = SubResource("AtlasTexture_adlkw")
+texture_disabled = SubResource("AtlasTexture_vs8a8")
+stretch_mode = 0
+
+[node name="chooseHorse" type="TextureButton" parent="Sell"]
+texture_filter = 1
+offset_left = 140.0
+offset_top = 317.0
+offset_right = 555.0
+offset_bottom = 427.0
+texture_normal = SubResource("AtlasTexture_q7pv4")
+stretch_mode = 0
+
+[node name="horseName" type="RichTextLabel" parent="Sell/chooseHorse"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 22.0
+offset_right = 398.0
+offset_bottom = 73.0
+mouse_filter = 1
+theme = ExtResource("3_82xcy")
+bbcode_enabled = true
+text = "[center]Pick Horse[center]"
+
 [node name="BuyButton" type="TextureButton" parent="."]
 texture_filter = 1
 offset_left = 142.0
@@ -79,6 +124,8 @@ texture_normal = SubResource("AtlasTexture_cwg8e")
 stretch_mode = 0
 script = ExtResource("2_t4txg")
 
+[connection signal="pressed" from="Sell/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Sell/chooseHorse" to="." method="_on_selector_pressed"]
 [connection signal="pressed" from="BuyButton" to="." method="_buy_pressed"]
 [connection signal="pressed" from="SellButton" to="." method="_sell_pressed"]
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
