@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drax6p6tm5oby"]
+[gd_scene load_steps=6 format=3 uid="uid://drax6p6tm5oby"]
 
+[ext_resource type="Theme" uid="uid://xeokutvtevub" path="res://themes/scrollTheme.tres" id="1_d607i"]
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="1_rictg"]
+[ext_resource type="Texture2D" uid="uid://b45r4n2m06nio" path="res://art/race/training.png" id="2_5v7yp"]
 [ext_resource type="Script" path="res://scripts/backButton.gd" id="2_sbemh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vc0x5"]
@@ -29,6 +31,19 @@ offset_left = 25.0
 offset_top = 22.0
 offset_right = 65.0
 offset_bottom = 62.0
+
+[node name="Track" type="HBoxContainer" parent="Control"]
+clip_contents = true
+offset_left = -25.0
+offset_top = -22.0
+offset_right = 696.0
+offset_bottom = 699.0
+theme = ExtResource("1_d607i")
+
+[node name="StartTile" type="TextureRect" parent="Control/Track"]
+layout_mode = 2
+texture = ExtResource("2_5v7yp")
+expand_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="Control"]
 texture_filter = 1
