@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbb3rlmrua0jh"]
 
-[ext_resource type="Script" path="res://scenes/calender.gd" id="1_f83ew"]
+[ext_resource type="Script" uid="uid://bs5mcxa35kdpt" path="res://scripts/calender.gd" id="1_f83ew"]
 [ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="2_kd4qu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3fe1"]

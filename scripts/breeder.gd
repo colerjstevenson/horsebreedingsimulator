@@ -16,6 +16,17 @@ func _ready() -> void:
 	if BreedingManager.breeder_state == "PREGO":
 		$PregoScreen/text.text = BreedingManager.mother.horse_name + " is pregnant!\nThey're expect to give birth at the end of the season!"
 		$PregoScreen.visible = true
+		
+	if BreedingManager.breeder_state == "DONE":
+		$NewHorseScreen.visible = true
+		$NewHorseScreen/TextEdit.text = BreedingManager.womb.horse_name
+		$NewHorseScreen/horseImg.play(BreedingManager.womb.color + "_left_standing")
+		$NewHorseScreen/text.text = BreedingManager.mother.horse_name + " gave birth!"
+		
+		if HorseManager.stalls == len(HorseManager.horses):
+			$NewHorseScreen/KeepButton.disabled = true
+			$NewHorseScreen/SellButton/warning.visible = true
+		
 			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,6 +83,19 @@ func _breed_pressed():
 	$BreedingScreen.visible = true
 	
 
+func _random_pressed():
+	$NewHorseScreen/TextEdit.text = BreedingManager.womb.get_horse_name()
+
+
 func _close_messgae():
 	$FailedScreen.visible = false
+	
+func _keep_pressed():
+	BreedingManager.keep()
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	
+
+func _sell_pressed():
+	BreedingManager.sell()
+	
 	

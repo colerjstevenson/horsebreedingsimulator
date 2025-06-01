@@ -1,14 +1,18 @@
 extends Node
 
+var Horse = preload("res://scenes/entities/horse.tscn")
+
 var breeder_state
 var womb
 var weeks_left
 var mother
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	breeder_state = "READY"
-	womb = null
+	womb = null #Horse.instantiate()
+	#womb.setup()
 	weeks_left = 0
 	mother = null
 
@@ -19,13 +23,38 @@ func update_breeder():
 			breeder_state = "FAIL"
 			mother.pregnant = false
 			mother = null
-		else:
+		elif breeder_state != "DONE":
 			breeder_state = "PREGO"
 	
 
 func give_birth():
-	if breeder_state == "PREGO":
-		breeder_state == "READY"
-		mother.pregnant = false
-		HorseManager.horses.append(womb)
+	if womb:
+		breeder_state = "DONE"
+		
+		
+
+
+func keep():
+	HorseManager.horses.append(womb)
+	womb = null
+	breeder_state = "READY"
+	mother.pregnant = false
+	mother = null
+	
+	
+func sell():
+	var scene = load("res://scenes/auction.tscn")
+	var inst = scene.instantiate()
+	HorseManager.horses.append(womb)
+	var tempWomb = womb
+	womb = null
+	mother.pregnant = false
+	mother = null
+	breeder_state = "READY"
+	
+	get_tree().get_root().add_child(inst)
+	get_tree().current_scene.queue_free()
+	get_tree().current_scene = inst
+	
+	get_tree().current_scene.start_auction(tempWomb)
 		

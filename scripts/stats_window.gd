@@ -35,6 +35,9 @@ func _process(delta: float) -> void:
 
 func show_button():
 	$Panel/auctionButton.visible = true
+	if HorseManager.stalls == len(HorseManager.horses):
+		$Panel/auctionButton.disabled = true
+		$Panel/auctionButton/warning.visible = true
 
 
 func _launch_auction():

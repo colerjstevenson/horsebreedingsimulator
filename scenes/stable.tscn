@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://do10bn4ngs7ob"]
 
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="1_gqyly"]
-[ext_resource type="Script" path="res://scripts/stable.gd" id="1_spm78"]
-[ext_resource type="Script" path="res://scripts/backButton.gd" id="2_gslrm"]
+[ext_resource type="Script" uid="uid://d3xnohpq61i3r" path="res://scripts/stable.gd" id="1_spm78"]
+[ext_resource type="Script" uid="uid://qu13ruvkc63x" path="res://scripts/backButton.gd" id="2_gslrm"]
 
 [sub_resource type="Theme" id="Theme_ko6e7"]
 HBoxContainer/constants/separation = 37

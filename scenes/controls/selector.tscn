@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dnw66uh4de4qw"]
 
-[ext_resource type="Script" path="res://scripts/calender.gd" id="1_je1vv"]
+[ext_resource type="Script" uid="uid://ccxdrmbn7jkl2" path="res://scripts/selector.gd" id="1_6x415"]
 [ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="2_apu63"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3fe1"]
@@ -12,7 +12,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 720.0
 offset_bottom = 1280.0
-script = ExtResource("1_je1vv")
+script = ExtResource("1_6x415")
 
 [node name="Selector" type="ColorRect" parent="."]
 layout_mode = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgkvw68i87lfa"]
 
-[ext_resource type="Script" path="res://scripts/selectorButton.gd" id="1_qhfsp"]
+[ext_resource type="Script" uid="uid://dahxknv1wxbhy" path="res://scripts/selectorButton.gd" id="1_qhfsp"]
 [ext_resource type="FontFile" uid="uid://mfdjupiwfar2" path="res://Fonts/PixeloidSans-mLxMm.ttf" id="2_52jxt"]
 [ext_resource type="SpriteFrames" uid="uid://dkyvi2g4debs8" path="res://animation/horse_heads.tres" id="3_h8eq5"]
 

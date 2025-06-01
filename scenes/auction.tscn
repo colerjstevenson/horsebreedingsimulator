@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ds58fx2qf3sr2"]
 
-[ext_resource type="Script" path="res://scripts/auction.gd" id="1_uqqol"]
+[ext_resource type="Script" uid="uid://bd341ngfiy6iq" path="res://scripts/auction.gd" id="1_uqqol"]
 [ext_resource type="Texture2D" uid="uid://cpbfujbi2ibp5" path="res://art/Auction/auction_bg.png" id="2_wj3xd"]
 [ext_resource type="SpriteFrames" uid="uid://wfq4eygnwjs1" path="res://animation/horse.tres" id="3_n2tqr"]
 [ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="4_c2064"]

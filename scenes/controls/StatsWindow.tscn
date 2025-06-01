@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cji72tvd5k1nu"]
 
-[ext_resource type="Script" path="res://scripts/stats_window.gd" id="1_5hii8"]
+[ext_resource type="Script" uid="uid://fv7yq85sxjei" path="res://scripts/stats_window.gd" id="1_5hii8"]
 [ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="2_rr3ga"]
 [ext_resource type="FontFile" uid="uid://mfdjupiwfar2" path="res://Fonts/PixeloidSans-mLxMm.ttf" id="3_u6mwr"]
 [ext_resource type="SpriteFrames" uid="uid://dkyvi2g4debs8" path="res://animation/horse_heads.tres" id="4_yiywn"]
@@ -208,14 +208,23 @@ fit_content = true
 scroll_active = false
 
 [node name="auctionButton" type="TextureButton" parent="Panel"]
-visible = false
 layout_mode = 0
-offset_left = 151.0
-offset_top = 825.0
-offset_right = 428.0
-offset_bottom = 888.0
+offset_left = 147.0
+offset_top = 805.0
+offset_right = 424.0
+offset_bottom = 868.0
 texture_normal = SubResource("AtlasTexture_q24dl")
 stretch_mode = 0
+
+[node name="warning" type="RichTextLabel" parent="Panel/auctionButton"]
+visible = false
+layout_mode = 0
+offset_left = -7.0
+offset_top = 67.0
+offset_right = 267.0
+offset_bottom = 107.0
+bbcode_enabled = true
+text = "[center]Stable is full[center]"
 
 [connection signal="pressed" from="Panel/Close" to="." method="_close_window"]
 [connection signal="pressed" from="Panel/auctionButton" to="." method="_launch_auction"]

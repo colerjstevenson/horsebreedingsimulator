@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bk71525gyo2ht"]
 
-[ext_resource type="Script" path="res://scripts/race_horse.gd" id="1_w6egy"]
+[ext_resource type="Script" uid="uid://chl7p5u04h2be" path="res://scripts/race_horse.gd" id="1_w6egy"]
 [ext_resource type="SpriteFrames" uid="uid://enjq801e2as6" path="res://animation/race_horse.tres" id="2_bofcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnwsv"]

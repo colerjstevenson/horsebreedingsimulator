@@ -2,6 +2,8 @@ extends Node
 
 var Horse = preload("res://scenes/entities/horse.tscn")
 
+var stalls = 4
+
 var horses = []
 var store = []
 
@@ -56,7 +58,6 @@ func calc_horse_price(horse: Horse):
 		statsTotal += value
 	
 	return int(base + (statsTotal*statFactor) - (horse.age*ageFactor) + (winsFactor*horse.wins.size()))
-
 
 
 	

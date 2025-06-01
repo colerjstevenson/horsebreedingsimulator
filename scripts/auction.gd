@@ -54,13 +54,13 @@ func auction_loop():
 		
 		no_bid_rounds += 1
 		match no_bid_rounds:
-			3:
+			2:
 				print_msg("going once...")
 				await pause()
-			4:
+			3:
 				print_msg("going twice...")
 				await pause()
-			5:
+			4:
 				print_msg("sold for $" + str(current_bid) + " to " + current_bidder)
 				end_auction()
 			_:

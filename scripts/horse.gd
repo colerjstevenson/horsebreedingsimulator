@@ -22,9 +22,11 @@ var screen_height
 var stats = {}
 var wins
 
+var pregnant: bool
+var training
+
 var horse_name: String
 var sex: String
-var pregnant: bool
 var age: int
 var color: String
 
@@ -34,6 +36,7 @@ func _init():
 	position = Vector2(randf_range(100, 600), randf_range(100, 700))
 	wins = []
 	pregnant = false
+	training = null
 
 func _ready():
 	screen_width = get_viewport().size.x
@@ -53,6 +56,7 @@ func setup():
 	horse_name = get_horse_name()
 	age = randi_range(1,3)
 	#print(horse_name)
+	return self
 
 
 
@@ -96,7 +100,7 @@ func merge_genes(dom, sub):
 
 #used to determine sucessful breeding
 func fireBlanks():
-	return randf_range(0, 100) > stats["fertility"]
+	return false#randf_range(0, 100) > stats["fertility"]
 
 
 
@@ -160,3 +164,9 @@ func get_horse_name() -> String:
 		file.close()
 		return selected_line
 	return "horse"
+
+
+func apply_training():
+	if training:
+		stats[training] += 5
+		training = null

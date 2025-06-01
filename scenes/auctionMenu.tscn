@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cf05mjhcwgegs"]
 
-[ext_resource type="Script" path="res://scripts/auction_menu.gd" id="1_r0rxc"]
+[ext_resource type="Script" uid="uid://bq83fxqlecu7x" path="res://scripts/auction_menu.gd" id="1_r0rxc"]
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="1_ssq67"]
 [ext_resource type="Texture2D" uid="uid://ullende40irc" path="res://art/UI/Pixel UI/Colors/Cyan/cyan_spritesheet.png" id="2_crn7k"]
-[ext_resource type="Script" path="res://scripts/backButton.gd" id="2_t4txg"]
+[ext_resource type="Script" uid="uid://qu13ruvkc63x" path="res://scripts/backButton.gd" id="2_t4txg"]
 [ext_resource type="Theme" uid="uid://bjldftgjbp5df" path="res://themes/Button.tres" id="3_82xcy"]
 [ext_resource type="Texture2D" uid="uid://deok2v6fn8pdd" path="res://art/UI/Pixel UI/Colors/Yellow/yellow_spritesheet.png" id="4_57w68"]
 
@@ -65,6 +65,7 @@ offset_bottom = 259.0
 
 [node name="StartButton" type="TextureButton" parent="Sell"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 206.0
 offset_top = 537.0
 offset_right = 493.0
@@ -75,6 +76,7 @@ stretch_mode = 0
 
 [node name="chooseHorse" type="TextureButton" parent="Sell"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 140.0
 offset_top = 317.0
 offset_right = 555.0

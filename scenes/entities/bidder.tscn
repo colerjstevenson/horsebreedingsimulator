@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bmo7cn2m247qm"]
 
-[ext_resource type="Script" path="res://scripts/bidder.gd" id="1_fak17"]
+[ext_resource type="Script" uid="uid://wpt1eukg2c5c" path="res://scripts/bidder.gd" id="1_fak17"]
 [ext_resource type="Texture2D" uid="uid://f7jq1e74tbwm" path="res://art/Auction/bidder1_active.png" id="2_balhy"]
 [ext_resource type="Texture2D" uid="uid://hfrsboug2dvy" path="res://art/Auction/bidder1_default.png" id="3_3u8i4"]
 [ext_resource type="Texture2D" uid="uid://b0o6rb0jvu8vi" path="res://art/Auction/bidder2_active.png" id="4_mkx0w"]

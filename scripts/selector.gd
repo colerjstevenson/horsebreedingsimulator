@@ -12,7 +12,7 @@ func selector(horse: Horse):
 	elif type == 'Female':
 		return horse.sex == 'Female'
 	else:
-		return not horse.pregnant
+		return not horse.pregnant and not horse.training
 	
 
 # Called when the node enters the scene tree for the first time.

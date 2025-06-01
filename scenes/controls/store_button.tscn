@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhuae5t657ktm"]
 
-[ext_resource type="Script" path="res://scripts/store_button.gd" id="1_0md8k"]
+[ext_resource type="Script" uid="uid://bn27hqxwxss23" path="res://scripts/store_button.gd" id="1_0md8k"]
 [ext_resource type="Texture2D" uid="uid://bs7dgt8xw54q1" path="res://art/UI/Pixel UI/Colors/Blue/blue_spritesheet.png" id="2_o0313"]
 [ext_resource type="SpriteFrames" uid="uid://wfq4eygnwjs1" path="res://animation/horse.tres" id="3_crhwt"]
 [ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="4_fon4d"]
@@ -28,7 +28,7 @@ texture = SubResource("AtlasTexture_hhj81")
 position = Vector2(145, 75)
 scale = Vector2(5.6875, 5.66667)
 sprite_frames = ExtResource("3_crhwt")
-animation = &"black_left_eating"
+animation = &"red_right_walking"
 
 [node name="Name" type="RichTextLabel" parent="."]
 layout_mode = 2

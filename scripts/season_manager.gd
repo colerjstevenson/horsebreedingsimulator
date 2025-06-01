@@ -1,6 +1,6 @@
 extends Node
 
-var season_length = 8
+var season_length = 3
 var season
 var week
 var races = []
@@ -63,12 +63,13 @@ func progressTime():
 			h.age += 1
 		
 		BreedingManager.give_birth()
-		BreedingManager.breeder_state = "Ready" #TODO: make sucess screen for breeding
+		
 		refresh_season()
 		
 	HorseManager.refresh_store()
 	BreedingManager.update_breeder()
-	
+	for h in HorseManager.horses:
+		h.apply_training()
 	
 
 

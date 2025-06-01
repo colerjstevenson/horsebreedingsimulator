@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://deqidws5fh2xn"]
 
-[ext_resource type="Script" path="res://scripts/race_selector.gd" id="1_unm07"]
+[ext_resource type="Script" uid="uid://c0ice8kwquilp" path="res://scripts/race_selector.gd" id="1_unm07"]
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="2_5b3nc"]
-[ext_resource type="Script" path="res://scripts/backButton.gd" id="3_ect6n"]
+[ext_resource type="Script" uid="uid://qu13ruvkc63x" path="res://scripts/backButton.gd" id="3_ect6n"]
 [ext_resource type="Texture2D" uid="uid://ullende40irc" path="res://art/UI/Pixel UI/Colors/Cyan/cyan_spritesheet.png" id="4_0uqx5"]
 [ext_resource type="Theme" uid="uid://bjldftgjbp5df" path="res://themes/Button.tres" id="5_koadn"]
 [ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="6_j4mb7"]
@@ -40,10 +40,10 @@ script = ExtResource("3_ect6n")
 
 [node name="chooseHorse" type="TextureButton" parent="."]
 texture_filter = 1
-offset_left = 168.0
-offset_top = 569.0
-offset_right = 583.0
-offset_bottom = 679.0
+offset_left = 172.0
+offset_top = 737.0
+offset_right = 587.0
+offset_bottom = 847.0
 texture_normal = SubResource("AtlasTexture_l5hhl")
 stretch_mode = 0
 
@@ -59,8 +59,10 @@ bbcode_enabled = true
 text = "[center]Pick Horse[center]"
 
 [node name="raceName" type="RichTextLabel" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 167.0
+offset_top = 298.0
+offset_right = 581.0
+offset_bottom = 338.0
 
 [node name="startButton" type="TextureButton" parent="."]
 offset_left = 196.0

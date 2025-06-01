@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6lg1i8npojwy"]
+[gd_scene load_steps=18 format=3 uid="uid://c6lg1i8npojwy"]
 
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="1_n6y56"]
-[ext_resource type="Script" path="res://scripts/breeder.gd" id="1_v18u3"]
-[ext_resource type="Script" path="res://scripts/backButton.gd" id="2_0gyva"]
+[ext_resource type="Script" uid="uid://c5hs1r27h23l6" path="res://scripts/breeder.gd" id="1_v18u3"]
+[ext_resource type="Script" uid="uid://qu13ruvkc63x" path="res://scripts/backButton.gd" id="2_0gyva"]
 [ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="2_jinnr"]
 [ext_resource type="Theme" uid="uid://bjldftgjbp5df" path="res://themes/Button.tres" id="3_711yo"]
 [ext_resource type="Texture2D" uid="uid://uorcffu85i7e" path="res://art/UI/UI_Wood_D_Border.png" id="4_yb7ru"]
 [ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="5_mlupi"]
+[ext_resource type="SpriteFrames" uid="uid://wfq4eygnwjs1" path="res://animation/horse.tres" id="7_4fmy0"]
+[ext_resource type="Texture2D" uid="uid://deok2v6fn8pdd" path="res://art/UI/Pixel UI/Colors/Yellow/yellow_spritesheet.png" id="7_d1qrw"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="7_xl6cd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m18fy"]
 atlas = ExtResource("2_jinnr")
@@ -19,6 +22,14 @@ region = Rect2(321, 449, 30, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0xad"]
 atlas = ExtResource("4_yb7ru")
 region = Rect2(225, 449, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl6cd"]
+atlas = ExtResource("7_d1qrw")
+region = Rect2(0, 0, 70, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2rgr"]
+atlas = ExtResource("7_d1qrw")
+region = Rect2(0, 98, 70, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3abw3"]
 atlas = ExtResource("1_n6y56")
@@ -138,6 +149,81 @@ theme = ExtResource("5_mlupi")
 text = "Horse is Pregnant!
 "
 
+[node name="NewHorseScreen" type="ColorRect" parent="."]
+visible = false
+offset_right = 713.0
+offset_bottom = 1285.0
+color = Color(0.409833, 0.643863, 0.801575, 1)
+
+[node name="TextEdit" type="TextEdit" parent="NewHorseScreen"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 712.0
+offset_right = 546.0
+offset_bottom = 800.0
+theme = ExtResource("5_mlupi")
+placeholder_text = "name"
+
+[node name="text" type="RichTextLabel" parent="NewHorseScreen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 199.0
+offset_right = 706.0
+offset_bottom = 329.0
+theme = ExtResource("5_mlupi")
+bbcode_enabled = true
+text = "[center]Horse gave birth![center]
+"
+
+[node name="KeepButton" type="TextureButton" parent="NewHorseScreen"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 382.0
+offset_top = 914.0
+offset_right = 679.0
+offset_bottom = 1008.0
+texture_normal = SubResource("AtlasTexture_xl6cd")
+texture_disabled = SubResource("AtlasTexture_g2rgr")
+stretch_mode = 0
+
+[node name="RandomButton" type="TextureButton" parent="NewHorseScreen"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 582.0
+offset_top = 707.0
+offset_right = 674.0
+offset_bottom = 801.0
+texture_normal = SubResource("AtlasTexture_xl6cd")
+texture_disabled = SubResource("AtlasTexture_g2rgr")
+stretch_mode = 0
+
+[node name="SellButton" type="TextureButton" parent="NewHorseScreen"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 44.0
+offset_top = 917.0
+offset_right = 331.0
+offset_bottom = 1012.0
+theme = ExtResource("7_xl6cd")
+texture_normal = SubResource("AtlasTexture_xl6cd")
+texture_disabled = SubResource("AtlasTexture_g2rgr")
+stretch_mode = 0
+
+[node name="warning" type="RichTextLabel" parent="NewHorseScreen/SellButton"]
+visible = false
+offset_top = 103.0
+offset_right = 274.0
+offset_bottom = 143.0
+bbcode_enabled = true
+text = "[center]Stable is full[center]"
+
+[node name="horseImg" type="AnimatedSprite2D" parent="NewHorseScreen"]
+texture_filter = 1
+position = Vector2(358, 326)
+scale = Vector2(11.5312, 12.0625)
+sprite_frames = ExtResource("7_4fmy0")
+animation = &"red_left_standing"
+
 [node name="BackButton" type="TextureButton" parent="."]
 texture_filter = 1
 offset_left = 25.0
@@ -181,5 +267,8 @@ stretch_mode = 0
 [connection signal="pressed" from="breederButtons/maleSelector" to="." method="openMales"]
 [connection signal="pressed" from="breederButtons/femaleSelector" to="." method="openFemales"]
 [connection signal="pressed" from="breederButtons/BreedButton" to="." method="_breed_pressed"]
+[connection signal="pressed" from="NewHorseScreen/KeepButton" to="." method="_keep_pressed"]
+[connection signal="pressed" from="NewHorseScreen/RandomButton" to="." method="_random_pressed"]
+[connection signal="pressed" from="NewHorseScreen/SellButton" to="." method="_sell_pressed"]
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
 [connection signal="pressed" from="FailedScreen/Close" to="." method="_close_messgae"]
