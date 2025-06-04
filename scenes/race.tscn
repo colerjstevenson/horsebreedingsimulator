@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://depuktqopbhji"]
+[gd_scene load_steps=14 format=3 uid="uid://depuktqopbhji"]
 
 [ext_resource type="Script" uid="uid://dkep4si310orh" path="res://scripts/race.gd" id="1_riihp"]
 [ext_resource type="Theme" uid="uid://xeokutvtevub" path="res://themes/scrollTheme.tres" id="2_oji8l"]
@@ -8,10 +8,20 @@
 [ext_resource type="Texture2D" uid="uid://c7tosvwpww2t5" path="res://art/race/race_tile_finish.png" id="6_kpaml"]
 [ext_resource type="PackedScene" uid="uid://bk71525gyo2ht" path="res://scenes/entities/raceHorse.tscn" id="7_tqpdw"]
 [ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="8_uefs7"]
+[ext_resource type="Texture2D" uid="uid://baw4rswmt11ko" path="res://art/UI/Pixel UI/Colors/Green/green_spritesheet.png" id="9_r6hvi"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="10_cd6ng"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uca8x"]
 atlas = ExtResource("8_uefs7")
 region = Rect2(0, 0, 70, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h861m"]
+atlas = ExtResource("8_uefs7")
+region = Rect2(166.187, 37.9724, 18.1075, 18.2426)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ut87i"]
+atlas = ExtResource("9_r6hvi")
+region = Rect2(185.199, 37.8802, 18.1236, 17.9558)
 
 [node name="Control" type="Control"]
 texture_filter = 1
@@ -105,4 +115,352 @@ offset_bottom = 136.0
 texture_normal = SubResource("AtlasTexture_uca8x")
 stretch_mode = 0
 
+[node name="BettingScreen" type="ColorRect" parent="."]
+z_index = 9
+layout_mode = 0
+offset_left = 1.0
+offset_right = 720.0
+offset_bottom = 1278.0
+color = Color(0.639781, 0.296556, 0, 1)
+
+[node name="horseBlock1" type="ColorRect" parent="BettingScreen"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 66.0
+offset_right = 660.0
+offset_bottom = 220.0
+color = Color(1, 0.629361, 0.409037, 1)
+
+[node name="minus1" type="TextureButton" parent="BettingScreen/horseBlock1"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 91.0
+offset_right = 507.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_h861m")
+stretch_mode = 0
+
+[node name="plus1" type="TextureButton" parent="BettingScreen/horseBlock1"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 91.0
+offset_right = 575.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_ut87i")
+stretch_mode = 0
+
+[node name="BetBlock" type="ColorRect" parent="BettingScreen/horseBlock1"]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 26.0
+offset_right = 575.0
+offset_bottom = 83.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="RichTextLabel" parent="BettingScreen/horseBlock1/BetBlock"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 119.0
+offset_bottom = 51.0
+theme = ExtResource("10_cd6ng")
+theme_override_font_sizes/normal_font_size = 31
+text = "$1000"
+
+[node name="HorseName" type="RichTextLabel" parent="BettingScreen/horseBlock1"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 22.0
+offset_right = 348.0
+offset_bottom = 121.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "Horse Name"
+
+[node name="odds" type="RichTextLabel" parent="BettingScreen/horseBlock1"]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 50.0
+offset_right = 450.0
+offset_bottom = 129.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "99:1"
+
+[node name="horseBlock2" type="ColorRect" parent="BettingScreen"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 273.0
+offset_right = 660.0
+offset_bottom = 427.0
+color = Color(1, 0.629361, 0.409037, 1)
+
+[node name="odds" type="RichTextLabel" parent="BettingScreen/horseBlock2"]
+layout_mode = 0
+offset_left = 348.0
+offset_top = 52.0
+offset_right = 449.0
+offset_bottom = 131.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "99:1"
+
+[node name="minus2" type="TextureButton" parent="BettingScreen/horseBlock2"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 91.0
+offset_right = 507.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_h861m")
+stretch_mode = 0
+
+[node name="plus2" type="TextureButton" parent="BettingScreen/horseBlock2"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 91.0
+offset_right = 575.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_ut87i")
+stretch_mode = 0
+
+[node name="BetBlock" type="ColorRect" parent="BettingScreen/horseBlock2"]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 26.0
+offset_right = 575.0
+offset_bottom = 83.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="RichTextLabel" parent="BettingScreen/horseBlock2/BetBlock"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 119.0
+offset_bottom = 51.0
+theme = ExtResource("10_cd6ng")
+theme_override_font_sizes/normal_font_size = 31
+text = "$1000"
+
+[node name="HorseName" type="RichTextLabel" parent="BettingScreen/horseBlock2"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = 370.0
+offset_bottom = 121.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "Horse Name"
+
+[node name="horseBlock3" type="ColorRect" parent="BettingScreen"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 486.0
+offset_right = 660.0
+offset_bottom = 640.0
+color = Color(1, 0.629361, 0.409037, 1)
+
+[node name="odds" type="RichTextLabel" parent="BettingScreen/horseBlock3"]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 46.0
+offset_right = 458.0
+offset_bottom = 125.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "99:1"
+
+[node name="minus3" type="TextureButton" parent="BettingScreen/horseBlock3"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 91.0
+offset_right = 507.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_h861m")
+stretch_mode = 0
+
+[node name="plus3" type="TextureButton" parent="BettingScreen/horseBlock3"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 91.0
+offset_right = 575.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_ut87i")
+stretch_mode = 0
+
+[node name="BetBlock" type="ColorRect" parent="BettingScreen/horseBlock3"]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 26.0
+offset_right = 575.0
+offset_bottom = 83.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="RichTextLabel" parent="BettingScreen/horseBlock3/BetBlock"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 119.0
+offset_bottom = 51.0
+theme = ExtResource("10_cd6ng")
+theme_override_font_sizes/normal_font_size = 31
+text = "$1000"
+
+[node name="HorseName" type="RichTextLabel" parent="BettingScreen/horseBlock3"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 22.0
+offset_right = 373.0
+offset_bottom = 121.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "Horse Name"
+
+[node name="horseBlock4" type="ColorRect" parent="BettingScreen"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 695.0
+offset_right = 660.0
+offset_bottom = 849.0
+color = Color(1, 0.629361, 0.409037, 1)
+
+[node name="odds" type="RichTextLabel" parent="BettingScreen/horseBlock4"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 51.0
+offset_right = 460.0
+offset_bottom = 130.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "99:1"
+
+[node name="minus4" type="TextureButton" parent="BettingScreen/horseBlock4"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 91.0
+offset_right = 507.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_h861m")
+stretch_mode = 0
+
+[node name="plus4" type="TextureButton" parent="BettingScreen/horseBlock4"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 91.0
+offset_right = 575.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_ut87i")
+stretch_mode = 0
+
+[node name="BetBlock" type="ColorRect" parent="BettingScreen/horseBlock4"]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 26.0
+offset_right = 575.0
+offset_bottom = 83.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="RichTextLabel" parent="BettingScreen/horseBlock4/BetBlock"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 119.0
+offset_bottom = 51.0
+theme = ExtResource("10_cd6ng")
+theme_override_font_sizes/normal_font_size = 31
+text = "$1000"
+
+[node name="HorseName" type="RichTextLabel" parent="BettingScreen/horseBlock4"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 22.0
+offset_right = 366.0
+offset_bottom = 121.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "Horse Name"
+
+[node name="horseBlock5" type="ColorRect" parent="BettingScreen"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 899.0
+offset_right = 660.0
+offset_bottom = 1053.0
+color = Color(1, 0.629361, 0.409037, 1)
+
+[node name="odds" type="RichTextLabel" parent="BettingScreen/horseBlock5"]
+layout_mode = 0
+offset_left = 361.0
+offset_top = 52.0
+offset_right = 462.0
+offset_bottom = 131.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "99:1"
+
+[node name="minus5" type="TextureButton" parent="BettingScreen/horseBlock5"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 91.0
+offset_right = 507.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_h861m")
+stretch_mode = 0
+
+[node name="plus5" type="TextureButton" parent="BettingScreen/horseBlock5"]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 91.0
+offset_right = 575.0
+offset_bottom = 137.0
+texture_normal = SubResource("AtlasTexture_ut87i")
+stretch_mode = 0
+
+[node name="BetBlock" type="ColorRect" parent="BettingScreen/horseBlock5"]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 26.0
+offset_right = 575.0
+offset_bottom = 83.0
+color = Color(0, 0, 0, 1)
+
+[node name="HorseName" type="RichTextLabel" parent="BettingScreen/horseBlock5"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 22.0
+offset_right = 365.0
+offset_bottom = 121.0
+theme = ExtResource("4_trng1")
+theme_override_font_sizes/normal_font_size = 36
+text = "Horse Name"
+
+[node name="text" type="RichTextLabel" parent="BettingScreen/horseBlock5"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 35.0
+offset_right = 572.0
+offset_bottom = 77.0
+theme = ExtResource("10_cd6ng")
+theme_override_font_sizes/normal_font_size = 31
+text = "$1000"
+
+[node name="startButton2" type="TextureButton" parent="BettingScreen"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 1107.0
+offset_right = 540.0
+offset_bottom = 1207.0
+texture_normal = SubResource("AtlasTexture_uca8x")
+stretch_mode = 0
+
 [connection signal="pressed" from="startButton" to="." method="_start_race"]
+[connection signal="pressed" from="BettingScreen/horseBlock1/minus1" to="." method="_minus_pressed" binds= [0]]
+[connection signal="pressed" from="BettingScreen/horseBlock1/plus1" to="." method="_plus_pressed" binds= [0]]
+[connection signal="pressed" from="BettingScreen/horseBlock2/minus2" to="." method="_minus_pressed" binds= [1]]
+[connection signal="pressed" from="BettingScreen/horseBlock2/plus2" to="." method="_plus_pressed" binds= [1]]
+[connection signal="pressed" from="BettingScreen/horseBlock3/minus3" to="." method="_minus_pressed" binds= [2]]
+[connection signal="pressed" from="BettingScreen/horseBlock3/plus3" to="." method="_plus_pressed" binds= [2]]
+[connection signal="pressed" from="BettingScreen/horseBlock4/minus4" to="." method="_minus_pressed" binds= [3]]
+[connection signal="pressed" from="BettingScreen/horseBlock4/plus4" to="." method="_plus_pressed" binds= [3]]
+[connection signal="pressed" from="BettingScreen/horseBlock5/minus5" to="." method="_minus_pressed" binds= [4]]
+[connection signal="pressed" from="BettingScreen/horseBlock5/plus5" to="." method="_plus_pressed" binds= [4]]
+[connection signal="pressed" from="BettingScreen/startButton2" to="." method="_place_bets"]

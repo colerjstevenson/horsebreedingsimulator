@@ -170,3 +170,12 @@ func apply_training():
 	if training:
 		stats[training] += 5
 		training = null
+		
+		
+func calc_horse_odds():
+	var properties = ["speed", "acceleration", "stamina"]
+	var statsTotal = 0
+	for stat in properties:
+		statsTotal += stats[stat]
+	
+	return int(int(statsTotal/len(properties))/4)

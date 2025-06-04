@@ -211,6 +211,7 @@ stretch_mode = 0
 
 [node name="warning" type="RichTextLabel" parent="NewHorseScreen/SellButton"]
 visible = false
+layout_mode = 0
 offset_top = 103.0
 offset_right = 274.0
 offset_bottom = 143.0

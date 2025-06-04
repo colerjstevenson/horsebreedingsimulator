@@ -64,6 +64,7 @@ flat = true
 
 [node name="Buy" type="TextureButton" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 101.0
 offset_top = 515.0
 offset_right = 247.0

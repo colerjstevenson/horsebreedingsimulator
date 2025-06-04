@@ -20,6 +20,7 @@ HorseManager="*res://scripts/horseManager.gd"
 Game="*res://scripts/helpers.gd"
 BreedingManager="*res://scripts/breedingManager.gd"
 Season="*res://scripts/season_manager.gd"
+Casino="*res://scripts/gamblingManager.gd"
 
 [display]
 

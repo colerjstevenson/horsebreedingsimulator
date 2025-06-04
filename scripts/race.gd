@@ -11,7 +11,9 @@ var time
 var horses = []
 var leader
 
-func setup(_week, _player):
+
+
+func setup(_week, _player=null):
 	week = _week
 	length = Season.races[week].length
 	race_name = Season.races[week].race_name
@@ -49,17 +51,45 @@ func setup(_week, _player):
 		horses.append(rh)
 	
 	#add player horse to the scene
-	var player = rh_obj.instantiate()
-	player.setup(_player, 5)
-	player.set_pos(320, 660) # TODO: fix hard coding
-	player.stand()
-	add_child(player)
-	horses.append(player)
+	if _player:
+		var player = rh_obj.instantiate()
+		player.setup(_player, 5)
+		player.set_pos(320, 660) # TODO: fix hard coding
+		player.stand()
+		add_child(player)
+		horses.append(player)
+	else:
+		var rh = rh_obj.instantiate()
+		rh.setup_new(5)
+		rh.set_pos(320, 660) # TODO: fix hard coding
+		rh.stand()
+		add_child(rh)
+		horses.append(rh)
+		launch_gambling()
 	
 	time = 0
 	race_state = "READY"
 	
 
+func launch_gambling():
+	$BettingScreen.visible = true
+	for i in range(5):
+		Casino.odds[i] = horses[i].horse.calc_horse_odds()
+
+
+func _plus_pressed(number):
+	if Casino.horse[number] < 9900:
+		Casino.horse[number] += 100
+
+
+func _minus_pressed(number):
+	if Casino.horse[number] > 0:
+		Casino.horse[number] -= 100
+
+
+func _place_bets():
+	$BettingScreen.visible = false
+ 
 
 func _start_race():
 	race_state = "RUNNING"
@@ -73,7 +103,12 @@ func finish_race():
 		horses[-1].horse.wins.append(race_name)
 		Season.money += prize
 		Season.races[week].result = "W"
-		
+	
+	for i in range(len(horses)):
+		if horses[i].pos == leader:
+			print("BET: " + str(i))
+			Casino.settle_bets(i)
+	
 	Season.progressTime()
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
@@ -91,7 +126,12 @@ func _process(delta: float) -> void:
 	if $Track.position.x <= -1*($Track.size.x - get_viewport().size.x):
 		race_state = "DONE"
 		finish_race()
-	
+		
+	if $BettingScreen.visible:
+		for i in range(1, 6):
+			find_child("horseBlock"+str(i)).find_child("text").text = "$" + str(Casino.horse[i-1])
+			find_child("horseBlock"+str(i)).find_child("HorseName").text = horses[i-1].horse.horse_name
+			find_child("horseBlock"+str(i)).find_child("odds").text = str(Casino.odds[i-1]) + ":1"
 	
 func update_horses():
 	leader = 0

@@ -60,4 +60,4 @@ func calc_horse_price(horse: Horse):
 	return int(base + (statsTotal*statFactor) - (horse.age*ageFactor) + (winsFactor*horse.wins.size()))
 
 
-	
+ 
