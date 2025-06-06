@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 #min and maxs for speed, acceleration, and endurance
-var s_range = [16, 20]
-var a_range = [2, 9]
-var e_range = [2, 10]
+var s_range = [20,16]
+var a_range = [9,2]
+var e_range = [10, 2]
 
 var t1
 var t2

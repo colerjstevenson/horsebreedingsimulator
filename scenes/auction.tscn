@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds58fx2qf3sr2"]
+[gd_scene load_steps=11 format=3 uid="uid://ds58fx2qf3sr2"]
 
 [ext_resource type="Script" uid="uid://bd341ngfiy6iq" path="res://scripts/auction.gd" id="1_uqqol"]
 [ext_resource type="Texture2D" uid="uid://cpbfujbi2ibp5" path="res://art/Auction/auction_bg.png" id="2_wj3xd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="4_c2064"]
 [ext_resource type="Texture2D" uid="uid://deok2v6fn8pdd" path="res://art/UI/Pixel UI/Colors/Yellow/yellow_spritesheet.png" id="5_bqxek"]
 [ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="6_tobdt"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="6_xi5ty"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j6i4b"]
 atlas = ExtResource("4_c2064")
@@ -59,6 +60,16 @@ texture_normal = SubResource("AtlasTexture_p2r0b")
 texture_pressed = SubResource("AtlasTexture_hv3y2")
 texture_disabled = SubResource("AtlasTexture_hv3y2")
 stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="BidButton"]
+offset_left = 153.0
+offset_top = 22.0
+offset_right = 387.0
+offset_bottom = 64.0
+mouse_filter = 2
+theme = ExtResource("6_xi5ty")
+theme_override_font_sizes/normal_font_size = 31
+text = "Bid"
 
 [node name="message" type="RichTextLabel" parent="."]
 clip_contents = false

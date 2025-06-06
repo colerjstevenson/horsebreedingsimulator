@@ -44,6 +44,17 @@ texture_normal = SubResource("AtlasTexture_1skdq")
 texture_disabled = SubResource("AtlasTexture_si03g")
 stretch_mode = 0
 
+[node name="text" type="RichTextLabel" parent="On"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 6.0
+offset_right = 297.0
+offset_bottom = 48.0
+mouse_filter = 2
+theme = ExtResource("3_itnry")
+theme_override_font_sizes/normal_font_size = 31
+text = "On"
+
 [node name="Off" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
@@ -55,6 +66,17 @@ disabled = true
 texture_normal = SubResource("AtlasTexture_1skdq")
 texture_disabled = SubResource("AtlasTexture_si03g")
 stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="Off"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 13.0
+offset_right = 297.0
+offset_bottom = 55.0
+mouse_filter = 2
+theme = ExtResource("3_itnry")
+theme_override_font_sizes/normal_font_size = 31
+text = "Off"
 
 [node name="Easy" type="TextureButton" parent="."]
 texture_filter = 1
@@ -68,6 +90,17 @@ texture_normal = SubResource("AtlasTexture_1skdq")
 texture_disabled = SubResource("AtlasTexture_si03g")
 stretch_mode = 0
 
+[node name="text" type="RichTextLabel" parent="Easy"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 8.0
+offset_right = 282.0
+offset_bottom = 50.0
+mouse_filter = 2
+theme = ExtResource("3_itnry")
+theme_override_font_sizes/normal_font_size = 31
+text = "Easy"
+
 [node name="Normal" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
@@ -78,6 +111,17 @@ offset_bottom = 664.0
 texture_normal = SubResource("AtlasTexture_1skdq")
 texture_disabled = SubResource("AtlasTexture_si03g")
 stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="Normal"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 5.0
+offset_right = 260.0
+offset_bottom = 47.0
+mouse_filter = 2
+theme = ExtResource("3_itnry")
+theme_override_font_sizes/normal_font_size = 31
+text = "Medium"
 
 [node name="Hard" type="TextureButton" parent="."]
 texture_filter = 1
@@ -91,7 +135,18 @@ texture_normal = SubResource("AtlasTexture_1skdq")
 texture_disabled = SubResource("AtlasTexture_si03g")
 stretch_mode = 0
 
-[node name="cole" type="RichTextLabel" parent="."]
+[node name="text" type="RichTextLabel" parent="Hard"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 8.0
+offset_right = 277.0
+offset_bottom = 50.0
+mouse_filter = 2
+theme = ExtResource("3_itnry")
+theme_override_font_sizes/normal_font_size = 31
+text = "Hard"
+
+[node name="Cole" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 29.0
 offset_top = 994.0
@@ -101,7 +156,7 @@ theme = ExtResource("3_itnry")
 theme_override_font_sizes/normal_font_size = 45
 text = "Created by Cole Stevenson"
 
-[node name="cole2" type="RichTextLabel" parent="."]
+[node name="Joel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 1102.0
@@ -141,7 +196,7 @@ theme = ExtResource("3_itnry")
 theme_override_font_sizes/normal_font_size = 67
 text = "Credits"
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="BackButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
 offset_left = 29.0
@@ -157,4 +212,4 @@ script = ExtResource("5_d2axb")
 [connection signal="pressed" from="Easy" to="." method="_on_difficulty_pressed" binds= ["EASY"]]
 [connection signal="pressed" from="Normal" to="." method="_on_difficulty_pressed" binds= ["NORMAL"]]
 [connection signal="pressed" from="Hard" to="." method="_on_difficulty_pressed" binds= ["HARD"]]
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

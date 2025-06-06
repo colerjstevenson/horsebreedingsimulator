@@ -78,6 +78,17 @@ offset_bottom = 1128.0
 texture_normal = SubResource("AtlasTexture_fu8b0")
 stretch_mode = 0
 
+[node name="text" type="RichTextLabel" parent="startButton"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 15.0
+offset_right = 246.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme = ExtResource("8_0pl4q")
+theme_override_font_sizes/normal_font_size = 31
+text = "Start"
+
 [node name="SkipButton" type="TextureButton" parent="."]
 offset_left = 434.0
 offset_top = 121.0
@@ -85,6 +96,17 @@ offset_right = 657.0
 offset_bottom = 201.0
 texture_normal = SubResource("AtlasTexture_fu8b0")
 stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="SkipButton"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 9.0
+offset_right = 188.0
+offset_bottom = 51.0
+mouse_filter = 2
+theme = ExtResource("8_0pl4q")
+theme_override_font_sizes/normal_font_size = 31
+text = "skip"
 
 [node name="RacePanel" type="TextureRect" parent="."]
 texture_filter = 1

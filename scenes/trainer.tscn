@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://drax6p6tm5oby"]
+[gd_scene load_steps=20 format=3 uid="uid://drax6p6tm5oby"]
 
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="1_rictg"]
 [ext_resource type="Script" uid="uid://b6yj2cmmpagsb" path="res://scripts/trainer.gd" id="1_utvbv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ullende40irc" path="res://art/UI/Pixel UI/Colors/Cyan/cyan_spritesheet.png" id="6_awtc2"]
 [ext_resource type="Theme" uid="uid://bjldftgjbp5df" path="res://themes/Button.tres" id="7_issco"]
 [ext_resource type="Texture2D" uid="uid://deok2v6fn8pdd" path="res://art/UI/Pixel UI/Colors/Yellow/yellow_spritesheet.png" id="8_aptah"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="9_fuody"]
 [ext_resource type="Texture2D" uid="uid://1tfd0w1xcib4" path="res://art/UI/Pixel UI/Panels/Panels_Sheetl.png" id="9_y8uif"]
 [ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="10_fuody"]
 [ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="11_6p8y6"]
@@ -116,6 +117,16 @@ texture_normal = SubResource("AtlasTexture_y312g")
 texture_disabled = SubResource("AtlasTexture_tgdyj")
 stretch_mode = 0
 
+[node name="text" type="RichTextLabel" parent="StartButton"]
+offset_left = 102.0
+offset_top = 12.0
+offset_right = 212.0
+offset_bottom = 54.0
+mouse_filter = 2
+theme = ExtResource("9_fuody")
+theme_override_font_sizes/normal_font_size = 31
+text = "Start"
+
 [node name="StatSelector" type="TextureButton" parent="."]
 texture_filter = 1
 offset_left = 138.0
@@ -127,6 +138,7 @@ stretch_mode = 0
 
 [node name="LeftArrow" type="TextureButton" parent="StatSelector"]
 texture_filter = 1
+layout_mode = 0
 offset_left = -102.0
 offset_top = -3.0
 offset_right = -17.0
@@ -136,6 +148,7 @@ stretch_mode = 0
 
 [node name="RightArrow" type="TextureButton" parent="StatSelector"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 456.0
 offset_top = -5.0
 offset_right = 544.0

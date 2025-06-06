@@ -4,6 +4,8 @@ var horse
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
+	
 	var entry =  preload("res://scenes/controls/store_button.tscn")
 	for h in HorseManager.store:
 		var entry_inst =  entry.instantiate()
@@ -60,3 +62,4 @@ func _on_start_pressed():
 func set_horse(horse_ : Horse):
 	horse = horse_
 	$Sell/chooseHorse/horseName.text = "[center]" + horse_.horse_name + "[center]"
+	

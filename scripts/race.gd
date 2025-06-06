@@ -11,7 +11,7 @@ var time
 var horses = []
 var leader
 
-
+@onready var rh_obj =  preload("res://scenes/entities/raceHorse.tscn")
 
 func setup(_week, _player=null):
 	week = _week
@@ -41,17 +41,13 @@ func setup(_week, _player=null):
 	
 	# add horse to scene
 	var scene = get_tree().current_scene
-	var rh_obj =  preload("res://scenes/entities/raceHorse.tscn")
+	
 	for x in range(4):
-		var rh = rh_obj.instantiate()
-		rh.setup_new(x)
-		rh.set_pos(320, 480+(x*45)) # TODO: fix hard coding
-		rh.stand()
-		add_child(rh)
-		horses.append(rh)
+		create_horse(x)
 	
 	#add player horse to the scene
 	if _player:
+		print("WOOO")
 		var player = rh_obj.instantiate()
 		player.setup(_player, 5)
 		player.set_pos(320, 660) # TODO: fix hard coding
@@ -59,12 +55,7 @@ func setup(_week, _player=null):
 		add_child(player)
 		horses.append(player)
 	else:
-		var rh = rh_obj.instantiate()
-		rh.setup_new(5)
-		rh.set_pos(320, 660) # TODO: fix hard coding
-		rh.stand()
-		add_child(rh)
-		horses.append(rh)
+		create_horse(5)
 		launch_gambling()
 	
 	time = 0
@@ -73,8 +64,21 @@ func setup(_week, _player=null):
 
 func launch_gambling():
 	$BettingScreen.visible = true
-	for i in range(5):
-		Casino.odds[i] = horses[i].horse.calc_horse_odds()
+	for i in range(0,5):
+		print(Casino.odds)
+		print(horses)
+		
+		Casino.odds[i] = horses[i].horse.calc_horse_odds() #ERROR SOMEHOE??
+
+
+func create_horse(pos):
+	var rh = rh_obj.instantiate()
+	rh.setup_new(5)
+	rh.set_pos(320, clamp(480+(pos*45), 480, 660)) # TODO: fix hard coding
+	rh.stand()
+	add_child(rh)
+	horses.append(rh)
+
 
 
 func _plus_pressed(number):

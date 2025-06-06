@@ -115,7 +115,18 @@ offset_bottom = 136.0
 texture_normal = SubResource("AtlasTexture_uca8x")
 stretch_mode = 0
 
+[node name="text" type="RichTextLabel" parent="startButton"]
+offset_left = 84.0
+offset_top = 18.0
+offset_right = 318.0
+offset_bottom = 60.0
+mouse_filter = 2
+theme = ExtResource("10_cd6ng")
+theme_override_font_sizes/normal_font_size = 31
+text = "Start Race"
+
 [node name="BettingScreen" type="ColorRect" parent="."]
+visible = false
 z_index = 9
 layout_mode = 0
 offset_left = 1.0
@@ -451,6 +462,17 @@ offset_right = 540.0
 offset_bottom = 1207.0
 texture_normal = SubResource("AtlasTexture_uca8x")
 stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="BettingScreen/startButton2"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 16.0
+offset_right = 321.0
+offset_bottom = 58.0
+mouse_filter = 2
+theme = ExtResource("10_cd6ng")
+theme_override_font_sizes/normal_font_size = 31
+text = "Place Bets"
 
 [connection signal="pressed" from="startButton" to="." method="_start_race"]
 [connection signal="pressed" from="BettingScreen/horseBlock1/minus1" to="." method="_minus_pressed" binds= [0]]

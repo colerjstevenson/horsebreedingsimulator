@@ -57,6 +57,31 @@ func setup():
 	age = randi_range(1,3)
 	#print(horse_name)
 	return self
+	
+	
+func setup_race():
+	
+	var ranges = {
+		"Easy": [40, 60],
+		"Medium": [60,80],
+		"Hard": [80, 100]}
+		
+	var range = ranges[Settings.difficulty]
+	
+	if Season.races[Season.week-1].crown:
+		range[0] += 10
+	
+	stats["speed"] = randf_range(range[0], range[1])
+	stats["acceleration"] = randf_range(range[0], range[1])
+	stats["stamina"] = randf_range(range[0], range[1])
+	stats["vitality"] = randf_range(range[0]+10, range[1])
+	stats["fertility"] = 100
+	
+	color = horseColors.pick_random()
+	horse_name = get_horse_name()
+	age = randi_range(1,3)
+	#print(horse_name)
+	return self
 
 
 
@@ -67,10 +92,7 @@ func breed(mother: Horse, father: Horse):
 	if mother.fireBlanks() or father.fireBlanks():
 		return null
 	
-	if mother.stats["fertility"] > father.stats["fertility"]:
-		merge_genes(mother, father)
-	else:
-		merge_genes(father, mother)
+	merge_genes(father, mother)
 		
 	age = 0
 	stats["vitality"] = 100
@@ -79,21 +101,30 @@ func breed(mother: Horse, father: Horse):
 	return self
 	
 	
-func merge_genes(dom, sub):
-	var properties = ["speed", "acceleration", "stamina", "fertility"]
-	
-	for p in properties:
-		if randf_range(0, 100) > dom_ratio:
-			stats[p] = sub.stats[p]
-		else:
-			stats[p] = dom.stats[p]
-			
-			
-	if randf_range(0, 100) > dom_ratio:
-		color = sub.color
-	else:
-		color = dom.color 
 
+
+func merge_genes(parent_a, parent_b):
+	var mutation_strength = 5
+	var mutation_rate = 0.1
+	
+	var traits = ["speed", "acceleration", "stamina", "fertility"]
+	for i in traits:
+		var gene = 0
+		var rand_val = randf()
+		if rand_val < 0.45:
+			gene = parent_a.stats[i]
+		elif rand_val < 0.9:
+			gene = parent_b.stats[i]
+		else:
+			# Mutation: random value between 1 and 100
+			gene = randi_range(1, 100)
+		# Optional: small mutation to introduce variation
+		if randf() < mutation_rate:
+			gene += randi_range(-mutation_strength, mutation_strength)
+		# Clamp gene to valid range
+		gene = clamp(gene, 1, 100)
+		stats[i] = gene
+	
 
 
 

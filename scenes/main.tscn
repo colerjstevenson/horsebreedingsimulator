@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://03b6k2tstn5s"]
+[gd_scene load_steps=14 format=3 uid="uid://03b6k2tstn5s"]
 
 [ext_resource type="Script" uid="uid://2kuhov5f3ry0" path="res://scripts/main.gd" id="1_wekjc"]
 [ext_resource type="Script" uid="uid://8mbd13k3q48k" path="res://scripts/mainMenu.gd" id="4_2d1xb"]
 [ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="4_7o5ow"]
+[ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="4_tipki"]
 [ext_resource type="Texture2D" uid="uid://4fhwaajou2lp" path="res://art/UI/UI_Wood_Flat.png" id="4_vpvni"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="5_85g3d"]
 [ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="5_jq12b"]
+[ext_resource type="Texture2D" uid="uid://c1s8coywn15sb" path="res://art/UI/Pixel UI/Icons/menu-icons-black.png" id="6_choun"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtx8o"]
 atlas = ExtResource("4_vpvni")
@@ -27,9 +30,13 @@ func _on_button_pressed():
 	get_tree().change_scene_to_file(\"res://scenes/auction.tscn\")
 "
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l7x7t"]
-atlas = ExtResource("4_7o5ow")
-region = Rect2(160, 176, 48, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+atlas = ExtResource("4_tipki")
+region = Rect2(0, 0, 70, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("6_choun")
+region = Rect2(52.423, 0.532516, 11.6704, 10.8104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
 atlas = ExtResource("4_7o5ow")
@@ -102,17 +109,28 @@ offset_left = 38.0
 offset_top = 1108.0
 offset_right = 553.0
 offset_bottom = 1230.0
-texture_normal = SubResource("AtlasTexture_l7x7t")
+texture_normal = SubResource("AtlasTexture_ya4ey")
 stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="Control/RaceButton"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 25.0
+offset_right = 479.0
+offset_bottom = 67.0
+mouse_filter = 2
+theme = ExtResource("5_85g3d")
+theme_override_font_sizes/normal_font_size = 31
+text = "Start this weeks race"
 
 [node name="Calender" type="TextureButton" parent="Control"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 558.0
-offset_top = 1103.0
-offset_right = 673.0
-offset_bottom = 1225.0
-texture_normal = SubResource("AtlasTexture_l7x7t")
+offset_left = 567.0
+offset_top = 1112.0
+offset_right = 682.0
+offset_bottom = 1206.0
+texture_normal = SubResource("AtlasTexture_eb6dy")
 stretch_mode = 0
 
 [node name="SettingsButton" type="TextureButton" parent="Control"]

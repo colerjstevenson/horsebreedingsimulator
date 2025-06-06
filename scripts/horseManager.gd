@@ -25,13 +25,14 @@ func setup_horses():
 	for i in range(3):
 		var horse_instance = Horse.instantiate()
 		horse_instance.setup()
-		
-		if horses.all(func(h): return h.sex == "Female"):
-			horse_instance.sex == "Male"
-		if horses.all(func(h): return h.sex == "Male"):
-			horse_instance.sex == "Female"
-		
 		horses.append(horse_instance)
+	
+	#ensures one of each	
+	if horses[0].sex == horses[1].sex:
+		if horses[0].sex == "Male":
+			horses[0].sex = "Female"
+		else:
+			horses[0].sex = "Male"
 
 
 
