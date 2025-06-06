@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bshwa84y1lfxu"]
+
+[ext_resource type="Script" uid="uid://crdinutfdnatn" path="res://scripts/settings.gd" id="1_uafyp"]
+[ext_resource type="AudioStream" uid="uid://cgd1medpctcec" path="res://audio/music/basic_theme_v1.wav" id="2_lk2ho"]
+
+[node name="Settings" type="Node"]
+script = ExtResource("1_uafyp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lk2ho")

@@ -21,6 +21,7 @@ Game="*res://scripts/helpers.gd"
 BreedingManager="*res://scripts/breedingManager.gd"
 Season="*res://scripts/season_manager.gd"
 Casino="*res://scripts/gamblingManager.gd"
+Settings="*res://scenes/controls/Settings.tscn"
 
 [display]
 

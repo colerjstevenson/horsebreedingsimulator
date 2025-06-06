@@ -6,7 +6,8 @@ var scene_paths = {
 	"StableButton": "res://scenes/stable.tscn",
 	"TrainerButton": "res://scenes/trainer.tscn",
 	"RaceButton": "res://scenes/raceSelector.tscn",
-	"Calender": "res://scenes/calender.tscn"
+	"Calender": "res://scenes/calender.tscn",
+	"SettingsButton": "res://scenes/settingScreen.tscn"
 }
 
 # Called when the node enters the scene tree for the first time.

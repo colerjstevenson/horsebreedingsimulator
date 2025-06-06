@@ -1,6 +1,7 @@
 extends Node
 
-var season_length = 3
+var season_length = 8
+
 var season
 var week
 var races = []
