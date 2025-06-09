@@ -208,6 +208,7 @@ fit_content = true
 scroll_active = false
 
 [node name="auctionButton" type="TextureButton" parent="Panel"]
+visible = false
 layout_mode = 0
 offset_left = 147.0
 offset_top = 805.0
@@ -227,6 +228,7 @@ bbcode_enabled = true
 text = "[center]Stable is full[center]"
 
 [node name="text" type="RichTextLabel" parent="Panel/auctionButton"]
+layout_mode = 0
 offset_left = 106.0
 offset_top = 2.0
 offset_right = 285.0

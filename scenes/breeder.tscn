@@ -434,6 +434,7 @@ texture_disabled = SubResource("AtlasTexture_g2rgr")
 stretch_mode = 0
 
 [node name="text" type="RichTextLabel" parent="Breeding/NewHorseScreen/KeepButton"]
+layout_mode = 0
 offset_left = 104.0
 offset_top = 17.0
 offset_right = 283.0
@@ -445,6 +446,7 @@ text = "Keep"
 
 [node name="warning" type="RichTextLabel" parent="Breeding/NewHorseScreen/KeepButton"]
 visible = false
+layout_mode = 0
 offset_left = 49.0
 offset_top = 95.0
 offset_right = 285.0
@@ -478,6 +480,7 @@ texture_disabled = SubResource("AtlasTexture_g2rgr")
 stretch_mode = 0
 
 [node name="text" type="RichTextLabel" parent="Breeding/NewHorseScreen/SellButton"]
+layout_mode = 0
 offset_left = 107.0
 offset_top = 15.0
 offset_right = 286.0

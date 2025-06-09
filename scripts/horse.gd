@@ -62,9 +62,9 @@ func setup():
 func setup_race():
 	
 	var ranges = {
-		"Easy": [40, 60],
-		"Medium": [40,100],
-		"Hard": [80, 100]}
+		"EASY": [40, 60],
+		"NORMAL": [40,100],
+		"HARD": [80, 100]}
 		
 	var range = ranges[Settings.difficulty]
 	
