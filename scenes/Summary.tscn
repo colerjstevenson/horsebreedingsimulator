@@ -1,0 +1,210 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr0lgr5vb35k0"]
+
+[ext_resource type="Script" uid="uid://br4owmk4rn514" path="res://scripts/summary.gd" id="1_7j0oo"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="1_u8hmt"]
+[ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="2_7j0oo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsem1"]
+atlas = ExtResource("2_7j0oo")
+region = Rect2(0, 0, 70, 18)
+
+[node name="Summary" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7j0oo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 721.0
+offset_bottom = 1286.0
+color = Color(0.319044, 0.234497, 0.19087, 1)
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 81.0
+offset_top = 95.0
+offset_right = 749.0
+offset_bottom = 225.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 61
+text = "Weekly Summary"
+
+[node name="Sales" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 45.0
+offset_top = 646.0
+offset_right = 747.0
+offset_bottom = 776.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 43
+text = "Auction Earnings"
+
+[node name="amount" type="RichTextLabel" parent="Sales"]
+layout_mode = 2
+offset_left = 435.0
+offset_top = 4.0
+offset_right = 1103.0
+offset_bottom = 134.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "-$0000"
+
+[node name="Rights" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 46.0
+offset_top = 735.0
+offset_right = 714.0
+offset_bottom = 865.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 45
+text = "Breeding Rights"
+
+[node name="amount" type="RichTextLabel" parent="Rights"]
+layout_mode = 2
+offset_left = 440.0
+offset_top = 1.0
+offset_right = 1108.0
+offset_bottom = 131.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "-$0000"
+
+[node name="Farm" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 46.0
+offset_top = 824.0
+offset_right = 714.0
+offset_bottom = 954.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 45
+text = "Farm Upgrades"
+
+[node name="amount" type="RichTextLabel" parent="Farm"]
+layout_mode = 2
+offset_left = 440.0
+offset_top = 1.0
+offset_right = 1108.0
+offset_bottom = 131.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "-$0000"
+
+[node name="Race" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 43.0
+offset_top = 459.0
+offset_right = 711.0
+offset_bottom = 589.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 45
+text = "Race Winnings"
+
+[node name="amount" type="RichTextLabel" parent="Race"]
+layout_mode = 2
+offset_left = 440.0
+offset_top = 1.0
+offset_right = 1108.0
+offset_bottom = 131.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "-$0000"
+
+[node name="Gambling" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 44.0
+offset_top = 557.0
+offset_right = 712.0
+offset_bottom = 687.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 45
+text = "Bet Winnings"
+
+[node name="amount" type="RichTextLabel" parent="Gambling"]
+layout_mode = 2
+offset_left = 440.0
+offset_top = 1.0
+offset_right = 1108.0
+offset_bottom = 131.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "-$0000"
+
+[node name="total" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 48.0
+offset_top = 959.0
+offset_right = 716.0
+offset_bottom = 1089.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 45
+text = "Total"
+
+[node name="amount" type="RichTextLabel" parent="total"]
+layout_mode = 2
+offset_left = 440.0
+offset_top = 1.0
+offset_right = 1108.0
+offset_bottom = 131.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "-$0000"
+
+[node name="Result" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 75.0
+offset_top = 303.0
+offset_right = 743.0
+offset_bottom = 433.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 45
+text = "Race Results"
+
+[node name="amount" type="RichTextLabel" parent="Result"]
+layout_mode = 2
+offset_left = 440.0
+offset_top = 1.0
+offset_right = 1108.0
+offset_bottom = 131.0
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "1st"
+
+[node name="startButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 1095.0
+offset_right = 565.0
+offset_bottom = 1195.0
+texture_normal = SubResource("AtlasTexture_fsem1")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="startButton"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 18.0
+offset_right = 318.0
+offset_bottom = 60.0
+mouse_filter = 2
+theme = ExtResource("1_u8hmt")
+theme_override_font_sizes/normal_font_size = 31
+text = "Continue"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 916.0
+offset_right = 669.0
+offset_bottom = 921.0
+
+[connection signal="pressed" from="startButton" to="." method="_on_pressed"]

@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 #min and maxs for speed, acceleration, and endurance
-var s_range = [20,16]
-var a_range = [9,2]
-var e_range = [10, 2]
+var s_range = [5,10]
+var e_range = [1, 20]
+var a_range = [6,1]
+
+var jiggle = 0.05
 
 var t1
 var t2
@@ -15,6 +17,7 @@ var D
 var horse:Horse
 var horse_obj = preload("res://scenes/entities/horse.tscn")
 
+var standing
 var pos
 var lane
 
@@ -40,20 +43,24 @@ func setup_new(_lane):
 func jiggle_range():
 	pass
 
+func convert_stat(stat, out_min, out_max):
+	return (out_min + (out_max - out_min) * (stat/100.0))
+
 func get_stats():
 	jiggle_range()
 	
-	speed = s_range[0] + (horse.stats["speed"]/100) * (s_range[1] - s_range[0])
-	endur = e_range[0] + (horse.stats["stamina"]/100) * (e_range[1] - e_range[0])
-	var accel_t = a_range[0] + (horse.stats["acceleration"]/100) * (a_range[1] - a_range[0])
+	speed = convert_stat(horse.stats["speed"], s_range[0], s_range[1]) * randf_range((horse.stats['vitality']/100)-jiggle, 1+jiggle)
+	endur = convert_stat(horse.stats["stamina"], e_range[0], e_range[1]) * randf_range((horse.stats['vitality']/100)-jiggle, 1+jiggle)
+	var accel_t = convert_stat(horse.stats["acceleration"], a_range[0], a_range[1]) * randf_range((horse.stats['vitality']/100)-jiggle, 1+jiggle)
+	
 	accel = speed/accel_t
 	
-	N = s_range[0]/2 # minimum speed
+	N = speed*(horse.stats["stamina"]/200) # minimum speed
 	D = (accel/endur) # deacceleration
 	
 	# calculate phase durations
 	t1 = (speed - N)/accel
-	t2 = t1 + endur
+	t2 = t1 + endur/3
 	t3 = t2 + ((speed - N)/D)
 
 
@@ -80,6 +87,10 @@ func get_pos(time: float):
 	pos = dist
 	
 	return dist
+	
+	
+	
+
 	
 func stand():
 	$AnimatedSprite2D.play(horse.color + "_right_standing")

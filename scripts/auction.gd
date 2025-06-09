@@ -71,11 +71,13 @@ func end_auction():
 	await pause()
 	if player_sale:
 		Season.money += current_bid
+		Season.auctionEarnings += current_bid
 		HorseManager.horses.erase(horse)
 	else:
 		if current_bidder == "PLAYER":
 			HorseManager.horses.append(horse)
 			Season.money -= current_bid
+			Season.auctionEarnings -= current_bid
 		HorseManager.store.erase(horse)
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 

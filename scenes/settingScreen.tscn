@@ -158,20 +158,21 @@ text = "Created by Cole Stevenson"
 
 [node name="Joel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 46.0
-offset_top = 1102.0
-offset_right = 925.0
-offset_bottom = 1410.0
+offset_left = 56.0
+offset_top = 1100.0
+offset_right = 642.0
+offset_bottom = 1408.0
 theme = ExtResource("3_itnry")
 theme_override_font_sizes/normal_font_size = 45
-text = "Art Direction by Joel Sims"
+bbcode_enabled = true
+text = "[center]Art Direction & Design by Joel Sims[center]"
 
 [node name="Music" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 241.0
 offset_top = 200.0
 offset_right = 489.0
-offset_bottom = 282.0
+offset_bottom = 303.0
 theme = ExtResource("3_itnry")
 theme_override_font_sizes/normal_font_size = 67
 text = "Music"
@@ -179,9 +180,9 @@ text = "Music"
 [node name="Difficulty" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 190.0
-offset_top = 468.0
+offset_top = 467.0
 offset_right = 529.0
-offset_bottom = 550.0
+offset_bottom = 571.0
 theme = ExtResource("3_itnry")
 theme_override_font_sizes/normal_font_size = 67
 text = "Difficulty"
@@ -191,7 +192,7 @@ layout_mode = 0
 offset_left = 235.0
 offset_top = 859.0
 offset_right = 526.0
-offset_bottom = 941.0
+offset_bottom = 966.0
 theme = ExtResource("3_itnry")
 theme_override_font_sizes/normal_font_size = 67
 text = "Credits"

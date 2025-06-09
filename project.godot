@@ -22,6 +22,7 @@ BreedingManager="*res://scripts/breedingManager.gd"
 Season="*res://scripts/season_manager.gd"
 Casino="*res://scripts/gamblingManager.gd"
 Settings="*res://scenes/Utilities/Settings.tscn"
+Tester="*res://scripts/tester.gd"
 
 [display]
 
@@ -36,7 +37,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg")
+enabled=PackedStringArray("res://addons/SimpleTODO/plugin.cfg", "res://addons/numdot/plugin.cfg")
 
 [input_devices]
 

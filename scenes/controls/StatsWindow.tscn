@@ -226,5 +226,15 @@ offset_bottom = 107.0
 bbcode_enabled = true
 text = "[center]Stable is full[center]"
 
+[node name="text" type="RichTextLabel" parent="Panel/auctionButton"]
+offset_left = 106.0
+offset_top = 2.0
+offset_right = 285.0
+offset_bottom = 44.0
+mouse_filter = 2
+theme = ExtResource("2_rr3ga")
+theme_override_font_sizes/normal_font_size = 31
+text = "Buy"
+
 [connection signal="pressed" from="Panel/Close" to="." method="_close_window"]
 [connection signal="pressed" from="Panel/auctionButton" to="." method="_launch_auction"]

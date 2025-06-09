@@ -1,0 +1,56 @@
+var s_range = [10,25]
+var a_range = [9,2]
+var e_range = [2, 15]
+
+speed: -0.44532601791254
+stamina: -0.02096612176575
+accel: -0.69391682595518
+speed_r: -0.43496433261229
+stamina_r: -0.01273958040234
+accel_r: -0.73110130202341
+
+
+var s_range = [10,25]
+var a_range = [4,2]
+var e_range = [2, 15]
+
+speed: -0.70459173009069
+stamina: 0.28000512236509
+accel: -0.43735370260374
+speed_r: -0.70433786416876
+stamina_r: 0.27757248902784
+accel_r: -0.78547082944253
+
+var s_range = [10,25]
+var a_range = [4,2]
+var e_range = [3, 1]
+
+speed: -0.7112178081177
+stamina: 0.08865606938492
+accel: -0.31356089139687
+speed_r: -0.71445016633514
+stamina_r: -0.09551168854705
+accel_r: -0.7265685380744
+
+var s_range = [5,20]
+var e_range = [5, 1]
+var a_range = [4,1]
+
+speed: -0.6709359906489
+stamina: 0.12889466561642
+accel: -0.26343224468226
+speed_r: -0.67592112991826
+stamina_r: -0.13883797107453
+accel_r: -0.69849711144571
+
+
+var s_range = [5,10]
+var e_range = [1, 20]
+var a_range = [6,1]
+
+speed: -0.30334284779688
+stamina: -0.16074485567005
+accel: -0.76829565291217
+speed_r: -0.33195074205593
+stamina_r: -0.15201461311615
+accel_r: -0.67408628893524

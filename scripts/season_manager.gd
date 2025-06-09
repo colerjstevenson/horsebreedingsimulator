@@ -8,6 +8,13 @@ var races = []
 
 var money
 
+var auctionEarnings
+var gamblingEarnings
+var raceEarnings
+var breedingEarnings
+var farmSpending
+var raceResult
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	season = 1
@@ -21,21 +28,33 @@ func _process(delta: float) -> void:
 	pass
 
 
+func generate_race(i=0):
+	var length = randi_range(400, 1000)
+	var rname = generate_name()
+	var purse = randi_range(500, 2000)
+	
+	return Race.new(i, rname, length, purse)
+
+
 func refresh_season():
 	races.clear()
 	for i in range(season_length-3):
 		var length = randi_range(200, 1000)
 		var rname = generate_name()
 		var purse = randi_range(500, 2000)
-		races.append(Race.new(i, rname, length, purse))
+		races.append(generate_race(i))
 		
 		
 	races.append(Race.new(season_length-2, "Crown 1", 200, 3000, true))
 	races.append(Race.new(season_length-1, "Crown 2", 600, 3000, true))
 	races.append(Race.new(season_length, "Crown 3", 1200, 3000, true))
+	auctionEarnings = 0
+	gamblingEarnings = 0
+	raceEarnings = 0
+	breedingEarnings = 0
+	farmSpending = 0
+	raceResult = 0
 	
-	for r in races:
-		print(r.race_name)
 	
 	
 	
@@ -57,6 +76,13 @@ func generate_name():
 
 func progressTime():
 	week += 1
+	auctionEarnings = 0
+	gamblingEarnings = 0
+	raceEarnings = 0
+	breedingEarnings = 0
+	farmSpending = 0
+	raceResult = 0
+	
 	if week > season_length:
 		week = 1
 		season += 1

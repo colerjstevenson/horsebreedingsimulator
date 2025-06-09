@@ -7,6 +7,8 @@ func _ready():
 	$DateLabel.text = "[right]Season " + str(Season.season) + "   Week " + str(Season.week)
 	for horse in HorseManager.horses:
 		add_child(horse)
+		
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

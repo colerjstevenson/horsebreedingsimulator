@@ -50,3 +50,5 @@ func _buy_pressed():
 		var scene = get_tree().current_scene
 		scene.refresh_list()
 		Season.money -= price
+		Season.farmSpending -= price
+		

@@ -62,6 +62,7 @@ texture_disabled = SubResource("AtlasTexture_hv3y2")
 stretch_mode = 0
 
 [node name="text" type="RichTextLabel" parent="BidButton"]
+layout_mode = 0
 offset_left = 153.0
 offset_top = 22.0
 offset_right = 387.0

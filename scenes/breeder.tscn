@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c6lg1i8npojwy"]
+[gd_scene load_steps=30 format=3 uid="uid://c6lg1i8npojwy"]
 
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="1_n6y56"]
 [ext_resource type="Script" uid="uid://c5hs1r27h23l6" path="res://scripts/breeder.gd" id="1_v18u3"]
@@ -83,6 +83,10 @@ region = Rect2(0, 0, 70, 18)
 atlas = ExtResource("7_d1qrw")
 region = Rect2(0, 98, 70, 15)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t56t"]
+atlas = ExtResource("7_d1qrw")
+region = Rect2(166.035, 19.1542, 18.2914, 17.9558)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ler27"]
 atlas = ExtResource("2_jinnr")
 region = Rect2(257, 274, 14, 14)
@@ -105,6 +109,7 @@ text = "Breeding Center"
 
 [node name="BreedingButton" type="TextureButton" parent="BG"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 142.0
 offset_top = 152.0
 offset_right = 312.0
@@ -127,6 +132,7 @@ text = "Breeding"
 
 [node name="RightsButton" type="TextureButton" parent="BG"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 387.0
 offset_top = 151.0
 offset_right = 557.0
@@ -235,6 +241,7 @@ offset_bottom = 683.0
 texture = SubResource("AtlasTexture_ay15c")
 
 [node name="Stats" type="VBoxContainer" parent="Breeding/breederButtons/Preview"]
+layout_mode = 0
 offset_left = 22.0
 offset_top = 151.0
 offset_right = 620.0
@@ -353,6 +360,7 @@ animation = &"black"
 
 [node name="BreedingScreen" type="ColorRect" parent="Breeding"]
 visible = false
+layout_mode = 0
 offset_top = 252.0
 offset_right = 713.0
 offset_bottom = 1285.0
@@ -369,6 +377,7 @@ text = "Breeding in Progress..."
 
 [node name="PregoScreen" type="ColorRect" parent="Breeding"]
 visible = false
+layout_mode = 0
 offset_top = 250.0
 offset_right = 713.0
 offset_bottom = 1285.0
@@ -387,6 +396,7 @@ text = "Horse is Pregnant!
 [node name="NewHorseScreen" type="ColorRect" parent="Breeding"]
 auto_translate_mode = 2
 visible = false
+layout_mode = 0
 offset_top = 268.0
 offset_right = 713.0
 offset_bottom = 1285.0
@@ -423,6 +433,27 @@ texture_normal = SubResource("AtlasTexture_xl6cd")
 texture_disabled = SubResource("AtlasTexture_g2rgr")
 stretch_mode = 0
 
+[node name="text" type="RichTextLabel" parent="Breeding/NewHorseScreen/KeepButton"]
+offset_left = 104.0
+offset_top = 17.0
+offset_right = 283.0
+offset_bottom = 59.0
+mouse_filter = 2
+theme = ExtResource("7_xl6cd")
+theme_override_font_sizes/normal_font_size = 31
+text = "Keep"
+
+[node name="warning" type="RichTextLabel" parent="Breeding/NewHorseScreen/KeepButton"]
+visible = false
+offset_left = 49.0
+offset_top = 95.0
+offset_right = 285.0
+offset_bottom = 137.0
+mouse_filter = 2
+theme = ExtResource("7_xl6cd")
+theme_override_font_sizes/normal_font_size = 31
+text = "Stable is Full"
+
 [node name="RandomButton" type="TextureButton" parent="Breeding/NewHorseScreen"]
 texture_filter = 1
 layout_mode = 0
@@ -430,7 +461,7 @@ offset_left = 582.0
 offset_top = 462.0
 offset_right = 674.0
 offset_bottom = 556.0
-texture_normal = SubResource("AtlasTexture_xl6cd")
+texture_normal = SubResource("AtlasTexture_1t56t")
 texture_disabled = SubResource("AtlasTexture_g2rgr")
 stretch_mode = 0
 
@@ -446,14 +477,15 @@ texture_normal = SubResource("AtlasTexture_xl6cd")
 texture_disabled = SubResource("AtlasTexture_g2rgr")
 stretch_mode = 0
 
-[node name="warning" type="RichTextLabel" parent="Breeding/NewHorseScreen/SellButton"]
-visible = false
-layout_mode = 0
-offset_top = 103.0
-offset_right = 274.0
-offset_bottom = 143.0
-bbcode_enabled = true
-text = "[center]Stable is full[center]"
+[node name="text" type="RichTextLabel" parent="Breeding/NewHorseScreen/SellButton"]
+offset_left = 107.0
+offset_top = 15.0
+offset_right = 286.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme = ExtResource("7_xl6cd")
+theme_override_font_sizes/normal_font_size = 31
+text = "Sell"
 
 [node name="horseImg" type="AnimatedSprite2D" parent="Breeding/NewHorseScreen"]
 texture_filter = 1
@@ -464,6 +496,7 @@ animation = &"red_left_standing"
 
 [node name="FailedScreen" type="ColorRect" parent="Breeding"]
 visible = false
+layout_mode = 0
 offset_top = 257.0
 offset_right = 713.0
 offset_bottom = 1285.0

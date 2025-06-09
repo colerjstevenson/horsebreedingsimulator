@@ -63,7 +63,7 @@ func setup_race():
 	
 	var ranges = {
 		"Easy": [40, 60],
-		"Medium": [60,80],
+		"Medium": [40,100],
 		"Hard": [80, 100]}
 		
 	var range = ranges[Settings.difficulty]
@@ -203,10 +203,3 @@ func apply_training():
 		training = null
 		
 		
-func calc_horse_odds():
-	var properties = ["speed", "acceleration", "stamina"]
-	var statsTotal = 0
-	for stat in properties:
-		statsTotal += stats[stat]
-	
-	return int(int(statsTotal/len(properties))/4)

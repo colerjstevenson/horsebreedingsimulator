@@ -49,16 +49,19 @@ func refresh_store():
 
 # calculate the starting auction price of a horse
 func calc_horse_price(horse: Horse):
-	var base = 0
-	var statFactor = 2
+	var base = 100
+	var statFactor = 1.5
 	var ageFactor = 100
 	var winsFactor = 100
 	
 	var statsTotal = 0
-	for value in horse.stats.values():
-		statsTotal += value
+	statsTotal += 2 * horse.stats['speed']
+	statsTotal += 2 * horse.stats['acceleration']
+	statsTotal += 2 * horse.stats['stamina']
+	statsTotal += horse.stats['fertility']
 	
-	return int(base + (statsTotal*statFactor) - (horse.age*ageFactor) + (winsFactor*horse.wins.size()))
+	
+	return clamp(int(base + (statsTotal*statFactor) - (horse.age*ageFactor) + (winsFactor*horse.wins.size())), 100, 2000)
 
 
  

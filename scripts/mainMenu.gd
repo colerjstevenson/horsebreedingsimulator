@@ -15,6 +15,11 @@ func _ready() -> void:
 	for button_name in scene_paths.keys():
 		var button = get_node(button_name)
 		button.pressed.connect(_on_button_pressed.bind(button_name))
+	
+	if Tester.go:
+		Tester.i += 1
+		await Game.pause(1)
+		Tester.run_race()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
