@@ -1,7 +1,7 @@
 extends Node
 
-var go = true
-var test_num = 20
+var go = false
+var test_num = 50
 
 var standings = []
 var stamina = []
@@ -15,7 +15,7 @@ var i = 0
 
 
 func _process(delta: float) -> void:
-	if i > test_num:
+	if go and i > test_num:
 		go = false
 		print("speed: " + correlation(speed, standings))
 		print("stamina: " + correlation(stamina, standings))
@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		print("stamina_r: " + correlation(stamina_r, standings))
 		print("accel_r: " + correlation(accel_r, standings))
 		print("energy: " + correlation(energy, standings))
-			
+		print(energy)
 			
 
 

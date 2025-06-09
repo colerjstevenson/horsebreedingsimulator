@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 #min and maxs for speed, acceleration, and endurance
-var s_range = [5,10]
-var e_range = [1, 20]
-var a_range = [6,1]
+var s_range = [7, 20]
+var e_range = [4, 15]
+var a_range = [10, 4]
 
 var jiggle = 0.05
 
@@ -36,7 +36,7 @@ func setup_new(_lane):
 	lane = _lane
 	pos = 0;
 	horse = horse_obj.instantiate()
-	horse.setup()
+	horse.setup_race()
 	z_index = _lane
 	get_stats()
 
@@ -55,12 +55,12 @@ func get_stats():
 	
 	accel = speed/accel_t
 	
-	N = speed*(horse.stats["stamina"]/200) # minimum speed
-	D = (accel/endur) # deacceleration
+	N = s_range[0]*(horse.stats["stamina"]/100) # minimum speed
+	D = 5*(1.0 - (accel / 40.0))*(1.0 - (endur / 20.0)) # deacceleration
 	
 	# calculate phase durations
 	t1 = (speed - N)/accel
-	t2 = t1 + endur/3
+	t2 = t1 + endur
 	t3 = t2 + ((speed - N)/D)
 
 

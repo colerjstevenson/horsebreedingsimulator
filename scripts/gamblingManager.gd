@@ -21,20 +21,7 @@ func clear_bets():
 
 func settle_bets(winner):
 	Season.gamblingEarnings = 0 - horse[0] - horse[1] - horse[2] - horse[3] - horse[4]
-	
-	match winner:
-		0:
-			Season.gamblingEarnings += 2 * horse[0]
-		1:
-			Season.gamblingEarnings += 2 * horse[1]
-		2:
-			Season.gamblingEarnings += 2 * horse[2]
-		3:
-			Season.gamblingEarnings += 2 * horse[3]
-		4:
-			Season.gamblingEarnings += 2 * horse[4]
-		_:
-			print("ERROR: umm... how did no one win...?")
+	Season.gamblingEarnings += odds[winner]*horse[winner]
 		
 	Season.money += Season.gamblingEarnings
 	clear_bets()

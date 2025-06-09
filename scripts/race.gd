@@ -227,16 +227,16 @@ func map_range(value: float, in_min: float, in_max: float, out_min: float, out_m
 	
 func set_horse_odds():
 	var properties = ["speed", "acceleration", "stamina"]
-	
+	var weights = {"speed": 0.3, "acceleration": 0.4, "stamina": 0.2}
 	var horse_stats = [0,0,0,0,0]
 	
 	for i in range(len(horses)):
 		var horse = horses[i]
 		for value in properties:
-			horse_stats[i] += horse.horse.stats[value]
+			horse_stats[i] += horse.horse.stats[value] * weights[value]
 		
 	for i in range(len(horses)):
-		Casino.odds[i] = int(map_range(horse_stats[i], horse_stats.min(), horse_stats.max(), 10, 2))
+		Casino.odds[i] = int(map_range(horse_stats[i], horse_stats.min(), horse_stats.max(), 6, 2))
 
 
 
@@ -268,7 +268,7 @@ func save_results() -> void:
 		text += str(h.horse.stats["vitality"]) + '\n'
 		
 		# Append the text (without newline)
-		file.store_string(text)
+		#file.store_string(text)
 		
 	if Tester:
 		for h in horses:
