@@ -127,7 +127,7 @@ func _close_messgae():
 	
 func _keep_pressed():
 	BreedingManager.keep()
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
 	
 
 func _sell_pressed():

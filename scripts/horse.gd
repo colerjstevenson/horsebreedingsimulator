@@ -200,6 +200,60 @@ func get_horse_name() -> String:
 func apply_training():
 	if training:
 		stats[training] += 5
+		fatigue("TRAIN")
 		training = null
-		
-		
+
+
+func age_factor() -> float:
+	if age <= 4.5:
+		return clamp(age / 4.5, 0.0, 1.0)  # Rises from 0 at birth to 1 at 4.5
+	else:
+		# Decline 1 → 0 by age 8 (decline period ≈ 7.5 years)
+		return clamp(1.0 - ((age - 4.5) / 3.5), 0.0, 1.0)
+
+
+func fatigue(type="RACE"):
+	var s = clamp(stats["stamina"] / 100.0, 0.0, 1.0)
+	var af = age_factor()
+	var base_loss
+	# Base: between 15 and 5 points lost depending on stamina
+	if type == "RACE":
+		base_loss = lerp(20.0, 10.0, s)
+	else:
+		base_loss = lerp(15, 5, s)
+	# Age penalty: low age or old age increases loss
+	var age_penalty = lerp(1.0, 1.5, abs(af - 1.0))
+	stats["vitality"] =  int(clamp(stats["vitality"] - (base_loss*age_penalty), 0, 100))
+
+
+func recovery():
+	var s = clamp(stats["stamina"] / 100.0, 0.0, 1.0)
+	var af = age_factor()
+	# Base recover between 10 and 25
+	var base_rec = lerp(10.0, 25.0, s)
+	# Actual recovery scales with prime age
+	stats["vitality"] = int(clamp(stats["vitality"]+(base_rec * af), 0, 100))
+
+
+func to_dict():
+	var dict = {
+		"horse_name": horse_name,
+		"age": age,
+		"color": color,
+		"sex": sex,
+		"pregnant": pregnant,
+		"wins": wins,
+		"stats": stats
+	}
+	
+	return dict
+
+
+func from_dict(horse):
+	horse_name = horse["horse_name"]
+	age = horse["age"]
+	sex = horse["sex"]
+	color = horse["color"]
+	pregnant = horse["pregnant"]
+	wins = horse["wins"]
+	stats = horse["stats"]

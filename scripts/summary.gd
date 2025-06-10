@@ -29,4 +29,5 @@ func format_text(value):
 
 func _on_pressed():
 	Season.progressTime()
-	get_tree().change_scene_to_file("res://scenes/main.tscn") 
+	Saves.save_game()
+	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn") 

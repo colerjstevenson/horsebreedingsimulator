@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HorseBreedingSimulator"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="uid://dwr1pgmirlvnr"
 config/features=PackedStringArray("4.4", "Mobile")
 
 [autoload]
@@ -23,6 +23,7 @@ Season="*res://scripts/season_manager.gd"
 Casino="*res://scripts/gamblingManager.gd"
 Settings="*res://scenes/Utilities/Settings.tscn"
 Tester="*res://scripts/tester.gd"
+Saves="*res://scripts/Saves.gd"
 
 [display]
 

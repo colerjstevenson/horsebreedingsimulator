@@ -1,161 +1,89 @@
-[gd_scene load_steps=14 format=3 uid="uid://03b6k2tstn5s"]
+[gd_scene load_steps=9 format=3 uid="uid://dwr1pgmirlvnr"]
 
 [ext_resource type="Script" uid="uid://2kuhov5f3ry0" path="res://scripts/main.gd" id="1_wekjc"]
-[ext_resource type="Script" uid="uid://8mbd13k3q48k" path="res://scripts/mainMenu.gd" id="4_2d1xb"]
-[ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="4_7o5ow"]
+[ext_resource type="Texture2D" uid="uid://djh8q30idypag" path="res://art/logo.png" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="4_tipki"]
-[ext_resource type="Texture2D" uid="uid://4fhwaajou2lp" path="res://art/UI/UI_Wood_Flat.png" id="4_vpvni"]
 [ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="5_85g3d"]
-[ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="5_jq12b"]
-[ext_resource type="Texture2D" uid="uid://c1s8coywn15sb" path="res://art/UI/Pixel UI/Icons/menu-icons-black.png" id="6_choun"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wtx8o"]
-atlas = ExtResource("4_vpvni")
-region = Rect2(163.479, 339.476, 40.877, 39.8959)
-
-[sub_resource type="GDScript" id="GDScript_cb58y"]
-script/source = "extends TextureButton
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_button_pressed():
-	get_tree().change_scene_to_file(\"res://scenes/auction.tscn\")
-"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ya4ey"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
 atlas = ExtResource("4_tipki")
 region = Rect2(0, 0, 70, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
-atlas = ExtResource("6_choun")
-region = Rect2(52.423, 0.532516, 11.6704, 10.8104)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sugp2"]
+load_path = "res://.godot/imported/red_spritesheet.png-08c151e6b98570117f817cb055353133.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyhfs"]
+atlas = SubResource("CompressedTexture2D_sugp2")
+region = Rect2(0, 97.9751, 70.1449, 15.9079)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
-atlas = ExtResource("4_7o5ow")
-region = Rect2(191.877, 271.558, 16.2776, 16.6972)
+atlas = SubResource("CompressedTexture2D_sugp2")
+region = Rect2(0, 97.9751, 70.1449, 15.9079)
 
-[node name="main" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_wekjc")
 
-[node name="BG" type="ColorRect" parent="."]
-z_index = -5
-offset_right = 718.0
-offset_bottom = 1278.0
-color = Color(0.346927, 0.696642, 0.28573, 1)
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_2d1xb")
-
-[node name="TrainerButton" type="TextureButton" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = 513.0
-offset_top = 917.0
-offset_right = 672.0
-offset_bottom = 1073.0
-texture_normal = SubResource("AtlasTexture_wtx8o")
-stretch_mode = 0
-script = SubResource("GDScript_cb58y")
+offset_right = 719.0
+offset_bottom = 1287.0
+color = Color(0.105882, 0.156863, 0.270588, 1)
 
-[node name="AuctionButton" type="TextureButton" parent="Control"]
-texture_filter = 1
+[node name="LoadGame" type="TextureButton" parent="ColorRect"]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 115.0
-offset_right = 207.0
-offset_bottom = 271.0
-texture_normal = SubResource("AtlasTexture_wtx8o")
-stretch_mode = 0
-script = SubResource("GDScript_cb58y")
-
-[node name="BreederButton" type="TextureButton" parent="Control"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 522.0
-offset_top = 110.0
-offset_right = 681.0
-offset_bottom = 266.0
-texture_normal = SubResource("AtlasTexture_wtx8o")
-stretch_mode = 0
-script = SubResource("GDScript_cb58y")
-
-[node name="StableButton" type="TextureButton" parent="Control"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 24.0
-offset_top = 915.0
-offset_right = 183.0
-offset_bottom = 1071.0
-texture_normal = SubResource("AtlasTexture_wtx8o")
-stretch_mode = 0
-script = SubResource("GDScript_cb58y")
-
-[node name="RaceButton" type="TextureButton" parent="Control"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 38.0
-offset_top = 1108.0
-offset_right = 553.0
-offset_bottom = 1230.0
-texture_normal = SubResource("AtlasTexture_ya4ey")
+offset_left = 171.0
+offset_top = 953.0
+offset_right = 543.0
+offset_bottom = 1053.0
+texture_normal = SubResource("AtlasTexture_lquwl")
+texture_disabled = SubResource("AtlasTexture_jyhfs")
 stretch_mode = 0
 
-[node name="text" type="RichTextLabel" parent="Control/RaceButton"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/LoadGame"]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 25.0
-offset_right = 479.0
-offset_bottom = 67.0
+offset_left = 89.0
+offset_top = 15.0
+offset_right = 323.0
+offset_bottom = 57.0
 mouse_filter = 2
 theme = ExtResource("5_85g3d")
 theme_override_font_sizes/normal_font_size = 31
-text = "Start this weeks race"
+text = "Load Game"
 
-[node name="Calender" type="TextureButton" parent="Control"]
-texture_filter = 1
+[node name="NewGame" type="TextureButton" parent="ColorRect"]
 layout_mode = 0
-offset_left = 567.0
-offset_top = 1112.0
-offset_right = 682.0
-offset_bottom = 1206.0
-texture_normal = SubResource("AtlasTexture_eb6dy")
+offset_left = 173.0
+offset_top = 773.0
+offset_right = 545.0
+offset_bottom = 873.0
+texture_normal = SubResource("AtlasTexture_lquwl")
+texture_disabled = SubResource("AtlasTexture_tbgi4")
 stretch_mode = 0
 
-[node name="SettingsButton" type="TextureButton" parent="Control"]
-texture_filter = 1
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/NewGame"]
 layout_mode = 0
-offset_left = 607.0
-offset_top = 308.0
-offset_right = 686.0
-offset_bottom = 388.0
-texture_normal = SubResource("AtlasTexture_tbgi4")
-stretch_mode = 0
+offset_left = 99.0
+offset_top = 16.0
+offset_right = 333.0
+offset_bottom = 58.0
+mouse_filter = 2
+theme = ExtResource("5_85g3d")
+theme_override_font_sizes/normal_font_size = 31
+text = "New Game"
 
-[node name="MoneyLabel" type="RichTextLabel" parent="."]
-offset_left = 27.0
-offset_top = 13.0
-offset_right = 362.0
-offset_bottom = 67.0
-theme = ExtResource("5_jq12b")
-text = "Money: 0"
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 722.0
+offset_bottom = 682.0
+texture = ExtResource("4_jyhfs")
+expand_mode = 1
 
-[node name="DateLabel" type="RichTextLabel" parent="."]
-offset_left = 313.0
-offset_top = 11.0
-offset_right = 712.0
-offset_bottom = 65.0
-theme = ExtResource("5_jq12b")
-bbcode_enabled = true
-text = "[right]Season 0   Week 0"
+[connection signal="pressed" from="ColorRect/LoadGame" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="ColorRect/NewGame" to="." method="_on_new_pressed"]

@@ -35,6 +35,17 @@ func setup_horses():
 			horses[0].sex = "Male"
 
 
+func from_dict(horse):
+	if not horse:
+		return horse
+	
+	var inst = Horse.instantiate()
+	inst.setup()
+	inst.from_dict(horse)
+	return inst
+	
+	
+
 
 # generate new horse for the store
 func refresh_store():

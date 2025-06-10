@@ -87,7 +87,7 @@ show_percentage = false
 custom_minimum_size = Vector2(201.205, 0)
 layout_mode = 2
 tooltip_text = "Effects how long a horse 
-can maintain its top speed"
+can maintain its top speed and how fast it recovers energy"
 theme = ExtResource("2_rr3ga")
 text = "STAMINA"
 fit_content = true
@@ -125,11 +125,12 @@ show_percentage = false
 [node name="Vitality" type="RichTextLabel" parent="Panel/VBoxContainer"]
 custom_minimum_size = Vector2(201.205, 0)
 layout_mode = 2
-tooltip_text = "Effects how quickly a horse 
-recovers between races"
+tooltip_text = "Horses with low enery have a 
+higher chance of under performing in races"
+tooltip_auto_translate_mode = 1
 theme = ExtResource("2_rr3ga")
-theme_override_font_sizes/normal_font_size = 0
-text = "VITALITY"
+theme_override_font_sizes/normal_font_size = 31
+text = "Energy"
 fit_content = true
 
 [node name="VitalityBar" type="ProgressBar" parent="Panel/VBoxContainer/Vitality"]

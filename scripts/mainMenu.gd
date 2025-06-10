@@ -1,4 +1,9 @@
 extends Control
+
+@onready var money = $MoneyLabel
+@onready var date = $DateLabel
+
+
 # Dictionary mapping button names to scene paths
 var scene_paths = {
 	"AuctionButton": "res://scenes/auctionMenu.tscn",
@@ -10,16 +15,25 @@ var scene_paths = {
 	"SettingsButton": "res://scenes/settingScreen.tscn"
 }
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _setup():
+	$MoneyLabel.text = "Money: " + str(Season.money)
+	$DateLabel.text = "[right]Season " + str(Season.season) + "   Week " + str(Season.week)
+	for horse in HorseManager.horses:
+		add_child(horse)
+	
 	for button_name in scene_paths.keys():
-		var button = get_node(button_name)
+		var button = find_child(button_name)
 		button.pressed.connect(_on_button_pressed.bind(button_name))
 	
 	if Tester.go:
 		Tester.i += 1
 		await Game.pause(1)
 		Tester.run_race()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	call_deferred("_setup")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

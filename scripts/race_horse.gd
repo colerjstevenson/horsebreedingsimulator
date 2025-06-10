@@ -10,6 +10,7 @@ var jiggle = 0.05
 var t1
 var t2
 var t3
+
 var N
 var D
 

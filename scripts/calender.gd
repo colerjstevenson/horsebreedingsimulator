@@ -33,4 +33,4 @@ func _process(delta: float) -> void:
 
 
 func _close_window():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")

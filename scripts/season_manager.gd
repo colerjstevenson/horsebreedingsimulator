@@ -1,6 +1,7 @@
 extends Node
 
 var season_length = 8
+var first = true
 
 var season
 var week
@@ -96,9 +97,16 @@ func progressTime():
 	HorseManager.refresh_store()
 	BreedingManager.update_breeder()
 	for h in HorseManager.horses:
+		if not h.training and h != races[week-2].horse:
+			h.recovery()
 		h.apply_training()
 	
-
+func from_dict(dict):
+	var race = Race.new(dict["week"], dict["race_name"], dict["length"], dict["purse"], dict["crown"])
+	race.horse = HorseManager.from_dict(dict["horse"])
+	race.result = dict["result"]
+	
+	return race
 
 
 class Race:
@@ -115,5 +123,21 @@ class Race:
 		race_name = _name
 		purse = _purse
 		crown = _crown
+		week = _week
 	
-	
+	func to_dict():
+		var dict ={
+			"length": length,
+			"race_name": race_name,
+			"purse": purse,
+			"crown": crown,
+			"result": result,
+			"week": week,
+		}
+		if horse:
+			dict["horse"] = horse.to_dict()
+		else:
+			dict["horse"] = horse
+		
+		return dict
+		

@@ -4,7 +4,6 @@ var Horse = preload("res://scenes/entities/horse.tscn")
 
 var breeder_state
 var womb
-var weeks_left
 var mother
 
 
@@ -13,7 +12,6 @@ func _ready() -> void:
 	breeder_state = "READY"
 	womb = null #Horse.instantiate()
 	#womb.setup()
-	weeks_left = 0
 	mother = null
 
 
@@ -58,3 +56,12 @@ func sell():
 	
 	get_tree().current_scene.start_auction(tempWomb)
 		
+
+
+func loadBreeder(womb):
+	if womb:
+		womb = HorseManager.from_dict(womb)
+		for horse in HorseManager.horses:
+			if horse.pregnant:
+				mother = horse
+	

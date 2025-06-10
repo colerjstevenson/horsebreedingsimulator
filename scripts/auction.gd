@@ -79,7 +79,7 @@ func end_auction():
 			Season.money -= current_bid
 			Season.auctionEarnings -= current_bid
 		HorseManager.store.erase(horse)
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
 
 
 
