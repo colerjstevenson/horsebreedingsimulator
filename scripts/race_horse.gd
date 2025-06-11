@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 #min and maxs for speed, acceleration, and endurance
-var s_range = [7, 20]
-var e_range = [4, 15]
-var a_range = [10, 4]
+var s_range = [5, 25]
+var e_range = [2, 10]
+var a_range = [12, 3]
 
 var jiggle = 0.05
 
@@ -56,8 +56,8 @@ func get_stats():
 	
 	accel = speed/accel_t
 	
-	N = s_range[0]*(horse.stats["stamina"]/100) # minimum speed
-	D = 5*(1.0 - (accel / 40.0))*(1.0 - (endur / 20.0)) # deacceleration
+	N = (s_range[0])*(horse.stats["stamina"]/100) # minimum speed
+	D = 6*(1.0 - (accel / 20.0))*(1.0 - (endur / 40.0)) # deacceleration
 	
 	# calculate phase durations
 	t1 = (speed - N)/accel
@@ -74,13 +74,13 @@ func update_pos(leader):
 	
 	
 func get_pos(time: float):
-	var dist = N*time + 0.5*accel*pow(time, 2)
+	var dist = (N*time + 0.5*accel*pow(time, 2))
 	
 	if time > t1:
 		dist += speed * (time - t1)
 		
 	if time > t2:
-		dist += speed*(time-t2) - 0.5*D*pow(time-t2, 2)
+		dist += clamp(speed*(time-t2) - 0.5*D*pow(time-t2, 2), 1, speed * (time - t1))
 		
 	if time > t3:
 		dist += N*(time-t3)
