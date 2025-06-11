@@ -5,7 +5,7 @@ var horse = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var week = Season.week-1
-	
+	$startButton.disabled = true
 	$RacePanel/Race.text = Season.races[week].race_name
 	$RacePanel/Length.text = str(Season.races[week].length) + 'm'
 	$RacePanel/Purse.text = "$" + str(Season.races[week].purse)
@@ -13,7 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if horse:
+		$startButton.disabled = false
 
 	
 

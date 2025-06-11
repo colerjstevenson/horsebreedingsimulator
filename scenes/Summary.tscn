@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr0lgr5vb35k0"]
+[gd_scene load_steps=6 format=3 uid="uid://dr0lgr5vb35k0"]
 
 [ext_resource type="Script" uid="uid://br4owmk4rn514" path="res://scripts/summary.gd" id="1_7j0oo"]
 [ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="1_u8hmt"]
@@ -7,6 +7,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsem1"]
 atlas = ExtResource("2_7j0oo")
 region = Rect2(0, 0, 70, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j0oo"]
+atlas = ExtResource("2_7j0oo")
+region = Rect2(0.0861816, 97.5804, 70.2085, 15.7562)
 
 [node name="Summary" type="Control"]
 layout_mode = 3
@@ -187,6 +191,7 @@ offset_top = 1095.0
 offset_right = 565.0
 offset_bottom = 1195.0
 texture_normal = SubResource("AtlasTexture_fsem1")
+texture_disabled = SubResource("AtlasTexture_7j0oo")
 stretch_mode = 0
 
 [node name="text" type="RichTextLabel" parent="startButton"]

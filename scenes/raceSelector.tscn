@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://deqidws5fh2xn"]
+[gd_scene load_steps=14 format=3 uid="uid://deqidws5fh2xn"]
 
 [ext_resource type="Script" uid="uid://c0ice8kwquilp" path="res://scripts/race_selector.gd" id="1_unm07"]
 [ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="2_5b3nc"]
@@ -20,6 +20,10 @@ region = Rect2(0, 0, 70, 18)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fu8b0"]
 atlas = ExtResource("6_j4mb7")
 region = Rect2(0, 0, 70, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq47n"]
+atlas = ExtResource("6_j4mb7")
+region = Rect2(0.0861816, 97.5804, 70.2085, 15.7562)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0pl4q"]
 atlas = ExtResource("7_sq7yf")
@@ -76,6 +80,7 @@ offset_top = 1028.0
 offset_right = 562.0
 offset_bottom = 1128.0
 texture_normal = SubResource("AtlasTexture_fu8b0")
+texture_disabled = SubResource("AtlasTexture_oq47n")
 stretch_mode = 0
 
 [node name="text" type="RichTextLabel" parent="startButton"]
