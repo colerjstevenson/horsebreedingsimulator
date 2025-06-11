@@ -186,7 +186,7 @@ func _process(delta: float) -> void:
 		time += delta
 		update_horses()
 		
-	if $Track.position.x <= -1*($Track.size.x - (get_viewport().size.x*2)):
+	if $Track.position.x <= -1*($Track.size.x - $Track/StartTile.size.x):
 		print("done")
 		race_state = "DONE"
 		finish_race()
@@ -208,7 +208,7 @@ func update_horses():
 		if curr > leader:
 			leader = curr
 	
-	$Track.position.x = -1* ((leader*get_viewport().size.x)/race_scale)
+	$Track.position.x = -1* ((leader*$Track/StartTile.size.x)/race_scale)
 	
 	for h in horses:
 		h.update_pos(leader)
