@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dwr1pgmirlvnr"]
+[gd_scene load_steps=10 format=3 uid="uid://dwr1pgmirlvnr"]
 
 [ext_resource type="Script" uid="uid://2kuhov5f3ry0" path="res://scripts/main.gd" id="1_wekjc"]
 [ext_resource type="Texture2D" uid="uid://djh8q30idypag" path="res://art/logo.png" id="4_jyhfs"]
@@ -9,12 +9,15 @@
 atlas = ExtResource("4_tipki")
 region = Rect2(0, 0, 70, 18)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sugp2"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jyhfs"]
 load_path = "res://.godot/imported/red_spritesheet.png-08c151e6b98570117f817cb055353133.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyhfs"]
-atlas = SubResource("CompressedTexture2D_sugp2")
+atlas = SubResource("CompressedTexture2D_jyhfs")
 region = Rect2(0, 97.9751, 70.1449, 15.9079)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sugp2"]
+load_path = "res://.godot/imported/red_spritesheet.png-08c151e6b98570117f817cb055353133.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
 atlas = SubResource("CompressedTexture2D_sugp2")
@@ -86,6 +89,7 @@ texture = ExtResource("4_jyhfs")
 expand_mode = 1
 
 [node name="text" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 109.0
 offset_top = 1164.0
 offset_right = 572.0

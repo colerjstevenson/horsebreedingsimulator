@@ -29,6 +29,9 @@ func _setup():
 		Tester.i += 1
 		await Game.pause(1)
 		Tester.run_race()
+		
+	if Settings.tutorial:
+		EventManager.run_intro()
 
 
 # Called when the node enters the scene tree for the first time.

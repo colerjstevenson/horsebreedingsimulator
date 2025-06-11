@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bjp2ker3lj1xu"]
+[gd_scene load_steps=36 format=3 uid="uid://bjp2ker3lj1xu"]
 
 [ext_resource type="Texture2D" uid="uid://b45r4n2m06nio" path="res://art/race/training.png" id="1_2siry"]
 [ext_resource type="Script" uid="uid://vmoh26tqhsih" path="res://scripts/encounter.gd" id="1_h0wht"]
@@ -7,10 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://b3el83tlj16sb" path="res://art/peoplePack/Western/SaloonBarman/SaloonBarman_Idle.png" id="4_hov8j"]
 [ext_resource type="Texture2D" uid="uid://f8eesfjj02v5" path="res://art/peoplePack/Western/SaloonBarman/SaloonBarman_Idle2.png" id="5_ev3kp"]
 [ext_resource type="Texture2D" uid="uid://qahask2b5l31" path="res://art/peoplePack/Western/SaloonBarman/SaloonBarman_Talk2.png" id="7_ss2td"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h0wht"]
-atlas = ExtResource("2_qgecd")
-region = Rect2(432, 48, 112, 96)
+[ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="8_ss2td"]
+[ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="8_x5dqr"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="9_x5dqr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j57ai"]
 atlas = ExtResource("4_hov8j")
@@ -175,7 +174,23 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0wht"]
+atlas = ExtResource("2_qgecd")
+region = Rect2(432, 48, 112, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywtn4"]
+atlas = ExtResource("8_ss2td")
+region = Rect2(0, 0, 70, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sugp2"]
+load_path = "res://.godot/imported/red_spritesheet.png-08c151e6b98570117f817cb055353133.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u717m"]
+atlas = SubResource("CompressedTexture2D_sugp2")
+region = Rect2(0, 97.9751, 70.1449, 15.9079)
+
 [node name="Control" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,13 +199,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h0wht")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="."]
+texture_filter = 1
 layout_mode = 0
 offset_right = 720.0
 offset_bottom = 1282.0
 color = Color(0.359221, 0.200259, 0.149791, 1)
 
 [node name="Scene" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -2.0
 offset_top = 2.0
 offset_right = 719.0
@@ -198,8 +215,16 @@ offset_bottom = 723.0
 texture = ExtResource("1_2siry")
 expand_mode = 2
 
+[node name="Person" type="AnimatedSprite2D" parent="Scene"]
+texture_filter = 1
+position = Vector2(391, 481)
+scale = Vector2(7.19531, 6.05469)
+sprite_frames = SubResource("SpriteFrames_j57ai")
+animation = &"talking2_1"
+
 [node name="pane" type="TextureRect" parent="."]
 texture_filter = 3
+layout_mode = 0
 offset_left = 10.0
 offset_top = 746.0
 offset_right = 711.0
@@ -212,11 +237,27 @@ offset_left = 29.0
 offset_top = 29.0
 offset_right = 677.0
 offset_bottom = 248.0
+theme = ExtResource("8_x5dqr")
+bbcode_enabled = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(389, 483)
-scale = Vector2(7.19531, 6.05469)
-sprite_frames = SubResource("SpriteFrames_j57ai")
-animation = &"idle2_1"
-frame_progress = 0.711244
+[node name="NextButton" type="TextureButton" parent="."]
+offset_left = 176.0
+offset_top = 1097.0
+offset_right = 548.0
+offset_bottom = 1197.0
+texture_normal = SubResource("AtlasTexture_ywtn4")
+texture_disabled = SubResource("AtlasTexture_u717m")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="NextButton"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 15.0
+offset_right = 341.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme = ExtResource("9_x5dqr")
+theme_override_font_sizes/normal_font_size = 31
+text = "Continue"
+
+[connection signal="pressed" from="NextButton" to="." method="_next_pressed"]

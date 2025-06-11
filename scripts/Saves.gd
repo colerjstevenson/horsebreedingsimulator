@@ -17,7 +17,7 @@ func load_game():
 		
 	#Settings
 	Settings.difficulty = dict["difficulty"]
-	
+	Settings.tutorial = dict["tutorial"]
 	#Season data
 	Season.season = int(dict["season"])
 	Season.week = int(dict["week"])
@@ -71,6 +71,7 @@ func make_dict():
 	
 	#Settings
 	dict["difficulty"] = Settings.difficulty
+	dict["tutorial"] = Settings.tutorial
 	
 	#Season data
 	dict["money"] = Season.money
