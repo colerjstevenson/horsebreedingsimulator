@@ -1,0 +1,132 @@
+{
+	"breeder_state": "READY",
+	"difficulty": "NORMAL",
+	"horses": [
+		{
+			"age": 4,
+			"color": "red",
+			"horse_name": "Old Chester",
+			"pregnant": false,
+			"sex": "Male",
+			"stats": {
+				"acceleration": 85,
+				"fertility": 85,
+				"speed": 85,
+				"stamina": 40,
+				"vitality": 100
+			},
+			"wins": []
+		},
+		{
+			"age": 1,
+			"color": "black",
+			"horse_name": "Queen of Lightning",
+			"pregnant": false,
+			"sex": "Female",
+			"stats": {
+				"acceleration": 30.682575213527,
+				"fertility": 90,
+				"speed": 75,
+				"stamina": 19.9069312700781,
+				"vitality": 100
+			},
+			"wins": []
+		},
+		{
+			"age": 1,
+			"color": "blonde",
+			"horse_name": "Up To Speed",
+			"pregnant": false,
+			"sex": "Female",
+			"stats": {
+				"acceleration": 75,
+				"fertility": 95,
+				"speed": 30,
+				"stamina": 45,
+				"vitality": 100
+			},
+			"wins": []
+		}
+	],
+	"money": 1000,
+	"mother": null,
+	"races": [
+		{
+			"crown": false,
+			"horse": null,
+			"length": 400,
+			"purse": 100,
+			"race_name": "The Fresh Start Cup",
+			"result": null,
+			"week": 0
+		},
+		{
+			"crown": false,
+			"horse": null,
+			"length": 400,
+			"purse": 100,
+			"race_name": "The Grand Gallop Cup",
+			"result": null,
+			"week": 1
+		},
+		{
+			"crown": false,
+			"horse": null,
+			"length": 500,
+			"purse": 200,
+			"race_name": "The Crowned Champion Chase",
+			"result": null,
+			"week": 2
+		},
+		{
+			"crown": false,
+			"horse": null,
+			"length": 800,
+			"purse": 200,
+			"race_name": "The Ottawa Valley Derby",
+			"result": null,
+			"week": 3
+		},
+		{
+			"crown": false,
+			"horse": null,
+			"length": 1000,
+			"purse": 500,
+			"race_name": "The Majestic Mile",
+			"result": null,
+			"week": 4
+		},
+		{
+			"crown": true,
+			"horse": null,
+			"length": 200,
+			"purse": 1000,
+			"race_name": "Crown 1",
+			"result": null,
+			"week": 6
+		},
+		{
+			"crown": true,
+			"horse": null,
+			"length": 600,
+			"purse": 1000,
+			"race_name": "Crown 2",
+			"result": null,
+			"week": 7
+		},
+		{
+			"crown": true,
+			"horse": null,
+			"length": 1200,
+			"purse": 1000,
+			"race_name": "Crown 3",
+			"result": null,
+			"week": 8
+		}
+	],
+	"season": 1,
+	"stalls": 3,
+	"week": 1,
+	"weeks_left": 0,
+	"womb": null
+}

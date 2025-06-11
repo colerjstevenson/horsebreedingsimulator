@@ -5,6 +5,9 @@ var horse = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var week = Season.week-1
+	if Season.season == 1 and Season.week == 1:
+		$SkipButton.visible = false
+		
 	$startButton.disabled = true
 	$RacePanel/Race.text = Season.races[week].race_name
 	$RacePanel/Length.text = str(Season.races[week].length) + 'm'

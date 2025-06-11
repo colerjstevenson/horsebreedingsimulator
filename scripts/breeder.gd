@@ -19,7 +19,7 @@ func _ready() -> void:
 		BreedingManager.breeder_state = "READY"
 		
 	if BreedingManager.breeder_state == "PREGO":
-		$Breeding/PregoScreen/text.text = BreedingManager.mother.horse_name + " is pregnant!\nThey're expect to give birth at the end of the season!"
+		$Breeding/PregoScreen/text.text = "[center]" + BreedingManager.mother.horse_name + " is pregnant!\nThey're expected to give birth in " + str(BreedingManager.weeks_left) + " weeks!"
 		$Breeding/PregoScreen.visible = true
 		
 	if BreedingManager.breeder_state == "DONE":
@@ -116,6 +116,7 @@ func _breed_pressed():
 	femaleHorse.pregnant = true
 	BreedingManager.mother = femaleHorse
 	$Breeding/BreedingScreen.visible = true
+	BreedingManager.weeks_left = 4
 	
 
 func _random_pressed():

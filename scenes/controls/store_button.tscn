@@ -32,12 +32,12 @@ animation = &"red_right_walking"
 
 [node name="Name" type="RichTextLabel" parent="."]
 layout_mode = 2
-offset_left = 11.0
-offset_top = 6.0
-offset_right = 290.0
-offset_bottom = 72.0
+offset_left = 37.0
+offset_top = 7.0
+offset_right = 264.0
+offset_bottom = 113.0
 theme = ExtResource("4_fon4d")
-theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]Name[center]"
 fit_content = true

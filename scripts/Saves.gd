@@ -2,17 +2,11 @@ extends Node
 
 var save_file = "user://save1.json"
 
-
-
-
 func save_game():
 	var file = FileAccess.open(save_file, FileAccess.WRITE)
 	if file:
-		print(ProjectSettings.globalize_path("user://"))
 		file.store_string(JSON.stringify(make_dict()))
 		file.close()
-	else:
-		print("ERROR: failed to save game")
 	
 	
 
@@ -40,14 +34,16 @@ func load_game():
 	
 	#Breeding Data
 	BreedingManager.breeder_state = dict["breeder_state"]
-	BreedingManager.loadBreeder(dict["womb"])
+	BreedingManager.loadBreeder(dict["womb"], dict["weeks_left"])
 
 
 func load_dict(path: String):
+	if not FileAccess.file_exists(path):
+		push_error("JSON file not found: %s" % path)
+		return {}
 
 	var file = FileAccess.open(path, FileAccess.READ)
 	if not file:
-		file = FileAccess.open(path, FileAccess.WRITE)
 		push_error("Failed to open: %s" % path)
 		return {}
 
@@ -92,6 +88,7 @@ func make_dict():
 	
 	#Breeding Data
 	dict["breeder_state"] = BreedingManager.breeder_state
+	dict["weeks_left"] = BreedingManager.weeks_left
 	if BreedingManager.womb:
 		dict["womb"] = BreedingManager.womb.to_dict()
 	else:

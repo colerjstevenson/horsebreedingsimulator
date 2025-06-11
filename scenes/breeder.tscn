@@ -385,12 +385,13 @@ color = Color(0.409833, 0.643863, 0.801575, 1)
 
 [node name="text" type="RichTextLabel" parent="Breeding/PregoScreen"]
 layout_mode = 0
-offset_left = 158.0
-offset_top = 383.0
-offset_right = 668.0
-offset_bottom = 622.0
+offset_left = 96.0
+offset_top = 378.0
+offset_right = 606.0
+offset_bottom = 617.0
 theme = ExtResource("5_mlupi")
-text = "Horse is Pregnant!
+bbcode_enabled = true
+text = "[center]Horse is Pregnant!
 "
 
 [node name="NewHorseScreen" type="ColorRect" parent="Breeding"]
@@ -530,10 +531,21 @@ texture_normal = SubResource("AtlasTexture_ler27")
 stretch_mode = 0
 
 [node name="BreedingRights" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BreedingRights"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 599.0
+offset_right = 637.0
+offset_bottom = 738.0
+theme = ExtResource("7_xl6cd")
+theme_override_font_sizes/normal_font_size = 71
+text = "Coming Soon"
 
 [connection signal="pressed" from="BG/BreedingButton" to="." method="_toggle_pressed" binds= ["Breeding"]]
 [connection signal="pressed" from="BG/RightsButton" to="." method="_toggle_pressed" binds= ["Rights"]]

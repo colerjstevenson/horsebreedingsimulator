@@ -85,5 +85,17 @@ offset_bottom = 682.0
 texture = ExtResource("4_jyhfs")
 expand_mode = 1
 
+[node name="text" type="RichTextLabel" parent="."]
+offset_left = 109.0
+offset_top = 1164.0
+offset_right = 572.0
+offset_bottom = 1281.0
+mouse_filter = 2
+theme = ExtResource("5_85g3d")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+text = "[center]version 0.1
+WIP: please excuse the bug"
+
 [connection signal="pressed" from="ColorRect/LoadGame" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="ColorRect/NewGame" to="." method="_on_new_pressed"]

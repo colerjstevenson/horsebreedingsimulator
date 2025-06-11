@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 #min and maxs for speed, acceleration, and endurance
-var s_range = [5, 25]
+var s_range = [10,22]
+var a_range = [4,2]
 var e_range = [2, 10]
-var a_range = [12, 3]
 
-var jiggle = 0.05
+var jiggle = 0.0
 
 var t1
 var t2
@@ -48,11 +48,9 @@ func convert_stat(stat, out_min, out_max):
 	return (out_min + (out_max - out_min) * (stat/100.0))
 
 func get_stats():
-	jiggle_range()
-	
-	speed = convert_stat(horse.stats["speed"], s_range[0], s_range[1]) * randf_range((horse.stats['vitality']/100)-jiggle, 1+jiggle)
-	endur = convert_stat(horse.stats["stamina"], e_range[0], e_range[1]) * randf_range((horse.stats['vitality']/100)-jiggle, 1+jiggle)
-	var accel_t = convert_stat(horse.stats["acceleration"], a_range[0], a_range[1]) * randf_range((horse.stats['vitality']/100)-jiggle, 1+jiggle)
+	speed = convert_stat(horse.stats["speed"], s_range[0], s_range[1]) * randf_range((horse.stats['vitality']/100.0), 1)
+	endur = convert_stat(horse.stats["stamina"], e_range[0], e_range[1]) * randf_range((horse.stats['vitality']/100.0), 1)
+	var accel_t = convert_stat(horse.stats["acceleration"], a_range[0], a_range[1]) * randf_range((horse.stats['vitality']/100.0), 1)
 	
 	accel = speed/accel_t
 	
@@ -63,6 +61,11 @@ func get_stats():
 	t1 = (speed - N)/accel
 	t2 = t1 + endur
 	t3 = t2 + ((speed - N)/D)
+	
+	if horse.stats["vitality"] < 50:
+		speed /= 2
+		endur /= 2
+		accel /= 2
 
 
 func set_pos(x, y, z=-5):
@@ -90,7 +93,10 @@ func get_pos(time: float):
 	return dist
 	
 	
-	
+func print():
+	print("speed: " + str(speed))
+	print("accel: " + str(accel))
+	print("endur: " + str(endur))
 
 	
 func stand():

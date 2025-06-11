@@ -15,7 +15,21 @@ func _process(delta: float) -> void:
 
 
 func _on_new_pressed():
+	var src := FileAccess.open("res://saves/default.json", FileAccess.READ)
+	var dst := FileAccess.open(Saves.save_file, FileAccess.WRITE)
+
+	if src and dst:
+		var data = src.get_buffer(src.get_length())
+		dst.store_buffer(data)
+		src.close()
+		dst.close()
+	else:
+		print("ERROR: failed to load new game")
+		get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
+	
+	Saves.load_game()
 	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
+	
 
 
 func _on_load_pressed():

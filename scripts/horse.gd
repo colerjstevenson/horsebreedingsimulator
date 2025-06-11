@@ -67,14 +67,17 @@ func setup_race():
 		"HARD": [80, 100]}
 		
 	var range = ranges[Settings.difficulty]
+	if Season.season == 1 and Season.week == 1:
+		range = ranges["EASY"]
 	
 	if Season.races[Season.week-1].crown:
 		range[0] += 10
+		range[1] = 100
 	
 	stats["speed"] = randf_range(range[0], range[1])
 	stats["acceleration"] = randf_range(range[0], range[1])
 	stats["stamina"] = randf_range(range[0], range[1])
-	stats["vitality"] = randf_range(range[0]+10, range[1])
+	stats["vitality"] = randf_range(range[0]+20, 100)
 	stats["fertility"] = 100
 	
 	color = horseColors.pick_random()
@@ -232,7 +235,10 @@ func recovery():
 	# Base recover between 10 and 25
 	var base_rec = lerp(10.0, 25.0, s)
 	# Actual recovery scales with prime age
-	stats["vitality"] = int(clamp(stats["vitality"]+(base_rec * af), 0, 100))
+	var max = clamp(100 + 20*(4-age), 10, 100)
+	stats["vitality"] = int(clamp(stats["vitality"]+(base_rec * af), 0, max))
+
+
 
 
 func to_dict():

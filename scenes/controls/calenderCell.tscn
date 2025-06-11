@@ -1,12 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7qa8qi6sdc86"]
+[gd_scene load_steps=4 format=3 uid="uid://b7qa8qi6sdc86"]
 
 [ext_resource type="Script" uid="uid://bimpqj84tbgkw" path="res://scripts/callender_cell.gd" id="1_iiv67"]
 [ext_resource type="Theme" uid="uid://bjldftgjbp5df" path="res://themes/Button.tres" id="2_8sk5o"]
-[ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="3_kw5b7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nrtwg"]
-atlas = ExtResource("3_kw5b7")
-region = Rect2(22, 8, 19, 18)
+[ext_resource type="Texture2D" uid="uid://cjnw2m0jto2fk" path="res://art/icons/crown.png" id="3_rvwav"]
 
 [node name="Control" type="Control"]
 texture_filter = 1
@@ -32,39 +28,42 @@ color = Color(0.499455, 0.271887, 0.149675, 1)
 layout_mode = 0
 offset_left = 94.0
 offset_top = 12.0
-offset_right = 573.0
+offset_right = 566.0
 offset_bottom = 64.0
 mouse_filter = 1
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "Name of the Race"
 
 [node name="length" type="RichTextLabel" parent="Button"]
 layout_mode = 0
-offset_left = 108.0
-offset_top = 51.0
-offset_right = 242.0
-offset_bottom = 91.0
+offset_left = 105.0
+offset_top = 55.0
+offset_right = 239.0
+offset_bottom = 95.0
 theme_override_colors/default_color = Color(0.65834, 0.65834, 0.65834, 1)
 text = "1000m"
 
 [node name="purse" type="RichTextLabel" parent="Button"]
 layout_mode = 0
-offset_left = 252.0
-offset_top = 51.0
-offset_right = 392.0
-offset_bottom = 91.0
+offset_left = 253.0
+offset_top = 58.0
+offset_right = 393.0
+offset_bottom = 98.0
 theme_override_colors/default_color = Color(0.658824, 0.658824, 0.658824, 1)
 text = "$100"
 
 [node name="crown" type="TextureRect" parent="Button"]
+visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 15.0
-offset_top = 19.0
-offset_right = 88.0
-offset_bottom = 86.0
-texture = SubResource("AtlasTexture_nrtwg")
+offset_left = -6.0
+offset_top = 20.0
+offset_right = 104.0
+offset_bottom = 116.0
+texture = ExtResource("3_rvwav")
+expand_mode = 1
 
 [node name="horse" type="RichTextLabel" parent="Button"]
 visible = false

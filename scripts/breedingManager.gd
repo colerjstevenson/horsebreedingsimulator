@@ -5,6 +5,7 @@ var Horse = preload("res://scenes/entities/horse.tscn")
 var breeder_state
 var womb
 var mother
+var weeks_left
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +14,7 @@ func _ready() -> void:
 	womb = null #Horse.instantiate()
 	#womb.setup()
 	mother = null
+	weeks_left = 0
 
 
 func update_breeder():
@@ -58,7 +60,8 @@ func sell():
 		
 
 
-func loadBreeder(womb):
+func loadBreeder(womb, wl):
+	weeks_left = wl
 	if womb:
 		womb = HorseManager.from_dict(womb)
 		for horse in HorseManager.horses:

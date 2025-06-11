@@ -48,14 +48,15 @@ func setup(_week, _player=null):
 	
 	#add player horse to the scene
 	if _player:
-		print("WOOO")
 		var player = rh_obj.instantiate()
 		player.setup(_player, 5)
+		player.print()
 		player.set_pos(320, 660) # TODO: fix hard coding
 		player.stand()
 		add_child(player)
 		horses.append(player)
 		skip = false
+		
 	else:
 		create_horse(5)
 		skip = true
@@ -126,7 +127,7 @@ func create_horse(pos):
 
 
 func _plus_pressed(number):
-	if Casino.horse[number] < 9900:
+	if Casino.horse[number] < 9900 and Casino.horse.reduce(func(a, b): return a + b) < Season.money:
 		Casino.horse[number] += 100
 
 

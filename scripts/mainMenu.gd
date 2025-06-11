@@ -34,6 +34,12 @@ func _setup():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	call_deferred("_setup")
+	
+	if not EventManager.flags["tired"]:
+		for h in HorseManager.horses:
+			if h.stats["vitality"] < 50:
+				var msg = h.horse_name + " is looking tired... Consider letting them rest this week"
+				EventManager.pop_up("tired", msg)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
