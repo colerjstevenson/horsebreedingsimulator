@@ -210,7 +210,15 @@ func get_horse_name() -> String:
 
 func apply_training():
 	if training:
-		stats[training] += 5
+		var amount
+		if stats["vitality"] < 50:
+			amount = 1
+		elif age == 0:
+			amount = 8
+		else:
+			amount = 5
+		
+		stats[training] += amount
 		fatigue("TRAIN")
 		training = null
 

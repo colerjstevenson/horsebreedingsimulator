@@ -18,7 +18,7 @@
 			"wins": []
 		},
 		{
-			"age": 1,
+			"age": 3,
 			"color": "black",
 			"horse_name": "Queen of Lightning",
 			"pregnant": false,
@@ -33,7 +33,7 @@
 			"wins": []
 		},
 		{
-			"age": 1,
+			"age": 3,
 			"color": "blonde",
 			"horse_name": "Up To Speed",
 			"pregnant": false,
@@ -126,6 +126,7 @@
 	],
 	"season": 1,
 	"stalls": 3,
+	"tutorial": true,
 	"week": 1,
 	"weeks_left": 0,
 	"womb": null

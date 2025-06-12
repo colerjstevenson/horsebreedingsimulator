@@ -29,12 +29,12 @@ func show_current_line():
 	await print_msg(event.convo[curr])
 	await Game.pause(text_speed+1)
 	$Scene/Person.play("idle1_" + str(event.character))
-	$NextButton.disabled = false
+	$message/NextButton.disabled = false
 
 
 func next():
 	curr += 1
-	$NextButton.disabled = true
+	$message/NextButton.disabled = true
 	if curr == len(event.convo):
 		end_scene()
 	else:

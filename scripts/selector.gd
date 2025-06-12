@@ -8,9 +8,11 @@ var type
 
 func selector(horse: Horse):
 	if type == 'Male':
-		return horse.sex == 'Male'
+		return horse.sex == 'Male' and horse.age != 0
 	elif type == 'Female':
-		return horse.sex == 'Female'
+		return horse.sex == 'Female' and horse.age != 0
+	elif type == "race":
+		return not horse.pregnant and not horse.training and horse.age != 0
 	else:
 		return not horse.pregnant and not horse.training
 	

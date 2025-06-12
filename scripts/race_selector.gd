@@ -49,7 +49,7 @@ func _skip_race():
 	get_tree().current_scene.setup(Season.week-1)
 
 	
-func openSelector(type='all'):
+func openSelector(type='race'):
 	var selector_window =  preload("res://scenes/controls/selector.tscn")
 	var window = selector_window.instantiate()
 	window.new(type)
@@ -57,4 +57,4 @@ func openSelector(type='all'):
 	scene.add_child(window)
 	
 func _on_pressed():
-	openSelector('All')
+	openSelector('race')
