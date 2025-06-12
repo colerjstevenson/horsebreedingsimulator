@@ -3,6 +3,14 @@ var flags = {
 	"tired": false
 }
 
+
+var events_file = "res://lists/RandomEvent.json"
+
+@onready var events = Saves.load_dict(events_file)
+
+
+
+
 func run_intro():
 	Settings.tutorial = false
 	var convo = [

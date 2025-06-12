@@ -12,7 +12,7 @@
 				"acceleration": 85,
 				"fertility": 85,
 				"speed": 85,
-				"stamina": 30,
+				"stamina": 40,
 				"vitality": 100
 			},
 			"wins": []
@@ -24,11 +24,11 @@
 			"pregnant": false,
 			"sex": "Female",
 			"stats": {
-				"acceleration": 25.682575213527,
+				"acceleration": 30.682575213527,
 				"fertility": 90,
-				"speed": 55,
+				"speed": 75,
 				"stamina": 19.9069312700781,
-				"vitality": 100.0
+				"vitality": 100
 			},
 			"wins": []
 		},
@@ -39,7 +39,7 @@
 			"pregnant": false,
 			"sex": "Female",
 			"stats": {
-				"acceleration": 60,
+				"acceleration": 75,
 				"fertility": 95,
 				"speed": 30,
 				"stamina": 45,
@@ -126,7 +126,6 @@
 	],
 	"season": 1,
 	"stalls": 3,
-	"tutorial": true,
 	"week": 1,
 	"weeks_left": 0,
 	"womb": null

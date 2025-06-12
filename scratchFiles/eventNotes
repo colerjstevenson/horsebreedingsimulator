@@ -1,0 +1,34 @@
+- gift horse
+- Steroids
+- buy horse
+- 
+
+
+Example Horse:
+{
+    "age": 1,
+    "color": "black",
+    "horse_name": "Queen of Lightning",
+    "pregnant": false,
+    "sex": "Female",
+    "stats": {
+        "acceleration": 30.6,
+        "fertility": 90.0,
+        "speed": 55.0,
+        "stamina": 19.9,
+        "vitality": 59
+    },
+    "wins": []
+}
+
+leaving out any part will make it random
+
+
+
+Effects:
+- get_horse: get a horse (takes Horse as variable)
+- take_horse: take a horse from you (requires {player_horse} variable)
+- get_money: get money
+- take_money: take money from you
+- get_$STAT: raise the stat of a horse, 
+- take_$STAT:

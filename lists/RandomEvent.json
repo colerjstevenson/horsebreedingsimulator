@@ -1,0 +1,22 @@
+//////Types
+
+
+
+[
+  {
+    "character": 1,
+    "intro": "Psst, hey kid, {player_horse} is looking a little weak. I've got something to juice them up!",
+    "question": "Will you accept",
+    "cost": 500,
+    "yes": {
+      "effect": "gain_health",
+      "amount": 10,
+      "message": "You feel invigorated!"
+    },
+    "no": {
+      "effect": "lose_money",
+      "amount": 5,
+      "message": "The merchant leaves in a huff, demanding a tip."
+    }
+  }
+]

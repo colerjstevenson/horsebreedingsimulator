@@ -65,10 +65,10 @@ flat = true
 [node name="Buy" type="TextureButton" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 101.0
-offset_top = 515.0
-offset_right = 247.0
-offset_bottom = 574.0
+offset_left = 100.0
+offset_top = 179.0
+offset_right = 246.0
+offset_bottom = 238.0
 texture_normal = SubResource("AtlasTexture_svrkm")
 stretch_mode = 0
 

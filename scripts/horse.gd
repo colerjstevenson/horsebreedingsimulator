@@ -32,7 +32,7 @@ var color: String
 
 func _init():
 	randomize()
-	sex = "Female" if randf_range(0,100) > 50 else "Male"
+	sex = "Female" if randf_range(0,100) > 49 else "Male"
 	position = Vector2(randf_range(100, 600), randf_range(100, 700))
 	wins = []
 	pregnant = false
@@ -95,7 +95,7 @@ func breed(mother: Horse, father: Horse):
 	if mother.fireBlanks() or father.fireBlanks():
 		return null
 	
-	merge_genes(father, mother)
+	merge_genes(father.stats, mother.stats)
 		
 	age = 0
 	stats["vitality"] = 100
@@ -110,25 +110,21 @@ func breed(mother: Horse, father: Horse):
 	
 
 
-func merge_genes(parent_a, parent_b):
-	var mutation_strength = 5
-	var mutation_rate = 0.1
+func merge_genes(a, b):
+	var mutation_rate = 0.15
 	
 	var traits = ["speed", "acceleration", "stamina", "fertility"]
 	for i in traits:
 		var gene = 0
-		var rand_val = randf()
-		if rand_val < 0.45:
-			gene = parent_a.stats[i]
-		elif rand_val < 0.9:
-			gene = parent_b.stats[i]
-		else:
-			# Mutation: random value between 1 and 100
-			gene = randi_range(1, 100)
-		# Optional: small mutation to introduce variation
+		var max = max(a[i], b[i])
+		var min = min(a[i], b[i])
+		gene = randf_range(min, max)
+		
+		var f = (a["fertility"] + b["fertility"])/100
+
 		if randf() < mutation_rate:
-			gene += randi_range(-mutation_strength, mutation_strength)
-		# Clamp gene to valid range
+			gene *= f
+
 		gene = clamp(gene, 1, 100)
 		stats[i] = gene
 	
@@ -138,7 +134,15 @@ func merge_genes(parent_a, parent_b):
 
 #used to determine sucessful breeding
 func fireBlanks():
-	return false#randf_range(0, 100) > stats["fertility"]
+	var blank
+	if Settings.difficulty == "EASY":
+		blank = randf_range(0, 100) > stats["fertility"]+40
+	elif Settings.difficulty == "NORMAL":
+		blank = randf_range(0, 100) > stats["fertility"]+20
+	else:
+		blank = randf_range(0, 100) > stats["fertility"]
+	
+	return Season.season != 1 and blank
 
 
 

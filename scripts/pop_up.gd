@@ -8,6 +8,7 @@ func setup(_type, message):
 
 
 
+
 func _close_window():
 	EventManager.flags[type] = true
 	var parent = $Panel.get_parent()

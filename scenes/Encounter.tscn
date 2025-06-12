@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bjp2ker3lj1xu"]
+[gd_scene load_steps=38 format=3 uid="uid://bjp2ker3lj1xu"]
 
 [ext_resource type="Texture2D" uid="uid://b45r4n2m06nio" path="res://art/race/training.png" id="1_2siry"]
 [ext_resource type="Script" uid="uid://vmoh26tqhsih" path="res://scripts/encounter.gd" id="1_h0wht"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="8_ss2td"]
 [ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="8_x5dqr"]
 [ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="9_x5dqr"]
+[ext_resource type="Texture2D" uid="uid://baw4rswmt11ko" path="res://art/UI/Pixel UI/Colors/Green/green_spritesheet.png" id="11_j57ai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j57ai"]
 atlas = ExtResource("4_hov8j")
@@ -189,6 +190,10 @@ load_path = "res://.godot/imported/red_spritesheet.png-08c151e6b98570117f817cb05
 atlas = SubResource("CompressedTexture2D_sugp2")
 region = Rect2(0, 97.9751, 70.1449, 15.9079)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_74w85"]
+atlas = ExtResource("11_j57ai")
+region = Rect2(0.0798798, -0.596809, 70.5046, 19.2449)
+
 [node name="Control" type="Control"]
 texture_filter = 1
 layout_mode = 3
@@ -240,7 +245,61 @@ offset_bottom = 248.0
 theme = ExtResource("8_x5dqr")
 bbcode_enabled = true
 
-[node name="NextButton" type="TextureButton" parent="."]
+[node name="choice" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="No" type="TextureButton" parent="choice"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 1106.0
+offset_right = 344.0
+offset_bottom = 1195.0
+texture_normal = SubResource("AtlasTexture_ywtn4")
+texture_disabled = SubResource("AtlasTexture_u717m")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="choice/No"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 15.0
+offset_right = 351.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme = ExtResource("9_x5dqr")
+theme_override_font_sizes/normal_font_size = 31
+text = "No"
+
+[node name="Yes" type="TextureButton" parent="choice"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 1108.0
+offset_right = 693.0
+offset_bottom = 1197.0
+texture_normal = SubResource("AtlasTexture_74w85")
+texture_disabled = SubResource("AtlasTexture_u717m")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="choice/Yes"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 15.0
+offset_right = 357.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme = ExtResource("9_x5dqr")
+theme_override_font_sizes/normal_font_size = 31
+text = "Yes"
+
+[node name="message" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NextButton" type="TextureButton" parent="message"]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 1097.0
 offset_right = 548.0
@@ -249,7 +308,7 @@ texture_normal = SubResource("AtlasTexture_ywtn4")
 texture_disabled = SubResource("AtlasTexture_u717m")
 stretch_mode = 0
 
-[node name="text" type="RichTextLabel" parent="NextButton"]
+[node name="text" type="RichTextLabel" parent="message/NextButton"]
 layout_mode = 0
 offset_left = 107.0
 offset_top = 15.0
@@ -260,4 +319,6 @@ theme = ExtResource("9_x5dqr")
 theme_override_font_sizes/normal_font_size = 31
 text = "Continue"
 
-[connection signal="pressed" from="NextButton" to="." method="_next_pressed"]
+[connection signal="pressed" from="choice/No" to="." method="_next_pressed"]
+[connection signal="pressed" from="choice/Yes" to="." method="_next_pressed"]
+[connection signal="pressed" from="message/NextButton" to="." method="_next_pressed"]
