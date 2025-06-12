@@ -18,7 +18,7 @@ func _ready():
 
 func show_current_line():
 	await print_msg(event.convo[curr])
-	await Game.pause(text_speed)
+	await Game.pause(text_speed+1)
 	$Scene/Person.play("idle1_" + str(event.character))
 	$NextButton.disabled = false
 

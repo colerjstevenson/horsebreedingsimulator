@@ -14,16 +14,20 @@ func setup(_race: Season.Race):
 	$Button/crown.visible = race.crown
 	
 	if race.horse:
-		$Button.theme
-		$Button/horse.text = race.horse.horse_name
-		$Button/horse.visible = true
-		$Button.color = Color("542a11")
+		if race.horse == "skip":
+			$Button/horse.text = "Race Skipped"
+			$Button/horse.visible = true
+			$Button.color = Color("542a11")
+		else:
+			$Button/horse.text = race.horse.horse_name
+			$Button/horse.visible = true
+			$Button.color = Color("542a11")
 		
 		if race.result == 'W':
 			$Button/win.visible = true
-		else:
+		elif race.result == 'L':
 			$Button/loss.visible = true
-	
+		
 	
 	
 # Called when the node enters the scene tree for the first time.

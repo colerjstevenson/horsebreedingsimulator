@@ -102,13 +102,16 @@ func progressTime():
 	HorseManager.refresh_store()
 	BreedingManager.update_breeder()
 	for h in HorseManager.horses:
-		if not h.training and h != races[week-2].horse:
+		if not h.training and (races[week-2].horse is String or h != races[week-2].horse):
 			h.recovery()
 		h.apply_training()
 	
 func from_dict(dict):
 	var race = Race.new(dict["week"], dict["race_name"], dict["length"], dict["purse"], dict["crown"])
-	race.horse = HorseManager.from_dict(dict["horse"])
+	if dict["horse"] is Dictionary:
+		race.horse = HorseManager.from_dict(dict["horse"])
+	else:
+		race.horse = dict["horse"]
 	race.result = dict["result"]
 	
 	return race
@@ -139,7 +142,7 @@ class Race:
 			"result": result,
 			"week": week,
 		}
-		if horse:
+		if horse is Horse:
 			dict["horse"] = horse.to_dict()
 		else:
 			dict["horse"] = horse

@@ -100,6 +100,10 @@ func breed(mother: Horse, father: Horse):
 	age = 0
 	stats["vitality"] = 100
 	horse_name = get_horse_name()
+	if mother.stats["fertility"] > father.stats["fertility"]:
+		color = mother.color
+	else:
+		color = father.color
 	
 	return self
 	

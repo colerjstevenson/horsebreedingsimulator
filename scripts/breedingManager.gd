@@ -1,6 +1,7 @@
 extends Node
 
 var Horse = preload("res://scenes/entities/horse.tscn")
+var gestation = 4
 
 var breeder_state
 var womb
@@ -60,11 +61,14 @@ func sell():
 		
 
 
-func loadBreeder(womb, wl):
+func loadBreeder(_womb, wl):
 	weeks_left = wl
-	if womb:
-		womb = HorseManager.from_dict(womb)
+	if _womb:
+		womb = HorseManager.from_dict(_womb)
 		for horse in HorseManager.horses:
 			if horse.pregnant:
 				mother = horse
+	else:
+		womb = null
+		mother = null
 	

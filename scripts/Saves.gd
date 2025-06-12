@@ -34,7 +34,7 @@ func load_game():
 	
 	#Breeding Data
 	BreedingManager.breeder_state = dict["breeder_state"]
-	BreedingManager.loadBreeder(dict["womb"], dict["weeks_left"])
+	BreedingManager.loadBreeder(dict["womb"], int(dict["weeks_left"]))
 
 
 func load_dict(path: String):

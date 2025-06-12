@@ -157,9 +157,12 @@ func finish_race():
 		Season.progressTime()
 		get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
 	else:
-		Season.races[week].result = "L"
 		
-		if not skip:
+		if skip:
+			Season.races[week].result = "DNF"
+			Season.races[week].horse = "skip"
+		
+		else:
 			Season.raceResult = horses[-1].standing
 			horses[-1].horse.fatigue()
 		

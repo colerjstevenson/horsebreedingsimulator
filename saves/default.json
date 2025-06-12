@@ -12,7 +12,7 @@
 				"acceleration": 85,
 				"fertility": 85,
 				"speed": 85,
-				"stamina": 40,
+				"stamina": 30,
 				"vitality": 100
 			},
 			"wins": []
@@ -24,11 +24,11 @@
 			"pregnant": false,
 			"sex": "Female",
 			"stats": {
-				"acceleration": 30.682575213527,
+				"acceleration": 25.682575213527,
 				"fertility": 90,
-				"speed": 75,
+				"speed": 55,
 				"stamina": 19.9069312700781,
-				"vitality": 100
+				"vitality": 100.0
 			},
 			"wins": []
 		},
@@ -39,7 +39,7 @@
 			"pregnant": false,
 			"sex": "Female",
 			"stats": {
-				"acceleration": 75,
+				"acceleration": 60,
 				"fertility": 95,
 				"speed": 30,
 				"stamina": 45,

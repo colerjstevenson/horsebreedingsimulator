@@ -26,11 +26,11 @@ func _ready() -> void:
 		$Breeding/NewHorseScreen.visible = true
 		$Breeding/NewHorseScreen/TextEdit.text = BreedingManager.womb.horse_name
 		$Breeding/NewHorseScreen/horseImg.play(BreedingManager.womb.color + "_left_standing")
-		$Breeding/NewHorseScreen/text.text = BreedingManager.mother.horse_name + " gave birth!"
+		$Breeding/NewHorseScreen/text.text = "[center]" + BreedingManager.mother.horse_name + " gave birth!"
 		
 		if HorseManager.stalls == len(HorseManager.horses):
 			$Breeding/NewHorseScreen/KeepButton.disabled = true
-			$Breeding/NewHorseScreen/SellButton/warning.visible = true
+			$Breeding/NewHorseScreen/KeepButton/warning.visible = true
 		
 			
 
@@ -116,7 +116,7 @@ func _breed_pressed():
 	femaleHorse.pregnant = true
 	BreedingManager.mother = femaleHorse
 	$Breeding/BreedingScreen.visible = true
-	BreedingManager.weeks_left = 4
+	BreedingManager.weeks_left = BreedingManager.gestation
 	
 
 func _random_pressed():
@@ -127,6 +127,7 @@ func _close_messgae():
 	$Breeding/FailedScreen.visible = false
 	
 func _keep_pressed():
+	BreedingManager.womb.horse_name = $Breeding/NewHorseScreen/TextEdit.text
 	BreedingManager.keep()
 	get_tree().change_scene_to_file("res://scenes/mainMenu.tscn")
 	
