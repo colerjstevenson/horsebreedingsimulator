@@ -196,9 +196,9 @@ stretch_mode = 0
 
 [node name="text" type="RichTextLabel" parent="startButton"]
 layout_mode = 0
-offset_left = 84.0
+offset_left = 108.0
 offset_top = 18.0
-offset_right = 318.0
+offset_right = 342.0
 offset_bottom = 60.0
 mouse_filter = 2
 theme = ExtResource("1_u8hmt")

@@ -100,7 +100,24 @@ func print():
 
 	
 func stand():
-	$AnimatedSprite2D.play(horse.color + "_right_standing")
-	
+	if horse.age == 0:
+		$HorseAnim.visible = false
+		$FoleAnim.visible = true
+	else:
+		$HorseAnim.visible = true
+		$FoleAnim.visible = false
+
+	$HorseAnim.play(horse.color + "_right_standing")
+	$FoleAnim.play(horse.color + "_right_standing")
+
+
 func run():
-	$AnimatedSprite2D.play(horse.color + "_right_running")
+	if horse.age == 0:
+		$HorseAnim.visible = false
+		$FoleAnim.visible = true
+	else:
+		$HorseAnim.visible = true
+		$FoleAnim.visible = false
+		
+	$HorseAnim.play(horse.color + "_right_running")
+	$FoleAnim.play(horse.color + "_right_running")

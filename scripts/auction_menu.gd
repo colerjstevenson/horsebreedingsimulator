@@ -22,6 +22,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if horse:
 		$Sell/StartButton.disabled = false
+		$Sell/value.text = "[center]Strarting Price: $" + str(HorseManager.calc_horse_price(horse))
 	else:
 		$Sell/StartButton.disabled = true
 	
@@ -50,6 +51,11 @@ func _on_selector_pressed():
 	openSelector('All')
 	
 func _on_start_pressed():
+	var msg = "Are you Sure you want to sell this horse?"
+	if not await EventManager.check_in(msg):
+		return
+	
+	
 	var scene = load("res://scenes/auction.tscn")
 	var inst = scene.instantiate()
 	
@@ -62,4 +68,5 @@ func _on_start_pressed():
 func set_horse(horse_ : Horse):
 	horse = horse_
 	$Sell/chooseHorse/horseName.text = "[center]" + horse_.horse_name + "[center]"
+	
 	

@@ -107,6 +107,16 @@ theme = ExtResource("3_82xcy")
 bbcode_enabled = true
 text = "[center]Pick Horse[center]"
 
+[node name="value" type="RichTextLabel" parent="Sell"]
+offset_left = 145.0
+offset_top = 443.0
+offset_right = 572.0
+offset_bottom = 511.0
+mouse_filter = 2
+theme = ExtResource("3_nhffj")
+theme_override_font_sizes/normal_font_size = 31
+bbcode_enabled = true
+
 [node name="BuyButton" type="TextureButton" parent="."]
 texture_filter = 1
 offset_left = 142.0

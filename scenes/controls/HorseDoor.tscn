@@ -29,6 +29,13 @@ scale = Vector2(17.3671, 17.6285)
 sprite_frames = ExtResource("3_72i63")
 animation = &"blonde"
 
+[node name="FoleHead" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(159.81, 296.735)
+scale = Vector2(11.0365, 10.2879)
+sprite_frames = ExtResource("3_72i63")
+animation = &"blonde"
+
 [node name="NameTag" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 49.0

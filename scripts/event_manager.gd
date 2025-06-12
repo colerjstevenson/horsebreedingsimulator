@@ -47,11 +47,23 @@ func from_dict(dict):
 
 
 func pop_up(type, message):
-	var stat_window =  preload("res://scenes/controls/PopUp.tscn")
-	var window = stat_window.instantiate()
-	window.setup(type, message)
+	var pop_window =  preload("res://scenes/controls/PopUp.tscn")
+	var window = pop_window.instantiate()
+	window.setup("tired", message)
 	var scene = get_tree().current_scene
 	scene.add_child(window)
+	
+	
+func check_in(message):
+	var pop_window =  preload("res://scenes/controls/PopUp.tscn")
+	var window = pop_window.instantiate()
+	window.setup("check_in", message)
+	var scene = get_tree().current_scene
+	scene.add_child(window)
+	
+	return await window.outcome
+	
+
 
 
 func reset_flags():

@@ -47,10 +47,19 @@ func _process(delta: float) -> void:
 		for child in $Breeding/breederButtons/Preview/Stats.get_children():
 			child.find_child("Male").visible =  false
 			
-	if not maleHorse or not femaleHorse:
-		$Breeding/breederButtons/BreedButton.disabled = true
-	else:
+	if maleHorse and femaleHorse:
 		$Breeding/breederButtons/BreedButton.disabled = false
+		if maleHorse.is_sibling(femaleHorse):
+			$Breeding/breederButtons/warning.visible = true
+			$Breeding/breederButtons/warning.text = "[center]Warning! These Horses are siblings! Breeding siblings can have bad results!"
+		elif maleHorse.is_child(femaleHorse):
+			$Breeding/breederButtons/warning.visible = true
+			$Breeding/breederButtons/warning.text = "[center]Warning! One of these horses is the parent of the other! Breeding parents with offsprings can have bad results!"
+		else:
+			$Breeding/breederButtons/warning.visible = false
+		
+	else:
+		$Breeding/breederButtons/BreedButton.disabled = true
 		
 	if not maleHorse and not femaleHorse:
 		$Breeding/breederButtons/Preview/Stats.visible = false
@@ -133,6 +142,9 @@ func _keep_pressed():
 	
 
 func _sell_pressed():
+	var msg = "Are you Sure you want to sell this horse?"
+	if not await EventManager.check_in(msg):
+		return
 	BreedingManager.sell()
 	
 func _toggle_pressed(name):

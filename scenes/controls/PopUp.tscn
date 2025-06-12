@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjv7yk64u0tgx"]
+[gd_scene load_steps=13 format=3 uid="uid://cjv7yk64u0tgx"]
 
 [ext_resource type="Script" uid="uid://cr8e8aa4jmafo" path="res://scripts/pop_up.gd" id="1_oo5ta"]
 [ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="2_doss2"]
 [ext_resource type="FontFile" uid="uid://mfdjupiwfar2" path="res://Fonts/PixeloidSans-mLxMm.ttf" id="3_cci1x"]
 [ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="5_cdjfa"]
+[ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="5_l4tvk"]
+[ext_resource type="Texture2D" uid="uid://baw4rswmt11ko" path="res://art/UI/Pixel UI/Colors/Green/green_spritesheet.png" id="6_doss2"]
 
 [sub_resource type="Theme" id="Theme_34pxo"]
 default_font_size = 37
@@ -13,7 +15,23 @@ RichTextLabel/fonts/normal_font = ExtResource("3_cci1x")
 atlas = ExtResource("5_cdjfa")
 region = Rect2(257, 274, 14, 14)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cci1x"]
+atlas = ExtResource("5_l4tvk")
+region = Rect2(0, 0, 70, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sugp2"]
+load_path = "res://.godot/imported/red_spritesheet.png-08c151e6b98570117f817cb055353133.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm8wm"]
+atlas = SubResource("CompressedTexture2D_sugp2")
+region = Rect2(0, 97.9751, 70.1449, 15.9079)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdjfa"]
+atlas = ExtResource("6_doss2")
+region = Rect2(0.0798798, -0.596809, 70.5046, 19.2449)
+
 [node name="Stats" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,15 +46,15 @@ layout_mode = 0
 offset_left = 69.0
 offset_top = 447.0
 offset_right = 654.0
-offset_bottom = 767.0
+offset_bottom = 807.0
 theme = ExtResource("2_doss2")
 
 [node name="text" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 57.0
-offset_right = 534.0
-offset_bottom = 286.0
+offset_left = 69.0
+offset_top = 16.0
+offset_right = 539.0
+offset_bottom = 236.0
 theme = SubResource("Theme_34pxo")
 bbcode_enabled = true
 text = "[center]HORSE NAME"
@@ -51,11 +69,61 @@ anchor_left = -0.534
 anchor_top = -0.462
 anchor_right = -0.534
 anchor_bottom = -0.462
-offset_left = 319.39
-offset_top = 157.84
-offset_right = 377.39
-offset_bottom = 216.84
+offset_left = 325.39
+offset_top = 178.32
+offset_right = 383.39
+offset_bottom = 237.32
 texture_normal = SubResource("AtlasTexture_dp3w1")
 stretch_mode = 0
 
+[node name="choice" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="No" type="TextureButton" parent="choice"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 716.0
+offset_right = 298.0
+offset_bottom = 776.0
+texture_normal = SubResource("AtlasTexture_cci1x")
+texture_disabled = SubResource("AtlasTexture_dm8wm")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="choice/No"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 4.0
+offset_right = 113.0
+offset_bottom = 46.0
+mouse_filter = 2
+theme = ExtResource("2_doss2")
+theme_override_font_sizes/normal_font_size = 31
+text = "No"
+
+[node name="Yes" type="TextureButton" parent="choice"]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 713.0
+offset_right = 562.0
+offset_bottom = 776.0
+texture_normal = SubResource("AtlasTexture_cdjfa")
+texture_disabled = SubResource("AtlasTexture_dm8wm")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="choice/Yes"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 5.0
+offset_right = 128.0
+offset_bottom = 47.0
+mouse_filter = 2
+theme = ExtResource("2_doss2")
+theme_override_font_sizes/normal_font_size = 31
+text = "Yes"
+
 [connection signal="pressed" from="Panel/Close" to="." method="_close_window"]
+[connection signal="pressed" from="choice/No" to="." method="_no_pressed"]
+[connection signal="pressed" from="choice/Yes" to="." method="_yes_pressed"]

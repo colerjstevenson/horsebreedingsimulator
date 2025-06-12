@@ -14,11 +14,23 @@ func setup(_type, horse_in=null):
 	type = _type
 	horse = horse_in
 	
+	
+		
+	
+	
 	if type == "HORSE":
+		if horse.age == 0:
+			$Head.visible = false
+			$FoleHead.visible = true
+		else:
+			$Head.visible = true
+			$FoleHead.visible = false
 		$Head.play(horse.color)
+		$FoleHead.play(horse.color)
 		$NameTag/NameTagText.text = "[center]" + horse.horse_name + "[center]"
 	elif type == "EMPTY":
 		$Head.visible = false
+		$FoleHead.visible = false
 		$NameTag/NameTagText.text = "[center] Empty [center]"
 		$Button.disabled = true
 	else:

@@ -4,19 +4,27 @@
 [ext_resource type="SpriteFrames" uid="uid://enjq801e2as6" path="res://animation/race_horse.tres" id="2_bofcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnwsv"]
-size = Vector2(138, 115)
+size = Vector2(167, 126.5)
 
 [node name="horse" type="CharacterBody2D"]
 z_index = -1
 script = ExtResource("1_w6egy")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="HorseAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
 position = Vector2(-1.99998, -54)
 scale = Vector2(4.121, 4.5)
 sprite_frames = ExtResource("2_bofcs")
 animation = &"black_right_running"
 
+[node name="FoleAnim" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(0.5, -10)
+scale = Vector2(2.67187, 2.66667)
+sprite_frames = ExtResource("2_bofcs")
+animation = &"black_right_running"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1)
+position = Vector2(-4.5, -6.75)
 shape = SubResource("RectangleShape2D_wnwsv")

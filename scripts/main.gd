@@ -15,6 +15,12 @@ func _process(delta: float) -> void:
 
 
 func _on_new_pressed():
+	
+	if FileAccess.file_exists(Saves.save_file):
+		var msg = "Are you Sure? Starting a new game will delete your current save file."
+		if not await EventManager.check_in(msg):
+			return
+	
 	var src := FileAccess.open("res://saves/default.json", FileAccess.READ)
 	var dst := FileAccess.open(Saves.save_file, FileAccess.WRITE)
 

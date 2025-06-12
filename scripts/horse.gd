@@ -25,18 +25,26 @@ var wins
 var pregnant: bool
 var training
 
+var id: float
 var horse_name: String
 var sex: String
 var age: int
 var color: String
 
+var mother
+var father
+
 func _init():
 	randomize()
+	id = randf()
 	sex = "Female" if randf_range(0,100) > 49 else "Male"
 	position = Vector2(randf_range(100, 600), randf_range(100, 700))
 	wins = []
 	pregnant = false
 	training = null
+	
+	mother = null
+	father = null
 
 func _ready():
 	screen_width = get_viewport().size.x
@@ -91,20 +99,21 @@ func setup_race():
 
 # returns a new horse bred from the inputs
 # or returns null if breeding failed
-func breed(mother: Horse, father: Horse): 
-	if mother.fireBlanks() or father.fireBlanks():
+func breed(_mother: Horse, _father: Horse): 
+	if _mother.fireBlanks() or _father.fireBlanks():
 		return null
 	
-	merge_genes(father.stats, mother.stats)
+	merge_genes(_father, _mother)
 		
 	age = 0
 	stats["vitality"] = 100
 	horse_name = get_horse_name()
-	if mother.stats["fertility"] > father.stats["fertility"]:
-		color = mother.color
+	mother = _mother.id
+	father = _father.id
+	if _mother.stats["fertility"] > _father.stats["fertility"]:
+		color = _mother.color
 	else:
-		color = father.color
-	
+		color = _father.color
 	return self
 	
 	
@@ -116,14 +125,19 @@ func merge_genes(a, b):
 	var traits = ["speed", "acceleration", "stamina", "fertility"]
 	for i in traits:
 		var gene = 0
-		var max = max(a[i], b[i])
-		var min = min(a[i], b[i])
+		var max = max(a.stats[i], b.stats[i])
+		var min = min(a.stats[i], b.stats[i])
 		gene = randf_range(min, max)
 		
-		var f = (a["fertility"] + b["fertility"])/100
+		var f = (a.stats["fertility"] + b.stats["fertility"])/100
 
 		if randf() < mutation_rate:
 			gene *= f
+			
+		if a.is_sibling(b) or a.is_child(b):
+			gene *= randf_range(0.4, 1.0)
+			if i == "fertility":
+				gene *= 0.5
 
 		gene = clamp(gene, 1, 100)
 		stats[i] = gene
@@ -166,10 +180,18 @@ func set_state(new_state: HorseState):
 
 
 func update_animation(action: String):
+	if age == 0:
+		$HorseAnim.visible = false
+		$FoleAnim.visible = true
+	else:
+		$HorseAnim.visible = true
+		$FoleAnim.visible = false
+
 	var anim_name = color + "_"
 	anim_name += "right_" if velocity.x >= 0 else "left_"
 	anim_name += action
-	$AnimatedSprite2D.play(anim_name)
+	$HorseAnim.play(anim_name)
+	$FoleAnim.play(anim_name)
 
 
 
@@ -255,7 +277,17 @@ func recovery():
 	stats["vitality"] = int(clamp(stats["vitality"]+(base_rec * af), 0, max))
 
 
-
+func is_sibling(horse:Horse):
+	if mother and father:
+		return mother == horse.mother or father == horse.father
+	
+	return false
+	
+func is_child(horse:Horse):
+	var child = (mother and father) and (mother == horse.id or father == horse.id)
+	var parent = (horse.mother and horse.father) and (horse.mother == id or horse.father == id)
+	return parent or child
+		
 
 func to_dict():
 	var dict = {
@@ -265,7 +297,10 @@ func to_dict():
 		"sex": sex,
 		"pregnant": pregnant,
 		"wins": wins,
-		"stats": stats
+		"stats": stats,
+		"mother": mother,
+		"father": father,
+		"id" : id
 	}
 	
 	return dict
@@ -279,3 +314,18 @@ func from_dict(horse):
 	pregnant = horse["pregnant"]
 	wins = horse["wins"]
 	stats = horse["stats"]
+	
+	if "mother" in horse.keys():
+		mother = horse["mother"]
+	else:
+		mother = null
+		
+	if "father" in horse.keys():
+		father = horse["father"]
+	else:
+		father = null
+		
+	if "id" in horse.keys():
+		id = horse["id"]
+	else:
+		id = randf()

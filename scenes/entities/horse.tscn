@@ -5,13 +5,13 @@
 [ext_resource type="Script" uid="uid://dkj6e5lm5yv4x" path="res://scripts/horse_animation.gd" id="5_erqhf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnwsv"]
-size = Vector2(138, 115)
+size = Vector2(134, 115)
 
 [node name="horse" type="CharacterBody2D"]
 z_index = -1
 script = ExtResource("1_uub0x")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="HorseAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
 position = Vector2(-1.99998, -54)
 scale = Vector2(4.121, 4.5)
@@ -19,6 +19,15 @@ sprite_frames = ExtResource("2_0qsxi")
 animation = &"black_right_standing"
 script = ExtResource("5_erqhf")
 
+[node name="FoleAnim" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 3
+position = Vector2(-2, -13.5)
+scale = Vector2(3.03125, 2.8125)
+sprite_frames = ExtResource("2_0qsxi")
+animation = &"red_left_standing"
+script = ExtResource("5_erqhf")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_wnwsv")
