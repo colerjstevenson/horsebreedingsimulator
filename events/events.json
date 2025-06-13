@@ -1,0 +1,26 @@
+[
+  {
+    "intro": "I'm a butler, can I butel you?",
+    "question": "will you let him butle",
+    "choices": {
+      "yes": {
+        "response": "yaaayyyy",
+        "effects": [
+          {
+            "effect": "change_money",
+            "value": -100
+          }
+        ]
+      },
+      "no": {
+        "response": "boooo",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  }
+]
