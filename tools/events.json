@@ -1,0 +1,50 @@
+[
+  {
+    "intro": "asdfeee",
+    "question": "asdf",
+    "choices": {
+      "yes": {
+        "response": "sdf",
+        "effects": [
+          {
+            "effect": "change_money",
+            "value": 12
+          }
+        ]
+      },
+      "no": {
+        "response": "sdfff",
+        "effects": [
+          {
+            "effect": "give_horse",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "intro": "sdf",
+    "question": "sdfa",
+    "choices": {
+      "yes": {
+        "response": "asdf",
+        "effects": [
+          {
+            "effect": "give_horse",
+            "value": "random"
+          }
+        ]
+      },
+      "no": {
+        "response": "asdf",
+        "effects": [
+          {
+            "effect": "give_horse",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  }
+]
