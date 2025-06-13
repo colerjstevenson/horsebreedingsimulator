@@ -44,7 +44,19 @@ jobs:
 
       - name: Create setup.py
         run: |
-          echo "from setuptools import setup\n\nAPP = ['events/eventMaker.py']\nOPTIONS = {\n    'argv_emulation': True,\n    'packages': ['tkinter'],\n}\n\nsetup(\n    app=APP,\n    options={'py2app': OPTIONS},\n    setup_requires=['py2app'],\n)" > setup.py
+          echo "from setuptools import setup" > setup.py
+          echo "" >> setup.py
+          echo "APP = ['events/eventMaker.py']" >> setup.py
+          echo "OPTIONS = {" >> setup.py
+          echo "    'argv_emulation': True," >> setup.py
+          echo "    'packages': ['tkinter']," >> setup.py
+          echo "}" >> setup.py
+          echo "" >> setup.py
+          echo "setup(" >> setup.py
+          echo "    app=APP," >> setup.py
+          echo "    options={'py2app': OPTIONS}," >> setup.py
+          echo "    setup_requires=['py2app']," >> setup.py
+          echo ")" >> setup.py
 
       - name: Build Mac .app
         run: python setup.py py2app
