@@ -20,13 +20,13 @@ jobs:
         run: pip install pyinstaller
 
       - name: Build with PyInstaller
-        run: pyinstaller --onefile --windowed events/eventMaker.py
+        run: pyinstaller --onefile --windowed tools/event_editor/your_script.py
 
       - name: Upload Windows build
         uses: actions/upload-artifact@v4
         with:
           name: windows-exe
-          path: dist/eventMaker.exe
+          path: dist/your_script.exe
 
   build-macos:
     runs-on: macos-latest
@@ -44,20 +44,7 @@ jobs:
 
       - name: Create setup.py
         run: |
-          echo "
-from setuptools import setup
-
-APP = ['events/eventMaker.py']
-OPTIONS = {
-    'argv_emulation': True,
-    'packages': ['tkinter'],
-}
-setup(
-    app=APP,
-    options={'py2app': OPTIONS},
-    setup_requires=['py2app'],
-)
-          " > setup.py
+          echo "from setuptools import setup\n\nAPP = ['tools/event_editor/your_script.py']\nOPTIONS = {\n    'argv_emulation': True,\n    'packages': ['tkinter'],\n}\n\nsetup(\n    app=APP,\n    options={'py2app': OPTIONS},\n    setup_requires=['py2app'],\n)" > setup.py
 
       - name: Build Mac .app
         run: python setup.py py2app
@@ -66,4 +53,4 @@ setup(
         uses: actions/upload-artifact@v4
         with:
           name: macos-app
-          path: dist/EventMaker.app
+          path: dist/your_script.app
