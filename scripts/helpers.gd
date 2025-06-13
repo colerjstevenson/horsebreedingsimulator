@@ -1,5 +1,7 @@
 extends Node
 
+var size: Vector2
+
 func get_greeting():
 	var greetings =[
 		"Hey", "Hi", "Hello", "Yo", "Sup?", "Howdy", "Hiya", "What’s good?", "What’s poppin’?", "G’day",

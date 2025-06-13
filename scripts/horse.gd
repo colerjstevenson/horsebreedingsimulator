@@ -35,6 +35,7 @@ var mother
 var father
 
 func _init():
+	position = get_spot()
 	randomize()
 	id = randf()
 	sex = "Female" if randf_range(0,100) > 49 else "Male"
@@ -46,10 +47,20 @@ func _init():
 	mother = null
 	father = null
 
+
+func get_spot() -> Vector2:
+	var radius = Game.size/2
+	var angle = randf() * TAU  # Random angle in radians
+	var r = sqrt(randf()) * radius  # Uniform distribution within the circle
+	var offset = Vector2(cos(angle), sin(angle)) * r
+	return Vector2(Game.size.x/2, Game.size.y/2) + offset
+
+
 func _ready():
-	screen_width = get_viewport().size.x
-	screen_height = get_viewport().size.y
-	set_state(HorseState.STATE_WALKING)
+	
+	set_state(randi_range(0,2))
+
+
 
 
 #set up for start of game horses
@@ -194,9 +205,23 @@ func update_animation(action: String):
 	$FoleAnim.play(anim_name)
 
 
+func fence(point: Vector2) -> Vector2:
+	var center = Vector2(Game.size.x/2, Game.size.y/2)
+	var radius = Game.size.x/2
+	var to_point = point - center
+	var distance_sq = to_point.length_squared()
+
+	if distance_sq <= radius * radius:
+		return point  # Already inside the circle
+
+	# Move the point to the circle's edge
+	var direction = to_point.normalized()
+	return center + direction * radius
+
 
 func _physics_process(delta: float) -> void:
 	state_timer -= delta
+	z_index = position.y
 	if state_timer <= 0:
 		if current_state == HorseState.STATE_WALKING:
 			set_state(HorseState.STATE_STANDING if random.randf() < 0.5 else HorseState.STATE_EATING)
@@ -205,11 +230,11 @@ func _physics_process(delta: float) -> void:
 
 	if current_state == HorseState.STATE_WALKING:
 		move_and_slide()
-		if position.x < 0 or position.x > screen_width or position.y < 0 or position.y > screen_height:
-			position.x = clamp(position.x, 0, screen_width)
-			position.y = clamp(position.y, 0, screen_height)
-			velocity = -velocity
-			update_animation("walking")
+
+	if position.distance_to(Vector2(Game.size.x/2,Game.size.y/2)) > Game.size.x/2:
+		position = fence(position)
+		velocity = -velocity
+		update_animation("walking")
 			
 
 # return random horse name from list

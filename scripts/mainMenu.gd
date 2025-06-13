@@ -1,5 +1,7 @@
 extends Control
 
+var is_ready = false
+
 @onready var money = $MoneyLabel
 @onready var date = $DateLabel
 
@@ -45,10 +47,12 @@ func _ready() -> void:
 				EventManager.pop_up("tired", msg)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	pass
 
+#func _is_ready():
+	#is_ready = true
 
 
 func _on_button_pressed(button_name):

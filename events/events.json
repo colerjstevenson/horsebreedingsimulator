@@ -22,5 +22,33 @@
         ]
       }
     }
+  },
+  {
+    "intro": "I'm the finest traveling horse salesman around and I have just the horse for you! Just don't check its mouth...",
+    "question": "Would you like to buy the salesman's horse?",
+    "choices": {
+      "yes": {
+        "response": "Pleasure doing business with ya!",
+        "effects": [
+          {
+            "effect": "give_horse",
+            "value": "random"
+          },
+          {
+            "effect": "change_money",
+            "value": -800
+          }
+        ]
+      },
+      "no": {
+        "response": "Suit yourself! It's your loss!",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      }
+    }
   }
 ]

@@ -4,9 +4,8 @@ var flags = {
 }
 
 
-var events_file = "res://lists/RandomEvent.json"
+var events_file = "res://events/events.json"
 
-@onready var events = Saves.load_dict(events_file)
 
 
 
@@ -64,7 +63,18 @@ func check_in(message):
 	return await window.outcome
 	
 
-
+func random_event():
+	var events = Saves.load_dict(events_file)
+	var i = randi_range(0, len(events)-1)
+	var event = events[i]
+	var scene = load("res://scenes/Encounter.tscn")
+	var inst = scene.instantiate()
+	get_tree().get_root().add_child(inst)
+	get_tree().current_scene.queue_free()
+	get_tree().current_scene = inst
+	get_tree().current_scene.random_event(event)
+	
+	
 
 func reset_flags():
 	for key in flags.keys():

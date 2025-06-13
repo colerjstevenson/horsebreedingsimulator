@@ -293,12 +293,12 @@ theme = ExtResource("9_x5dqr")
 theme_override_font_sizes/normal_font_size = 31
 text = "Yes"
 
-[node name="message" type="Control" parent="."]
+[node name="event" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="NextButton" type="TextureButton" parent="message"]
+[node name="NextButton" type="TextureButton" parent="event"]
 layout_mode = 0
 offset_left = 176.0
 offset_top = 1097.0
@@ -308,7 +308,7 @@ texture_normal = SubResource("AtlasTexture_ywtn4")
 texture_disabled = SubResource("AtlasTexture_u717m")
 stretch_mode = 0
 
-[node name="text" type="RichTextLabel" parent="message/NextButton"]
+[node name="text" type="RichTextLabel" parent="event/NextButton"]
 layout_mode = 0
 offset_left = 107.0
 offset_top = 15.0
@@ -319,6 +319,33 @@ theme = ExtResource("9_x5dqr")
 theme_override_font_sizes/normal_font_size = 31
 text = "Continue"
 
-[connection signal="pressed" from="choice/No" to="." method="_next_pressed"]
-[connection signal="pressed" from="choice/Yes" to="." method="_next_pressed"]
-[connection signal="pressed" from="message/NextButton" to="." method="_next_pressed"]
+[node name="message" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ContinueButton" type="TextureButton" parent="message"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 1097.0
+offset_right = 548.0
+offset_bottom = 1197.0
+texture_normal = SubResource("AtlasTexture_ywtn4")
+texture_disabled = SubResource("AtlasTexture_u717m")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="message/ContinueButton"]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 15.0
+offset_right = 341.0
+offset_bottom = 57.0
+mouse_filter = 2
+theme = ExtResource("9_x5dqr")
+theme_override_font_sizes/normal_font_size = 31
+text = "Continue"
+
+[connection signal="pressed" from="choice/No" to="." method="_no"]
+[connection signal="pressed" from="choice/Yes" to="." method="_yes"]
+[connection signal="pressed" from="event/NextButton" to="." method="_next_pressed"]
+[connection signal="pressed" from="message/ContinueButton" to="." method="_continue"]

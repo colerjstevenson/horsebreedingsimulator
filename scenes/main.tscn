@@ -32,14 +32,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wekjc")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="."]
 texture_filter = 1
 layout_mode = 0
 offset_right = 719.0
 offset_bottom = 1287.0
 color = Color(0.105882, 0.156863, 0.270588, 1)
 
-[node name="LoadGame" type="TextureButton" parent="ColorRect"]
+[node name="LoadGame" type="TextureButton" parent="BG"]
 layout_mode = 0
 offset_left = 171.0
 offset_top = 953.0
@@ -49,7 +49,7 @@ texture_normal = SubResource("AtlasTexture_lquwl")
 texture_disabled = SubResource("AtlasTexture_jyhfs")
 stretch_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/LoadGame"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BG/LoadGame"]
 layout_mode = 0
 offset_left = 89.0
 offset_top = 15.0
@@ -60,7 +60,7 @@ theme = ExtResource("5_85g3d")
 theme_override_font_sizes/normal_font_size = 31
 text = "Load Game"
 
-[node name="NewGame" type="TextureButton" parent="ColorRect"]
+[node name="NewGame" type="TextureButton" parent="BG"]
 layout_mode = 0
 offset_left = 173.0
 offset_top = 773.0
@@ -70,7 +70,7 @@ texture_normal = SubResource("AtlasTexture_lquwl")
 texture_disabled = SubResource("AtlasTexture_tbgi4")
 stretch_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/NewGame"]
+[node name="RichTextLabel" type="RichTextLabel" parent="BG/NewGame"]
 layout_mode = 0
 offset_left = 99.0
 offset_top = 16.0
@@ -101,5 +101,5 @@ bbcode_enabled = true
 text = "[center]version 0.1
 WIP: please excuse the bug"
 
-[connection signal="pressed" from="ColorRect/LoadGame" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="ColorRect/NewGame" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="BG/LoadGame" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="BG/NewGame" to="." method="_on_new_pressed"]

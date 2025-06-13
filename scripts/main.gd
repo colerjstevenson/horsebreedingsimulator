@@ -3,6 +3,7 @@ extends Control
 @onready var game = preload("res://scenes/mainMenu.tscn")
 
 func _ready():
+	Game.size = $BG.size
 	if not FileAccess.file_exists(Saves.save_file):
 		$ColorRect/LoadGame.disabled = true
 		

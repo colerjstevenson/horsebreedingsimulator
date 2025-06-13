@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dkj6e5lm5yv4x" path="res://scripts/horse_animation.gd" id="5_erqhf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnwsv"]
-size = Vector2(134, 115)
+size = Vector2(104, 112.5)
 
 [node name="horse" type="CharacterBody2D"]
 z_index = -1
@@ -29,5 +29,6 @@ animation = &"red_left_standing"
 script = ExtResource("5_erqhf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -1)
+position = Vector2(4, -2.25)
 shape = SubResource("RectangleShape2D_wnwsv")
+disabled = true

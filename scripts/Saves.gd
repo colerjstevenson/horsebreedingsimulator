@@ -57,11 +57,14 @@ func load_dict(path: String):
 		push_error("JSON parse error @ %d: %s" % [json.get_error_line(), json.get_error_message()])
 		return {}
 
-	if typeof(json.data) != TYPE_DICTIONARY:
-		push_error("%s did not contain a JSON object." % path)
-		return {}
-
+	#if typeof(json.data) != TYPE_DICTIONARY:
+		#push_error("%s did not contain a JSON object." % path)
+		#return {}
+	#print(json)
+	#print(json.data)
 	return json.data
+	
+	
 
 
 

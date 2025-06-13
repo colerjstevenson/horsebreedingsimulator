@@ -360,6 +360,7 @@ animation = &"black"
 
 [node name="warning" type="RichTextLabel" parent="Breeding/breederButtons"]
 visible = false
+layout_mode = 0
 offset_left = 21.0
 offset_top = 703.0
 offset_right = 654.0
