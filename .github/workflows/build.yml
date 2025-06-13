@@ -61,8 +61,11 @@ jobs:
       - name: Build Mac .app
         run: python setup.py py2app
 
-      - name: Upload macOS build
+      - name: Zip the Mac app
+        run: ditto -c -k --sequesterRsrc --keepParent dist/eventMaker.app eventMaker-mac.zip
+
+      - name: Upload zipped macOS build
         uses: actions/upload-artifact@v4
         with:
           name: macos-app
-          path: dist/eventMaker.app
+          path: eventMaker-mac.zip
