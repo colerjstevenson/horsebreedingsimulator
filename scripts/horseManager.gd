@@ -66,13 +66,13 @@ func calc_horse_price(horse: Horse):
 	var winsFactor = 100
 	
 	var statsTotal = 0
-	statsTotal += 2 * horse.stats['speed']
+	statsTotal += 3 * horse.stats['speed']
 	statsTotal += 2 * horse.stats['acceleration']
-	statsTotal += 2 * horse.stats['stamina']
+	statsTotal += 3 * horse.stats['stamina']
 	statsTotal += horse.stats['fertility']
 	
 	
-	return clamp(int(base + (statsTotal*statFactor) - (horse.age*ageFactor) + (winsFactor*horse.wins.size())), 100, 2000)
+	return clamp(int(base + (statsTotal*statFactor) - ((horse.age-3)*ageFactor) + (winsFactor*horse.wins.size())), 100, 2000)
 
 
  

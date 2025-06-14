@@ -41,6 +41,7 @@ grow_vertical = 2
 script = ExtResource("1_oo5ta")
 
 [node name="Panel" type="Panel" parent="."]
+z_index = 2325
 texture_filter = 1
 layout_mode = 0
 offset_left = 69.0

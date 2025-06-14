@@ -61,6 +61,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TrainerButton" type="TextureButton" parent="Control"]
+z_index = 3835
 texture_filter = 1
 layout_mode = 0
 offset_left = 513.0
@@ -82,6 +83,7 @@ texture = ExtResource("3_tov5d")
 expand_mode = 1
 
 [node name="AuctionButton" type="TextureButton" parent="Control"]
+z_index = 1910
 texture_filter = 1
 layout_mode = 0
 offset_left = 48.0
@@ -103,6 +105,7 @@ texture = ExtResource("4_epn8x")
 expand_mode = 1
 
 [node name="BreederButton" type="TextureButton" parent="Control"]
+z_index = 2410
 texture_filter = 1
 layout_mode = 0
 offset_left = 522.0
@@ -124,6 +127,7 @@ texture = ExtResource("5_vt84v")
 expand_mode = 1
 
 [node name="StableButton" type="TextureButton" parent="Control"]
+z_index = 2085
 texture_filter = 1
 layout_mode = 0
 offset_left = 24.0
@@ -144,6 +148,7 @@ texture = ExtResource("6_lam2r")
 expand_mode = 1
 
 [node name="RaceButton" type="TextureButton" parent="Control"]
+z_index = 4096
 texture_filter = 1
 layout_mode = 0
 offset_left = 38.0
@@ -166,6 +171,7 @@ theme_override_font_sizes/normal_font_size = 31
 text = "Start this weeks race"
 
 [node name="Calender" type="TextureButton" parent="Control"]
+z_index = 1300
 texture_filter = 1
 layout_mode = 0
 offset_left = 579.0
@@ -178,6 +184,7 @@ stretch_mode = 0
 script = SubResource("GDScript_ldpc3")
 
 [node name="SettingsButton" type="TextureButton" parent="Control"]
+z_index = 3665
 texture_filter = 1
 layout_mode = 0
 offset_left = 607.0

@@ -13,11 +13,7 @@ func _ready() -> void:
 func setup(_type, horse_in=null):
 	type = _type
 	horse = horse_in
-	
-	
-		
-	
-	
+
 	if type == "HORSE":
 		if horse.age == 0:
 			$Head.visible = false
@@ -34,7 +30,7 @@ func setup(_type, horse_in=null):
 		$NameTag/NameTagText.text = "[center] Empty [center]"
 		$Button.disabled = true
 	else:
-		price = HorseManager.stalls * 100
+		price = int(pow(2,HorseManager.stalls-1) * 100)
 		$Head.visible = false
 		$NameTag/NameTagText.text = "[center]Purchase New Stables[center]"
 		$Button.disabled = true
@@ -57,7 +53,6 @@ func _on_pressed():
 
 func _buy_pressed():
 	if price <= Season.money:
-		print("WOOOOOOO")
 		HorseManager.stalls += 1
 		var scene = get_tree().current_scene
 		scene.refresh_list()

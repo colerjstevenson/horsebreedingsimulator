@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 func generate_race(i=0):
 	var length = randi_range(400, 1000)
 	var rname = generate_name()
-	var purse = randi_range(500, 2000)
+	var purse = randi_range(100, 600)
 	
 	return Race.new(i, rname, length, purse)
 
