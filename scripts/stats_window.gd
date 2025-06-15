@@ -6,7 +6,7 @@ var horse: Horse
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	Tutorial.tutorial("stats_window")
 	
 func setup(horse_in: Horse):
 	horse = horse_in
@@ -20,13 +20,13 @@ func setup(horse_in: Horse):
 	$Panel/VBoxContainer/Speed/SpeedBar.value = horse.stats['speed']
 	$Panel/VBoxContainer/Stamina/StaminaBar.value = horse.stats['stamina']
 	$Panel/VBoxContainer/Acceleration/AccBar.value = horse.stats['acceleration']
-	$Panel/VBoxContainer/Vitality/VitalityBar.value = horse.stats['vitality']
+	$Panel/VBoxContainer/Vitality/VitalityBar.value = horse.stats["energy"]
 	$Panel/VBoxContainer/Fertility/FertilityBar.value = horse.stats['fertility']
 	
 	$Panel/VBoxContainer/Speed/SpeedBar.tooltip_text = str(int(horse.stats['speed']))
 	$Panel/VBoxContainer/Stamina/StaminaBar.tooltip_text = str(int(horse.stats['stamina']))
 	$Panel/VBoxContainer/Acceleration/AccBar.tooltip_text = str(int(horse.stats['acceleration']))
-	$Panel/VBoxContainer/Vitality/VitalityBar.tooltip_text = str(int(horse.stats['vitality']))
+	$Panel/VBoxContainer/Vitality/VitalityBar.tooltip_text = str(int(horse.stats["energy"]))
 	$Panel/VBoxContainer/Fertility/FertilityBar.tooltip_text = str(int(horse.stats['fertility']))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

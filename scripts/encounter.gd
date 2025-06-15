@@ -8,7 +8,7 @@ signal choice(result: bool)
 var event
 var curr = 0
 
-var text_speed = 2
+
 
 var num_chars = 1
 
@@ -47,14 +47,14 @@ func random_event(_encounter):
 	$choice.visible = true
 	if await choice:
 		$message.visible = true
-		$message/ContinueButton.disabled = false
 		await print_line(encounter["choices"]["yes"]["response"])
+		$message/ContinueButton.disabled = false
 		await cont
 		apply_effects(encounter["choices"]["yes"]["effects"])
 	else:
 		$message.visible = true
-		$message/ContinueButton.disabled = false
 		await print_line(encounter["choices"]["yes"]["response"])
+		$message/ContinueButton.disabled = false
 		await cont
 		apply_effects(encounter["choices"]["yes"]["effects"])
 	
@@ -63,13 +63,13 @@ func random_event(_encounter):
 
 func print_line(msg):
 	await print_msg(msg)
-	await Game.pause(text_speed+1)
+	await Game.pause(Settings.text_speed+1)
 	$Scene/Person.play("idle1_" + character)
 
 
 func show_current_line():
 	await print_msg(event.convo[curr])
-	await Game.pause(text_speed+1)
+	await Game.pause(Settings.text_speed+1)
 	$Scene/Person.play("idle1_" + character)
 	$event/NextButton.disabled = false
 
@@ -92,11 +92,16 @@ func print_msg(msg):
 	$pane/text.visible_ratio = 0
 	$pane/text.text = "[center]" + msg + "[center]"	
 	var tween = create_tween()
-	tween.tween_property($pane/text, "visible_ratio", 1.0, text_speed).from(0.0)
+	tween.tween_property($pane/text, "visible_ratio", 1.0, Settings.text_speed).from(0.0)
 	
 	return true
 
-
+func process_effects(effects):
+	var new_effects
+	for effect in effects:
+		if effect["effect"] == "change_money":
+			pass
+		
 
 func apply_effects(effects):
 	for effect in effects:
@@ -114,16 +119,27 @@ func apply_effects(effects):
 
 
 func change_money(effect):
-	pass
+	Season.money += effect["value"]
+	
+	if Season.money < 0:
+		Season.money = 0
 	
 func change_stat(effect):
-	pass
+	var r = randi_range(0, len(HorseManager.horses)-1)
+	var stats = ["speed", "stamina", "acceleration", "energy", "fertility"]
+	for i in stats:
+		if i in effect["effect"]:
+			HorseManager.horses[r].stats[i] = clamp(HorseManager.horses[r].stats[i] + effect["value"], 0, 100)
 	
 func give_horse(effect):
-	pass
+	if HorseManager.stalls == len(HorseManager.horses):
+		HorseManager.stalls += 1
+	HorseManager.horses.append(HorseManager.new_horse())
 	
 func take_horse(effect):
-	pass
+	if len(HorseManager.horses) > 0:
+		var r = randi_range(0, len(HorseManager.horses)-1)
+		HorseManager.horses.erase(HorseManager.horses[r])
 
 
 

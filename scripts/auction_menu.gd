@@ -5,7 +5,7 @@ var horse
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
-	
+	Tutorial.tutorial("auction_screen")
 	var entry =  preload("res://scenes/controls/store_button.tscn")
 	for h in HorseManager.store:
 		var entry_inst =  entry.instantiate()

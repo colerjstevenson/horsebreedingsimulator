@@ -20,12 +20,15 @@ func _process(delta: float) -> void:
 	pass
 
 
+func new_horse():
+	var horse_instance = Horse.instantiate()
+	horse_instance.setup()
+	return horse_instance
+
 # generate player horse for new game 
 func setup_horses():
 	for i in range(3):
-		var horse_instance = Horse.instantiate()
-		horse_instance.setup()
-		horses.append(horse_instance)
+		horses.append(new_horse())
 	
 	#ensures one of each	
 	if horses[0].sex == horses[1].sex:

@@ -6,6 +6,7 @@ var femaleHorse = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Tutorial.tutorial("breeding_screen")
 	$BG/BreedingButton.disabled = true
 	$BG/RightsButton.disabled = false
 	$Breeding.visible = true

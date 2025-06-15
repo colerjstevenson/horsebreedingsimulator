@@ -25,6 +25,7 @@ Settings="*res://scenes/Utilities/Settings.tscn"
 Tester="*res://scripts/tester.gd"
 Saves="*res://scripts/Saves.gd"
 EventManager="*res://scripts/event_manager.gd"
+Tutorial="*res://scripts/tutorial_manager.gd"
 
 [display]
 

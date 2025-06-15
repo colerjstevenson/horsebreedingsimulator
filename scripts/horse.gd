@@ -68,7 +68,7 @@ func setup():
 	stats["speed"] = randf_range(0, 100)
 	stats["acceleration"] = randf_range(0, 100)
 	stats["stamina"] = randf_range(0, 100)
-	stats["vitality"] = 100
+	stats["energy"] = 100
 	stats["fertility"] = randf_range(50, 100)
 	
 	color = horseColors.pick_random()
@@ -96,7 +96,7 @@ func setup_race():
 	stats["speed"] = randf_range(range[0], range[1])
 	stats["acceleration"] = randf_range(range[0], range[1])
 	stats["stamina"] = randf_range(range[0], range[1])
-	stats["vitality"] = randf_range(range[0]+20, 100)
+	stats["energy"] = randf_range(range[0]+20, 100)
 	stats["fertility"] = 100
 	
 	color = horseColors.pick_random()
@@ -117,7 +117,7 @@ func breed(_mother: Horse, _father: Horse):
 	merge_genes(_father, _mother)
 		
 	age = 0
-	stats["vitality"] = 100
+	stats["energy"] = 100
 	horse_name = get_horse_name()
 	mother = _mother.id
 	father = _father.id
@@ -258,7 +258,7 @@ func get_horse_name() -> String:
 func apply_training():
 	if training:
 		var amount
-		if stats["vitality"] < 50:
+		if stats["energy"] < 50:
 			amount = 1
 		elif age == 0:
 			amount = 8
@@ -289,7 +289,7 @@ func fatigue(type="RACE"):
 		base_loss = lerp(15, 5, s)
 	# Age penalty: low age or old age increases loss
 	var age_penalty = lerp(1.0, 1.5, abs(af - 1.0))
-	stats["vitality"] =  int(clamp(stats["vitality"] - (base_loss*age_penalty), 0, 100))
+	stats["energy"] =  int(clamp(stats["energy"] - (base_loss*age_penalty), 0, 100))
 
 
 func recovery():
@@ -299,7 +299,7 @@ func recovery():
 	var base_rec = lerp(10.0, 25.0, s)
 	# Actual recovery scales with prime age
 	var max = clamp(100 + 20*(4-age), 10, 100)
-	stats["vitality"] = int(clamp(stats["vitality"]+(base_rec * af), 0, max))
+	stats["energy"] = int(clamp(stats["energy"]+(base_rec * af), 0, max))
 
 
 func is_sibling(horse:Horse):
@@ -339,6 +339,9 @@ func from_dict(horse):
 	pregnant = horse["pregnant"]
 	wins = horse["wins"]
 	stats = horse["stats"]
+	
+	if "vitality" in stats.keys():
+		stats["energy"] = stats["vitality"]
 	
 	if "mother" in horse.keys():
 		mother = horse["mother"]

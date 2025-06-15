@@ -50,5 +50,246 @@
         ]
       }
     }
+  },
+  {
+    "intro": "Psst, your horse is looking a little weak. I've got just the thing for that",
+    "question": "Will you accept steroids for one of your horses?",
+    "choices": {
+      "yes": {
+        "response": "Very wise! If you're not cheating you're not trying",
+        "effects": [
+          {
+            "effect": "change_speed",
+            "value": 10
+          },
+          {
+            "effect": "change_stamina",
+            "value": 10
+          },
+          {
+            "effect": "change_acceleration",
+            "value": 10
+          },
+          {
+            "effect": "change_fertility",
+            "value": -30
+          },
+          {
+            "effect": "change_money",
+            "value": -500
+          }
+        ]
+      },
+      "no": {
+        "response": "What's wrong? Not a fan of the juice?",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "intro": "Wow, What a horse! I'll give you a fair price to take it off your hands?",
+    "question": "Would you like to sell one of your horses?",
+    "choices": {
+      "yes": {
+        "response": "Pleasure doing business with ya!",
+        "effects": [
+          {
+            "effect": "take_horse",
+            "value": "random"
+          },
+          {
+            "effect": "change_money",
+            "value": 1000
+          }
+        ]
+      },
+      "no": {
+        "response": "agggghh! Fine! Have it your way!",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "intro": "Oh no! it looks like someone left the barn door open! All the horses got out!",
+    "question": "We don't have much time! Quick, should we check by the river first?",
+    "choices": {
+      "yes": {
+        "response": "They weren't by the river! You found them eventually but it seems like one ran off...",
+        "effects": [
+          {
+            "effect": "take_horse",
+            "value": "random"
+          }
+        ]
+      },
+      "no": {
+        "response": "You checked in the pasture instead and found them all! Thank goodness!",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "intro": "Oh no! it looks like someone left the barn door open! All the horses got out!",
+    "question": "Quick, should we look near the woods first?",
+    "choices": {
+      "yes": {
+        "response": "You found them all! thank goodness!",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      },
+      "no": {
+        "response": "They weren't there... you found them eventually but it looks like one ran off...",
+        "effects": [
+          {
+            "effect": "take_horse",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "intro": "I'm a doctor from the city! I recently found developed a technique to increase your horses fertility! interested?",
+    "question": "Would you like to pay the doctor $1000 to treat your horse?",
+    "choices": {
+      "yes": {
+        "response": "There you go! happy breeding!",
+        "effects": [
+          {
+            "effect": "change_fertility",
+            "value": 20
+          },
+          {
+            "effect": "change_money",
+            "value": -1000
+          }
+        ]
+      },
+      "no": {
+        "response": "Bah! Why would your reject the wonders of modern science??",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "intro": "I've come up with a new training routine, its pretty intense but works well!",
+    "question": "Would you like to have him train one of your horses? It will tire them out and cost $1000",
+    "choices": {
+      "yes": {
+        "response": "No Pain! No Gain! Let's Go!",
+        "effects": [
+          {
+            "effect": "change_money",
+            "value": -1000
+          },
+          {
+            "effect": "change_speed",
+            "value": 20
+          },
+          {
+            "effect": "change_energy",
+            "value": -100
+          }
+        ]
+      },
+      "no": {
+        "response": "Lame! Guess you don't have what it takes to be a winner",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  },
+   {
+    "intro": "I've come up with a new training routine, its pretty intense but works well!",
+    "question": "Would you like to have him train one of your horses? It will tire them out and cost $1000",
+    "choices": {
+      "yes": {
+        "response": "No Pain! No Gain! Let's Go!",
+        "effects": [
+          {
+            "effect": "change_money",
+            "value": -1000
+          },
+          {
+            "effect": "change_acceleration",
+            "value": 20
+          },
+          {
+            "effect": "change_energy",
+            "value": -100
+          }
+        ]
+      },
+      "no": {
+        "response": "Lame! Guess you don't have what it takes to be a winner",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      }
+    }
+  },
+   {
+    "intro": "I've come up with a new training routine, its pretty intense but works well!",
+    "question": "Would you like to have him train one of your horses? It will tire them out and cost $1000",
+    "choices": {
+      "yes": {
+        "response": "No Pain! No Gain! Let's Go!",
+        "effects": [
+          {
+            "effect": "change_money",
+            "value": -1000
+          },
+          {
+            "effect": "change_stamina",
+            "value": 20
+          },
+          {
+            "effect": "change_energy",
+            "value": -100
+          }
+        ]
+      },
+      "no": {
+        "response": "Lame! Guess you don't have what it takes to be a winner",
+        "effects": [
+          {
+            "effect": "nothing",
+            "value": "random"
+          }
+        ]
+      }
+    }
   }
+
 ]

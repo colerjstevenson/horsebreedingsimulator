@@ -13,19 +13,18 @@ func setup(_race: Season.Race):
 	
 	$Button/crown.visible = race.crown
 	
-	if race.horse:
-		if race.horse == "skip":
-			$Button/horse.text = "Race Skipped"
-			$Button/horse.visible = true
-			$Button.color = Color("542a11")
-		else:
-			$Button/horse.text = race.horse.horse_name
-			$Button/horse.visible = true
-			$Button.color = Color("542a11")
+	if race.week < Season.week and not race.horse is Horse:
+		$Button/horse.text = "Race Skipped"
+		$Button/horse.visible = true
+		$Button.color = Color("542a11")
+	elif race.horse is Horse:
+		$Button/horse.text = race.horse.horse_name
+		$Button/horse.visible = true
+		$Button.color = Color("542a11")
 		
 		if race.result == 'W':
 			$Button/win.visible = true
-		elif race.result == 'L':
+		else:
 			$Button/loss.visible = true
 		
 	

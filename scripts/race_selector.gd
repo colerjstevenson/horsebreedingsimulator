@@ -4,6 +4,9 @@ var horse = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Tutorial.tutorial("race_screen")
+	if Season.week > 1:
+		Tutorial.tutorial("skip_race")
 	var week = Season.week-1
 	if Season.season == 1 and Season.week == 1:
 		$SkipButton.visible = false

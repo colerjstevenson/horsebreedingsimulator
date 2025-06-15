@@ -10,7 +10,7 @@ var stats =  ["speed", "acceleration", "stamina"]
 
 
 func _ready() -> void:
-	
+	Tutorial.tutorial("training_screen")
 	stat = 0
 	horse = null
 	$horse.visible = false

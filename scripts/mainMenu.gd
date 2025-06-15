@@ -32,17 +32,16 @@ func _setup():
 		await Game.pause(1)
 		Tester.run_race()
 		
-	if Settings.tutorial:
+	if Settings.openning:
 		EventManager.run_intro()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	call_deferred("_setup")
-	
 	if not EventManager.flags["tired"]:
 		for h in HorseManager.horses:
-			if h.stats["vitality"] < 50:
+			if h.stats["energy"] < 50:
 				var msg = h.horse_name + " is looking tired... Consider letting them rest this week"
 				EventManager.pop_up("tired", msg)
 

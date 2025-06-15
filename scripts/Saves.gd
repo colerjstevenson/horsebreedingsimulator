@@ -17,7 +17,13 @@ func load_game():
 		
 	#Settings
 	Settings.difficulty = dict["difficulty"]
-	Settings.tutorial = dict["tutorial"]
+	if "openning" in dict.keys():
+		Settings.openning = dict["openning"]
+	
+	if "tutorial" in dict.keys():
+		Tutorial.tracker = dict["tutorial"]
+		
+	
 	#Season data
 	Season.season = int(dict["season"])
 	Season.week = int(dict["week"])
@@ -60,8 +66,6 @@ func load_dict(path: String):
 	#if typeof(json.data) != TYPE_DICTIONARY:
 		#push_error("%s did not contain a JSON object." % path)
 		#return {}
-	#print(json)
-	#print(json.data)
 	return json.data
 	
 	
@@ -74,7 +78,8 @@ func make_dict():
 	
 	#Settings
 	dict["difficulty"] = Settings.difficulty
-	dict["tutorial"] = Settings.tutorial
+	dict["openning"] = Settings.openning
+	dict["tutorial"] = Tutorial.tracker
 	
 	#Season data
 	dict["money"] = Season.money

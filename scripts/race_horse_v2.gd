@@ -51,7 +51,7 @@ func get_stats():
 	speed = convert_stat(horse.stats['speed'], 5.0, 17.0)            # m/s
 	accel = convert_stat(horse.stats['acceleration'], 0.2, 1.4)     # m/s²
 	stamina_s = convert_stat(horse.stats['stamina'], 30.0, 120.0)   # seconds
-	energy_boost = convert_stat(horse.stats['vitality'], 0.0, 5.0)    # m/s² additional accel
+	energy_boost = convert_stat(horse.stats["energy"], 0.0, 5.0)    # m/s² additional accel
 
 func get_pos(time: float):
 	

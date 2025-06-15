@@ -4,6 +4,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Tutorial.tutorial("stable_screen")
 	refresh_list()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

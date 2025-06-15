@@ -14,35 +14,34 @@ region = Rect2(223.527, 287.623, 32.8422, 32.8422)
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 25.0
-offset_top = 22.0
-offset_right = 65.0
-offset_bottom = 62.0
+offset_left = -2.0
+offset_right = 38.0
+offset_bottom = 40.0
 script = ExtResource("1_spm78")
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
 layout_mode = 0
-offset_left = -31.0
-offset_top = -22.0
-offset_right = 695.0
-offset_bottom = 1252.0
+offset_left = 2.0
+offset_right = 728.0
+offset_bottom = 1274.0
 color = Color(0.592453, 0.357061, 0.290072, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 290.0
-offset_top = 53.0
-offset_right = 535.0
-offset_bottom = 140.0
+offset_left = 323.0
+offset_top = 75.0
+offset_right = 568.0
+offset_bottom = 162.0
 text = "Stables"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_left = -26.0
-offset_top = 230.0
-offset_right = 431.0
-offset_bottom = 878.0
+offset_left = 7.0
+offset_top = 252.0
+offset_right = 464.0
+offset_bottom = 900.0
 scale = Vector2(1.57868, 1.22501)
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
@@ -56,8 +55,10 @@ theme = SubResource("Theme_ko6e7")
 [node name="TextureButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_right = 94.0
-offset_bottom = 89.0
+offset_left = 33.0
+offset_top = 22.0
+offset_right = 127.0
+offset_bottom = 111.0
 texture_normal = SubResource("AtlasTexture_5ikty")
 stretch_mode = 0
 script = ExtResource("2_gslrm")

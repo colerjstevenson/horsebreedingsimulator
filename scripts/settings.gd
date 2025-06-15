@@ -3,7 +3,8 @@ extends Node
 @onready var music_player: AudioStreamPlayer = AudioStreamPlayer.new()
 
 var difficulty = "NORMAL"
-var tutorial = false
+var openning = false
+var text_speed = 2
 
 func _ready():
 	add_child(music_player)

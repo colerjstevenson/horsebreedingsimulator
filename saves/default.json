@@ -126,7 +126,7 @@
 	],
 	"season": 1,
 	"stalls": 3,
-	"tutorial": true,
+	"openning": true,
 	"week": 1,
 	"weeks_left": 0,
 	"womb": null

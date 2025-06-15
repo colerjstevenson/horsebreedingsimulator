@@ -273,7 +273,7 @@ func save_results() -> void:
 		text += str(h.accel) + ','
 		text += str(h.horse.stats["stamina"]) + ','
 		text += str(h.endur) + ','
-		text += str(h.horse.stats["vitality"]) + '\n'
+		text += str(h.horse.stats["energy"]) + '\n'
 		
 		# Append the text (without newline)
 		#file.store_string(text)
@@ -287,7 +287,7 @@ func save_results() -> void:
 			Tester.accel_r.append(h.accel)
 			Tester.stamina.append(h.horse.stats["stamina"])
 			Tester.stamina_r.append(h.endur)
-			Tester.energy.append(h.horse.stats["vitality"])
+			Tester.energy.append(h.horse.stats["energy"])
 	
 
 	# Close to actually write to disk

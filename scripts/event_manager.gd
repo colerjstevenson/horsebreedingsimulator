@@ -11,7 +11,7 @@ var events_file = "res://events/events.json"
 
 
 func run_intro():
-	Settings.tutorial = false
+	Settings.openning = false
 	var convo = [
 		"Howdy there, You must be the new owner! I'm Charles, I was your great uncle's lawyer and have been put in charge of his estate!",
 		"This must have been a crazy week for you? To learn, not only that you have a long lost rich uncle, but that you've inherited his farm!",

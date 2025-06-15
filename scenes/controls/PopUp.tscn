@@ -78,6 +78,7 @@ texture_normal = SubResource("AtlasTexture_dp3w1")
 stretch_mode = 0
 
 [node name="choice" type="Control" parent="."]
+z_index = 2875
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

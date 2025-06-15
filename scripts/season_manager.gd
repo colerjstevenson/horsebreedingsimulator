@@ -89,7 +89,7 @@ func progressTime():
 		season += 1
 		for h in HorseManager.horses:
 			h.age += 1
-			h.stats["vitality"] = 100
+			h.stats["energy"] = 100
 		refresh_season()
 		
 	if BreedingManager.weeks_left == 1:
