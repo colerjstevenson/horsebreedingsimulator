@@ -30,7 +30,7 @@ func format_text(value):
 func _on_pressed():
 	Season.progressTime()
 	Saves.save_game()
-	if randf() < 0.15:
+	if true:#randf() < 0.15 and Season.week > 2:
 		EventManager.random_event()
 	else:
 		get_tree().change_scene_to_file("res://scenes/mainMenu.tscn") 

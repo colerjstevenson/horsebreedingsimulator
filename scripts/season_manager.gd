@@ -77,12 +77,7 @@ func generate_name():
 
 func progressTime():
 	week += 1
-	auctionEarnings = 0
-	gamblingEarnings = 0
-	raceEarnings = 0
-	breedingEarnings = 0
-	farmSpending = 0
-	raceResult = 0
+	AchievmentManager.check_achievements()
 	
 	if week > season_length:
 		week = 1
@@ -105,6 +100,13 @@ func progressTime():
 		if not h.training and (races[week-2].horse is String or h != races[week-2].horse):
 			h.recovery()
 		h.apply_training()
+	
+	auctionEarnings = 0
+	gamblingEarnings = 0
+	raceEarnings = 0
+	breedingEarnings = 0
+	farmSpending = 0
+	raceResult = 0
 	
 func from_dict(dict):
 	var race = Race.new(dict["week"], dict["race_name"], dict["length"], dict["purse"], dict["crown"])

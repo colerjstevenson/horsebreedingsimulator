@@ -13,7 +13,7 @@ func setup(_race: Season.Race):
 	
 	$Button/crown.visible = race.crown
 	
-	if race.week < Season.week and not race.horse is Horse:
+	if race.week < Season.week-1 and not race.horse is Horse:
 		$Button/horse.text = "Race Skipped"
 		$Button/horse.visible = true
 		$Button.color = Color("542a11")

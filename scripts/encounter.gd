@@ -10,7 +10,7 @@ var curr = 0
 
 
 
-var num_chars = 1
+var num_chars = 5
 
 @onready var character = get_character()
 

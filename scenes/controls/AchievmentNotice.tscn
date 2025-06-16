@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnrprqtd1huha"]
+
+[ext_resource type="Script" uid="uid://gaxj3aytj26m" path="res://scripts/achievment_notice.gd" id="1_5a8qs"]
+[ext_resource type="Texture2D" uid="uid://w5inrv4yxl45" path="res://art/UI/Pixel UI/Panels/Panel_1.png" id="1_pe8qv"]
+[ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="3_3mrra"]
+[ext_resource type="Texture2D" uid="uid://b6gm7yqygrgeg" path="res://art/icons/trophy.png" id="4_0nq5o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a8qs"]
+atlas = ExtResource("1_pe8qv")
+region = Rect2(7.21218, 9.06148, 23.1111, 5.53086)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5a8qs")
+
+[node name="panel" type="TextureRect" parent="."]
+z_index = 4096
+texture_filter = 1
+layout_mode = 0
+offset_left = 11.0
+offset_top = 57.0
+offset_right = 706.0
+offset_bottom = 184.0
+texture = SubResource("AtlasTexture_5a8qs")
+
+[node name="text" type="RichTextLabel" parent="panel"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 13.0
+offset_right = 674.0
+offset_bottom = 118.0
+theme = ExtResource("3_3mrra")
+text = "WEEEEEEEEEE"
+
+[node name="icon" type="TextureRect" parent="panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 15.0
+offset_right = 100.0
+offset_bottom = 101.0
+texture = ExtResource("4_0nq5o")
+expand_mode = 1

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwr1pgmirlvnr"]
+[gd_scene load_steps=11 format=3 uid="uid://dwr1pgmirlvnr"]
 
 [ext_resource type="Script" uid="uid://2kuhov5f3ry0" path="res://scripts/main.gd" id="1_wekjc"]
 [ext_resource type="Texture2D" uid="uid://djh8q30idypag" path="res://art/logo.png" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="4_tipki"]
 [ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="5_85g3d"]
+[ext_resource type="Texture2D" uid="uid://b6gm7yqygrgeg" path="res://art/icons/trophy.png" id="5_tbgi4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
 atlas = ExtResource("4_tipki")
@@ -101,5 +102,16 @@ bbcode_enabled = true
 text = "[center]version 0.1
 WIP: please excuse the bug"
 
+[node name="Achievments" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 19.0
+offset_right = 702.0
+offset_bottom = 110.0
+texture_normal = ExtResource("5_tbgi4")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="pressed" from="BG/LoadGame" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="BG/NewGame" to="." method="_on_new_pressed"]
+[connection signal="pressed" from="Achievments" to="." method="_open_achievments"]

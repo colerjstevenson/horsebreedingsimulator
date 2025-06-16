@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d1idqvxin65u4"]
+[gd_scene load_steps=17 format=3 uid="uid://d1idqvxin65u4"]
 
 [ext_resource type="Script" uid="uid://8mbd13k3q48k" path="res://scripts/mainMenu.gd" id="2_dj72i"]
 [ext_resource type="Texture2D" uid="uid://4fhwaajou2lp" path="res://art/UI/UI_Wood_Flat.png" id="3_6b2wv"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="7_lam2r"]
 [ext_resource type="Theme" uid="uid://dkt0vm3hsq417" path="res://themes/general_text.tres" id="8_amia2"]
 [ext_resource type="Texture2D" uid="uid://djac440jdw8uv" path="res://art/icons/calendar.png" id="9_amia2"]
+[ext_resource type="Texture2D" uid="uid://b6gm7yqygrgeg" path="res://art/icons/trophy.png" id="12_epn8x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtx8o"]
 atlas = ExtResource("3_6b2wv")
@@ -213,6 +214,16 @@ theme = ExtResource("8_amia2")
 bbcode_enabled = true
 text = "[right]Season 0   Week 0"
 
+[node name="Achievments" type="TextureButton" parent="."]
+offset_left = 600.0
+offset_top = 411.0
+offset_right = 692.0
+offset_bottom = 505.0
+texture_normal = ExtResource("12_epn8x")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="ready" from="." to="." method="_setup"]
 [connection signal="tree_entered" from="BG" to="." method="_is_ready"]
 [connection signal="tree_entered" from="Control/SettingsButton" to="." method="setup"]
+[connection signal="pressed" from="Achievments" to="." method="_open_achievments"]

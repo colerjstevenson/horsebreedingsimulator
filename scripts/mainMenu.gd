@@ -39,6 +39,7 @@ func _setup():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	call_deferred("_setup")
+	AchievmentManager.check_achievements()
 	if not EventManager.flags["tired"]:
 		for h in HorseManager.horses:
 			if h.stats["energy"] < 50:
@@ -64,6 +65,9 @@ func _on_button_pressed(button_name):
 		get_tree().change_scene_to_file(scene_path)
 	else:
 		print("No scene path found for button: ", button_name)
+
+func _open_achievments():
+	AchievmentManager.openAchievments()
 
 
 func _on_race_button_pressed() -> void:
