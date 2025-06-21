@@ -161,11 +161,11 @@ func merge_genes(a, b):
 func fireBlanks():
 	var blank
 	if Settings.difficulty == "EASY":
-		blank = randf_range(0, 100) > stats["fertility"]+40
+		blank = randf_range(0, 100) > StaffManager.get_mod("Doctor")*(stats["fertility"]+40)
 	elif Settings.difficulty == "NORMAL":
-		blank = randf_range(0, 100) > stats["fertility"]+20
+		blank = randf_range(0, 100) > StaffManager.get_mod("Doctor")*(stats["fertility"]+20)
 	else:
-		blank = randf_range(0, 100) > stats["fertility"]
+		blank = randf_range(0, 100) > StaffManager.get_mod("Doctor")*stats["fertility"]
 	
 	return Season.season != 1 and blank
 
@@ -257,13 +257,13 @@ func get_horse_name() -> String:
 
 func apply_training():
 	if training:
-		var amount
+		var amount = StaffManager.get_mod("Trainer")
 		if stats["energy"] < 50:
-			amount = 1
+			amount *= 1
 		elif age == 0:
-			amount = 8
+			amount *= 8
 		else:
-			amount = 5
+			amount *= 5
 		
 		stats[training] += amount
 		fatigue("TRAIN")
@@ -299,7 +299,7 @@ func recovery():
 	var base_rec = lerp(10.0, 25.0, s)
 	# Actual recovery scales with prime age
 	var max = clamp(100 + 20*(4-age), 10, 100)
-	stats["energy"] = int(clamp(stats["energy"]+(base_rec * af), 0, max))
+	stats["energy"] = int(clamp(stats["energy"]+(base_rec * af), 0, max)*StaffManager.get_mod("Massuse"))
 
 
 func is_sibling(horse:Horse):

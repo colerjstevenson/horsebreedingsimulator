@@ -14,11 +14,12 @@ var scene_paths = {
 	"TrainerButton": "res://scenes/trainer.tscn",
 	"RaceButton": "res://scenes/raceSelector.tscn",
 	"Calender": "res://scenes/calender.tscn",
-	"SettingsButton": "res://scenes/settingScreen.tscn"
+	"SettingsButton": "res://scenes/settingScreen.tscn",
+	"StaffButton": "res://scenes/Staff.tscn"
 }
 
 func _setup():
-	$MoneyLabel.text = "Money: " + str(Season.money)
+	$MoneyLabel.text = "Money: " + str(int(Season.money))
 	$DateLabel.text = "[right]Season " + str(Season.season) + "   Week " + str(Season.week)
 	for horse in HorseManager.horses:
 		add_child(horse)

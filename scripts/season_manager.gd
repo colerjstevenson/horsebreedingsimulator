@@ -93,14 +93,16 @@ func progressTime():
 	if BreedingManager.weeks_left != 0:
 		BreedingManager.weeks_left -= 1
 		
-		
+	StaffManager.update_staff()
+	
 	HorseManager.refresh_store()
 	BreedingManager.update_breeder()
 	for h in HorseManager.horses:
 		if not h.training and (races[week-2].horse is String or h != races[week-2].horse):
 			h.recovery()
 		h.apply_training()
-	
+	print(StaffManager.states)
+	print(StaffManager.slots)
 	auctionEarnings = 0
 	gamblingEarnings = 0
 	raceEarnings = 0

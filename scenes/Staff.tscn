@@ -1,0 +1,600 @@
+[gd_scene load_steps=20 format=3 uid="uid://danr8ohwglr8f"]
+
+[ext_resource type="Script" uid="uid://datxtstrnpiw6" path="res://scripts/staff.gd" id="1_7r3aw"]
+[ext_resource type="Texture2D" uid="uid://nryt1is5p6vm" path="res://art/UI/UI_Wood_C_Border.png" id="1_nowy4"]
+[ext_resource type="Script" uid="uid://qu13ruvkc63x" path="res://scripts/backButton.gd" id="2_7r3aw"]
+[ext_resource type="Texture2D" uid="uid://d3hseoc3sohsp" path="res://art/UI/Pixel UI/Panels/Tab_1.png" id="3_nkqem"]
+[ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="4_n6qip"]
+[ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="5_gxtmy"]
+[ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="6_17cpi"]
+[ext_resource type="Texture2D" uid="uid://b2o13exe1gjct" path="res://art/icons/doctor.png" id="8_17cpi"]
+[ext_resource type="Texture2D" uid="uid://bdemyk80y34mf" path="res://art/icons/lawyer.png" id="9_oq7ua"]
+[ext_resource type="Texture2D" uid="uid://cb0h1axr8y46b" path="res://art/icons/yoga.png" id="10_hg7yn"]
+[ext_resource type="Texture2D" uid="uid://q6mbwjfkxb4m" path="res://art/icons/trainer.png" id="11_cqpvx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq7ua"]
+atlas = ExtResource("1_nowy4")
+region = Rect2(223.527, 287.623, 32.8422, 32.8422)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg7yn"]
+atlas = ExtResource("3_nkqem")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7r3aw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_17cpi")
+}],
+"loop": true,
+"name": &"Doctor",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oq7ua")
+}],
+"loop": true,
+"name": &"Lawyer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_hg7yn")
+}],
+"loop": true,
+"name": &"Massuse",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_cqpvx")
+}],
+"loop": true,
+"name": &"Trainer",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqpvx"]
+atlas = ExtResource("5_gxtmy")
+region = Rect2(257, 274, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58gv8"]
+atlas = ExtResource("6_17cpi")
+region = Rect2(0, 0, 70, 18)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j57ai"]
+load_path = "res://.godot/imported/red_spritesheet.png-08c151e6b98570117f817cb055353133.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lan4"]
+atlas = SubResource("CompressedTexture2D_j57ai")
+region = Rect2(0, 97.9751, 70.1449, 15.9079)
+
+[sub_resource type="Theme" id="Theme_blpo6"]
+HSlider/constants/center_grabber = 0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7r3aw")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 717.0
+offset_bottom = 1277.0
+color = Color(0.23995, 0.518887, 0.476242, 1)
+
+[node name="BackButton" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 25.0
+offset_top = 22.0
+offset_right = 119.0
+offset_bottom = 111.0
+texture_normal = SubResource("AtlasTexture_oq7ua")
+stretch_mode = 0
+script = ExtResource("2_7r3aw")
+
+[node name="StaffSlot1" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 75.0
+offset_top = 245.0
+offset_right = 655.0
+offset_bottom = 402.0
+texture_normal = SubResource("AtlasTexture_hg7yn")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="StaffSlot1"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 559.0
+offset_bottom = 120.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Start Staff Search"
+
+[node name="name" type="RichTextLabel" parent="StaffSlot1"]
+visible = false
+offset_left = 95.3969
+offset_top = 12.0
+offset_right = 525.397
+offset_bottom = 84.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+text = "Name Namerson"
+
+[node name="info" type="RichTextLabel" parent="StaffSlot1"]
+visible = false
+offset_left = 94.8707
+offset_top = 77.1792
+offset_right = 518.871
+offset_bottom = 149.179
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0.625597, 0.625597, 0.625597, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "Increase Training by 7%"
+
+[node name="wage" type="RichTextLabel" parent="StaffSlot1"]
+visible = false
+offset_left = 448.0
+offset_top = 49.0
+offset_right = 872.0
+offset_bottom = 121.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0, 0.758761, 0.0580108, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "$200/wk"
+
+[node name="logo" type="AnimatedSprite2D" parent="StaffSlot1"]
+visible = false
+position = Vector2(52.1877, 74.8045)
+scale = Vector2(0.215577, 0.210576)
+sprite_frames = SubResource("SpriteFrames_7r3aw")
+animation = &"Trainer"
+
+[node name="StaffSlot2" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 83.0
+offset_top = 546.0
+offset_right = 663.0
+offset_bottom = 703.0
+texture_normal = SubResource("AtlasTexture_hg7yn")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="StaffSlot2"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 559.0
+offset_bottom = 120.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+
+[node name="name" type="RichTextLabel" parent="StaffSlot2"]
+visible = false
+offset_left = 95.3969
+offset_top = 12.0
+offset_right = 525.397
+offset_bottom = 84.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+text = "Name Namerson"
+
+[node name="info" type="RichTextLabel" parent="StaffSlot2"]
+visible = false
+offset_left = 94.8707
+offset_top = 77.1792
+offset_right = 518.871
+offset_bottom = 149.179
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0.625597, 0.625597, 0.625597, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "Increase Training by 7%"
+
+[node name="wage" type="RichTextLabel" parent="StaffSlot2"]
+visible = false
+offset_left = 448.0
+offset_top = 49.0
+offset_right = 872.0
+offset_bottom = 121.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0, 0.758761, 0.0580108, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "$200/wk"
+
+[node name="logo" type="AnimatedSprite2D" parent="StaffSlot2"]
+visible = false
+position = Vector2(52.1877, 74.8045)
+scale = Vector2(0.215577, 0.210576)
+sprite_frames = SubResource("SpriteFrames_7r3aw")
+animation = &"Trainer"
+
+[node name="StaffSlot3" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 80.0
+offset_top = 854.0
+offset_right = 660.0
+offset_bottom = 1011.0
+texture_normal = SubResource("AtlasTexture_hg7yn")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="StaffSlot3"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 48.0
+offset_right = 471.0
+offset_bottom = 120.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+
+[node name="name" type="RichTextLabel" parent="StaffSlot3"]
+visible = false
+offset_left = 95.3969
+offset_top = 12.0
+offset_right = 525.397
+offset_bottom = 84.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+text = "Name Namerson"
+
+[node name="info" type="RichTextLabel" parent="StaffSlot3"]
+visible = false
+offset_left = 94.8707
+offset_top = 77.1792
+offset_right = 518.871
+offset_bottom = 149.179
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0.625597, 0.625597, 0.625597, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "Increase Training by 7%"
+
+[node name="wage" type="RichTextLabel" parent="StaffSlot3"]
+visible = false
+offset_left = 448.0
+offset_top = 49.0
+offset_right = 872.0
+offset_bottom = 121.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0, 0.758761, 0.0580108, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "$200/wk"
+
+[node name="logo" type="AnimatedSprite2D" parent="StaffSlot3"]
+visible = false
+position = Vector2(52.1877, 74.8045)
+scale = Vector2(0.215577, 0.210576)
+sprite_frames = SubResource("SpriteFrames_7r3aw")
+animation = &"Trainer"
+
+[node name="Setup" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_top = 262.0
+offset_right = 666.0
+offset_bottom = 985.0
+color = Color(0.166334, 0.384206, 0.35117, 1)
+
+[node name="Close" type="TextureButton" parent="Setup"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 92.0
+offset_bottom = 104.0
+texture_normal = SubResource("AtlasTexture_cqpvx")
+stretch_mode = 0
+
+[node name="ContinueButton" type="TextureButton" parent="Setup"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 606.0
+offset_right = 456.0
+offset_bottom = 691.0
+texture_normal = SubResource("AtlasTexture_58gv8")
+texture_disabled = SubResource("AtlasTexture_7lan4")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="Setup/ContinueButton"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 6.0
+offset_right = 311.0
+offset_bottom = 48.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 31
+text = "Continue"
+
+[node name="BudgetSlider" type="HSlider" parent="Setup"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 219.0
+offset_right = 526.0
+offset_bottom = 282.0
+theme = SubResource("Theme_blpo6")
+min_value = 100.0
+max_value = 1000.0
+step = 50.0
+value = 100.0
+rounded = true
+
+[node name="Budget" type="ColorRect" parent="Setup"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 129.0
+offset_right = 393.0
+offset_bottom = 213.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="RichTextLabel" parent="Setup/Budget"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 181.0
+offset_bottom = 77.0
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 46
+text = "$1000"
+
+[node name="BudgetLabel" type="RichTextLabel" parent="Setup"]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 58.0
+offset_right = 509.0
+offset_bottom = 123.0
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 46
+text = "Search Budget"
+
+[node name="TimeSlider" type="HSlider" parent="Setup"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 481.0
+offset_right = 524.0
+offset_bottom = 544.0
+theme = SubResource("Theme_blpo6")
+min_value = 2.0
+max_value = 7.0
+value = 2.0
+rounded = true
+
+[node name="Time" type="ColorRect" parent="Setup"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 391.0
+offset_right = 391.0
+offset_bottom = 475.0
+color = Color(0, 0, 0, 1)
+
+[node name="text" type="RichTextLabel" parent="Setup/Time"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 181.0
+offset_bottom = 77.0
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+text = "$1000"
+
+[node name="TimeLabel" type="RichTextLabel" parent="Setup"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 315.0
+offset_right = 466.0
+offset_bottom = 380.0
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 46
+text = "Search Time"
+
+[node name="Selector" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_top = 262.0
+offset_right = 666.0
+offset_bottom = 985.0
+color = Color(0.166334, 0.384206, 0.35117, 1)
+
+[node name="Employee1" type="TextureButton" parent="Selector"]
+texture_filter = 1
+offset_left = 47.0
+offset_top = 65.0
+offset_right = 705.0
+offset_bottom = 222.0
+scale = Vector2(0.796569, 0.842196)
+texture_normal = SubResource("AtlasTexture_hg7yn")
+stretch_mode = 0
+
+[node name="name" type="RichTextLabel" parent="Selector/Employee1"]
+layout_mode = 0
+offset_left = 112.255
+offset_top = 12.0
+offset_right = 542.255
+offset_bottom = 84.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+text = "Name Namerson"
+
+[node name="info" type="RichTextLabel" parent="Selector/Employee1"]
+layout_mode = 0
+offset_left = 111.729
+offset_top = 77.1792
+offset_right = 535.729
+offset_bottom = 149.179
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0.625597, 0.625597, 0.625597, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "Increase Training by 7%"
+
+[node name="wage" type="RichTextLabel" parent="Selector/Employee1"]
+layout_mode = 0
+offset_left = 523.495
+offset_top = 49.8696
+offset_right = 947.495
+offset_bottom = 121.87
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0, 0.758761, 0.0580108, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "$200/wk"
+
+[node name="logo" type="AnimatedSprite2D" parent="Selector/Employee1"]
+position = Vector2(69.0462, 74.8045)
+scale = Vector2(0.215577, 0.210576)
+sprite_frames = SubResource("SpriteFrames_7r3aw")
+animation = &"Trainer"
+
+[node name="Employee2" type="TextureButton" parent="Selector"]
+texture_filter = 1
+offset_left = 44.0
+offset_top = 235.0
+offset_right = 703.0
+offset_bottom = 392.0
+scale = Vector2(0.796569, 0.842196)
+texture_normal = SubResource("AtlasTexture_hg7yn")
+stretch_mode = 0
+
+[node name="name" type="RichTextLabel" parent="Selector/Employee2"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 12.0
+offset_right = 571.0
+offset_bottom = 66.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+text = "Name Namerson"
+
+[node name="info" type="RichTextLabel" parent="Selector/Employee2"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 77.0
+offset_right = 557.0
+offset_bottom = 149.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0.625597, 0.625597, 0.625597, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "Increase Training by 7%"
+
+[node name="logo" type="AnimatedSprite2D" parent="Selector/Employee2"]
+position = Vector2(69.0462, 74.8045)
+scale = Vector2(0.215577, 0.210576)
+sprite_frames = SubResource("SpriteFrames_7r3aw")
+animation = &"Trainer"
+
+[node name="wage" type="RichTextLabel" parent="Selector/Employee2"]
+offset_left = 523.495
+offset_top = 49.8696
+offset_right = 947.495
+offset_bottom = 121.87
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0, 0.758761, 0.0580108, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "$200/wk"
+
+[node name="Employee3" type="TextureButton" parent="Selector"]
+texture_filter = 1
+offset_left = 44.0
+offset_top = 416.0
+offset_right = 702.0
+offset_bottom = 573.0
+scale = Vector2(0.796569, 0.842196)
+texture_normal = SubResource("AtlasTexture_hg7yn")
+stretch_mode = 0
+
+[node name="name" type="RichTextLabel" parent="Selector/Employee3"]
+layout_mode = 0
+offset_left = 116.751
+offset_top = 11.8737
+offset_right = 571.751
+offset_bottom = 83.8737
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 36
+text = "Name Namerson"
+
+[node name="info" type="RichTextLabel" parent="Selector/Employee3"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 77.0
+offset_right = 557.0
+offset_bottom = 149.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0.625597, 0.625597, 0.625597, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "Increase Training by 7%"
+
+[node name="logo" type="AnimatedSprite2D" parent="Selector/Employee3"]
+position = Vector2(69.0462, 74.8045)
+scale = Vector2(0.215577, 0.210576)
+sprite_frames = SubResource("SpriteFrames_7r3aw")
+animation = &"Trainer"
+
+[node name="wage" type="RichTextLabel" parent="Selector/Employee3"]
+offset_left = 523.495
+offset_top = 49.8696
+offset_right = 947.495
+offset_bottom = 121.87
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_colors/default_color = Color(0, 0.758761, 0.0580108, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "$200/wk"
+
+[node name="Skip" type="TextureButton" parent="Selector"]
+offset_left = 155.0
+offset_top = 593.0
+offset_right = 454.0
+offset_bottom = 678.0
+texture_normal = SubResource("AtlasTexture_58gv8")
+texture_disabled = SubResource("AtlasTexture_7lan4")
+stretch_mode = 0
+
+[node name="text" type="RichTextLabel" parent="Selector/Skip"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 10.0
+offset_right = 297.0
+offset_bottom = 52.0
+mouse_filter = 2
+theme = ExtResource("4_n6qip")
+theme_override_font_sizes/normal_font_size = 31
+text = "Hire None"
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
+[connection signal="pressed" from="StaffSlot1" to="." method="_open_setup" binds= [1]]
+[connection signal="pressed" from="StaffSlot2" to="." method="_open_setup" binds= [2]]
+[connection signal="pressed" from="StaffSlot3" to="." method="_open_setup" binds= [3]]
+[connection signal="pressed" from="Setup/Close" to="." method="_close_setup"]
+[connection signal="pressed" from="Setup/ContinueButton" to="." method="_set_search"]
+[connection signal="pressed" from="Selector/Employee1" to="." method="_pick" binds= [0]]
+[connection signal="pressed" from="Selector/Employee2" to="." method="_pick" binds= [1]]
+[connection signal="pressed" from="Selector/Employee3" to="." method="_pick" binds= [2]]

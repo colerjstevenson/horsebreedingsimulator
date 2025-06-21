@@ -53,10 +53,10 @@ func random_event(_encounter):
 		apply_effects(encounter["choices"]["yes"]["effects"])
 	else:
 		$message.visible = true
-		await print_line(encounter["choices"]["yes"]["response"])
+		await print_line(encounter["choices"]["no"]["response"])
 		$message/ContinueButton.disabled = false
 		await cont
-		apply_effects(encounter["choices"]["yes"]["effects"])
+		apply_effects(encounter["choices"]["no"]["effects"])
 	
 	end_scene()	
 

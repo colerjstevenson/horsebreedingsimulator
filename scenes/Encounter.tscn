@@ -839,11 +839,11 @@ region = Rect2(432, 48, 112, 96)
 atlas = ExtResource("8_ss2td")
 region = Rect2(0, 0, 70, 18)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j57ai"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u717m"]
 load_path = "res://.godot/imported/red_spritesheet.png-08c151e6b98570117f817cb055353133.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u717m"]
-atlas = SubResource("CompressedTexture2D_j57ai")
+atlas = SubResource("CompressedTexture2D_u717m")
 region = Rect2(0, 97.9751, 70.1449, 15.9079)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_74w85"]

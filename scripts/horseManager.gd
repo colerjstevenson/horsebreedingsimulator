@@ -75,7 +75,7 @@ func calc_horse_price(horse: Horse):
 	statsTotal += horse.stats['fertility']
 	
 	
-	return clamp(int(base + (statsTotal*statFactor) - ((horse.age-3)*ageFactor) + (winsFactor*horse.wins.size())), 100, 2000)
+	return clamp(int(base + (statsTotal*statFactor) - ((horse.age-3)*ageFactor) + (winsFactor*horse.wins.size())), 100, 2000)*(2-StaffManager.get_mod("Lawyer")) 
 
 
  

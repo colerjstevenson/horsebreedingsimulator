@@ -23,7 +23,10 @@ func load_game():
 		Tutorial.tracker = dict["tutorial"]
 	if "achievments" in dict.keys():
 		AchievmentManager.tracker = dict["achievments"]
-		
+	if "achievments" in dict.keys():
+		AchievmentManager.tracker = dict["achievments"]
+
+	
 	
 	#Season data
 	Season.season = int(dict["season"])
@@ -42,6 +45,20 @@ func load_game():
 	#Breeding Data
 	BreedingManager.breeder_state = dict["breeder_state"]
 	BreedingManager.loadBreeder(dict["womb"], int(dict["weeks_left"]))
+	
+	#Staff Data
+	if "slots" in dict.keys():
+		print("WOOOOO")
+		StaffManager.slots = StaffManager.from_dict(dict["slots"])
+	if "states" in dict.keys():
+		StaffManager.states = dict["states"]
+	if "picker" in dict.keys():
+		StaffManager.picker = StaffManager.from_dict(dict["picker"])
+	if "active_slot" in dict.keys():
+		StaffManager.active_slot = dict["active_slot"]
+	if "wl" in dict.keys():
+		StaffManager.week_left = dict["wl"]
+		
 
 
 func load_dict(path: String):
@@ -109,6 +126,13 @@ func make_dict():
 		dict["mother"] = BreedingManager.mother.to_dict()
 	else:
 		dict["mother"] = BreedingManager.mother
+	
+	#Staff data
+	dict["slots"] = StaffManager.to_dict(StaffManager.slots)
+	dict["states"] = StaffManager.states
+	dict["picker"] = StaffManager.to_dict(StaffManager.picker)
+	dict["active_slot"] = StaffManager.active_slot
+	dict["wl"] = StaffManager.week_left
 	
 	
 	return dict

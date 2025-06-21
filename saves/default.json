@@ -1,55 +1,94 @@
 {
+	"achievments": {
+		"1000000_dollars": false,
+		"100000_dollars": false,
+		"10000_bet": false,
+		"10000_dollars": false,
+		"10000_loss": false,
+		"1000_bet": false,
+		"10_horses": false,
+		"50000_dollars": false,
+		"5000_bet": false,
+		"auction_100": false,
+		"breed_100": false,
+		"fresh_start": false,
+		"perfect_horse": false,
+		"perfect_season": false,
+		"triple_crown_easy": false,
+		"triple_crown_hard": false,
+		"triple_crown_normal": false,
+		"win_100": false
+	},
+	"active_slot": -1,
 	"breeder_state": "READY",
 	"difficulty": "NORMAL",
 	"horses": [
 		{
 			"age": 4,
 			"color": "red",
+			"father": null,
 			"horse_name": "Old Chester",
+			"id": 0.117271937429905,
+			"mother": null,
 			"pregnant": false,
 			"sex": "Male",
 			"stats": {
-				"acceleration": 85,
-				"fertility": 85,
-				"speed": 85,
-				"stamina": 40,
-				"vitality": 100
+				"acceleration": 85.0,
+				"energy": 83,
+				"fertility": 85.0,
+				"speed": 85.0,
+				"stamina": 40.0,
+				"vitality": 100.0
 			},
 			"wins": []
 		},
 		{
 			"age": 3,
 			"color": "black",
+			"father": null,
 			"horse_name": "Queen of Lightning",
+			"id": 0.191730186343193,
+			"mother": null,
 			"pregnant": false,
 			"sex": "Female",
 			"stats": {
 				"acceleration": 30.682575213527,
-				"fertility": 90,
-				"speed": 75,
+				"energy": 100,
+				"fertility": 90.0,
+				"speed": 75.0,
 				"stamina": 19.9069312700781,
-				"vitality": 100
+				"vitality": 100.0
 			},
 			"wins": []
 		},
 		{
 			"age": 3,
 			"color": "blonde",
+			"father": null,
 			"horse_name": "Up To Speed",
+			"id": 0.885780096054077,
+			"mother": null,
 			"pregnant": false,
 			"sex": "Female",
 			"stats": {
-				"acceleration": 75,
-				"fertility": 95,
-				"speed": 30,
-				"stamina": 45,
-				"vitality": 100
+				"acceleration": 75.0,
+				"energy": 100,
+				"fertility": 95.0,
+				"speed": 30.0,
+				"stamina": 45.0,
+				"vitality": 100.0
 			},
 			"wins": []
 		}
 	],
 	"money": 1000,
 	"mother": null,
+	"openning": true,
+	"picker": [
+		null,
+		null,
+		null
+	],
 	"races": [
 		{
 			"crown": false,
@@ -57,7 +96,7 @@
 			"length": 400,
 			"purse": 100,
 			"race_name": "The Fresh Start Cup",
-			"result": null,
+			"result": "W",
 			"week": 0
 		},
 		{
@@ -125,9 +164,29 @@
 		}
 	],
 	"season": 1,
+	"slots": [
+		null,
+		null,
+		null
+	],
 	"stalls": 3,
-	"openning": true,
+	"states": [
+		"empty",
+		"sale",
+		"sale"
+	],
+	"tutorial": {
+		"auction_screen": true,
+		"breeding_screen": true,
+		"main_screen": true,
+		"race_screen": true,
+		"skip_race": true,
+		"stable_screen": true,
+		"stats_window": true,
+		"training_screen": true
+	},
 	"week": 1,
 	"weeks_left": 0,
+	"wl": -2,
 	"womb": null
 }

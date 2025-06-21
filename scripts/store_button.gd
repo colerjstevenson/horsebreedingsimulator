@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 func setup(h: Horse):
 	horse = h
-	var price = HorseManager.calc_horse_price(horse)
+	var price = int(HorseManager.calc_horse_price(horse))
 	
 	$Name.text = "[center]" + horse.horse_name + "[center]"
 	$Price.text = "[center]$" + str(price) + "[center]"

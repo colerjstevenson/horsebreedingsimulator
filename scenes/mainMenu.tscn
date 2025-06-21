@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d1idqvxin65u4"]
+[gd_scene load_steps=18 format=3 uid="uid://d1idqvxin65u4"]
 
 [ext_resource type="Script" uid="uid://8mbd13k3q48k" path="res://scripts/mainMenu.gd" id="2_dj72i"]
 [ext_resource type="Texture2D" uid="uid://4fhwaajou2lp" path="res://art/UI/UI_Wood_Flat.png" id="3_6b2wv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfll43nlddjou" path="res://art/icons/gavel.png" id="4_epn8x"]
 [ext_resource type="Texture2D" uid="uid://bplnnq7kmkcwf" path="res://art/UI/Pixel UI/Colors/Red/red_spritesheet.png" id="4_tov5d"]
 [ext_resource type="Theme" uid="uid://04h0bha3cylt" path="res://themes/stat_window.tres" id="5_epn8x"]
+[ext_resource type="Texture2D" uid="uid://c42sxptmosbv4" path="res://art/icons/employee.png" id="5_lam2r"]
 [ext_resource type="Texture2D" uid="uid://drmricagdhfd6" path="res://art/icons/love.png" id="5_vt84v"]
 [ext_resource type="Texture2D" uid="uid://qfs4pj0fpjpq" path="res://art/icons/horseshoe.png" id="6_lam2r"]
 [ext_resource type="Texture2D" uid="uid://dpol7x3hi2juh" path="res://art/UI/UI Pixel Art-Update New BG .png" id="7_lam2r"]
@@ -103,6 +104,28 @@ offset_top = 26.0
 offset_right = 140.0
 offset_bottom = 135.0
 texture = ExtResource("4_epn8x")
+expand_mode = 1
+
+[node name="StaffButton" type="TextureButton" parent="Control"]
+z_index = 1910
+texture_filter = 1
+layout_mode = 0
+offset_left = 295.0
+offset_top = 115.0
+offset_right = 454.0
+offset_bottom = 271.0
+texture_normal = SubResource("AtlasTexture_wtx8o")
+stretch_mode = 0
+script = SubResource("GDScript_ldpc3")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/StaffButton"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 31.0
+offset_top = 26.0
+offset_right = 140.0
+offset_bottom = 135.0
+texture = ExtResource("5_lam2r")
 expand_mode = 1
 
 [node name="BreederButton" type="TextureButton" parent="Control"]
@@ -215,6 +238,7 @@ bbcode_enabled = true
 text = "[right]Season 0   Week 0"
 
 [node name="Achievments" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 600.0
 offset_top = 411.0
 offset_right = 692.0

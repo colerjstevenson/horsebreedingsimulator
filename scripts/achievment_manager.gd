@@ -34,7 +34,7 @@ func check_triple_crown():
 	if Season.races[-1].result == 'W' and Season.races[-2].result == 'W' and Season.races[-3].result == 'W': 
 		trigger_achievment("triple_crown_" + Settings.difficulty)
 	
-	if Season.week == Season.season_length and Season.races.all(func(n):return n.results == "W"):
+	if Season.week == Season.season_length and Season.races.all(func(n):return n.result == "W"):
 		trigger_achievment("perfect_season")
 
 
