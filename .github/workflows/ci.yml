@@ -1,49 +1,23 @@
-# .github/workflows/ci.yml
-name: CI – Bump Version, Export & Deploy Web
+name: Export Godot Project to HTML5
 
 on:
   push:
-    branches: [main]
-
-permissions:
-  contents: write        # allow tagging and pushing
-  pages: write           # allow GitHub Pages deploy
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  versioning:
+  export:
     runs-on: ubuntu-latest
-    outputs:
-      new_tag: ${{ steps.tag.outputs.new_tag }}
-      new_version: ${{ steps.tag.outputs.new_version }}
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Export Godot project to HTML5
+        uses: dulvui/godot-4-html-export@v1
         with:
-          fetch-depth: 0
-
-      - name: Bump version & tag
-        id: tag
-        uses: anothrNick/github-tag-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BUMP: patch   # change to major/minor as needed
-
-      - name: Sync Godot version string
-        run: |
-          tag="${{ steps.tag.outputs.new_tag }}"
-          version="${tag#v}"  # remove 'v' prefix if present
-          sed -i "s/^version=.*/version=\"${version}\"/" project.godot
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -am "chore: sync project version to ${version} [skip ci]"
-          git push
-
-  export-and-deploy:
-    needs: versioning
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Export HTML5 Build
-        uses: dulv
+          godot-version: 4.2.2
+          working-directory: ./
