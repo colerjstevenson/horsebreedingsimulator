@@ -109,6 +109,7 @@ texture_normal = SubResource("AtlasTexture_hg7yn")
 stretch_mode = 0
 
 [node name="text" type="RichTextLabel" parent="StaffSlot1"]
+visible = false
 layout_mode = 0
 offset_left = 104.0
 offset_top = 48.0
@@ -121,7 +122,7 @@ bbcode_enabled = true
 text = "Start Staff Search"
 
 [node name="name" type="RichTextLabel" parent="StaffSlot1"]
-visible = false
+layout_mode = 0
 offset_left = 95.3969
 offset_top = 12.0
 offset_right = 525.397
@@ -132,7 +133,7 @@ theme_override_font_sizes/normal_font_size = 36
 text = "Name Namerson"
 
 [node name="info" type="RichTextLabel" parent="StaffSlot1"]
-visible = false
+layout_mode = 0
 offset_left = 94.8707
 offset_top = 77.1792
 offset_right = 518.871
@@ -144,7 +145,7 @@ theme_override_font_sizes/normal_font_size = 26
 text = "Increase Training by 7%"
 
 [node name="wage" type="RichTextLabel" parent="StaffSlot1"]
-visible = false
+layout_mode = 0
 offset_left = 448.0
 offset_top = 49.0
 offset_right = 872.0
@@ -156,7 +157,6 @@ theme_override_font_sizes/normal_font_size = 26
 text = "$200/wk"
 
 [node name="logo" type="AnimatedSprite2D" parent="StaffSlot1"]
-visible = false
 position = Vector2(52.1877, 74.8045)
 scale = Vector2(0.215577, 0.210576)
 sprite_frames = SubResource("SpriteFrames_7r3aw")
@@ -185,6 +185,7 @@ bbcode_enabled = true
 
 [node name="name" type="RichTextLabel" parent="StaffSlot2"]
 visible = false
+layout_mode = 0
 offset_left = 95.3969
 offset_top = 12.0
 offset_right = 525.397
@@ -196,6 +197,7 @@ text = "Name Namerson"
 
 [node name="info" type="RichTextLabel" parent="StaffSlot2"]
 visible = false
+layout_mode = 0
 offset_left = 94.8707
 offset_top = 77.1792
 offset_right = 518.871
@@ -208,6 +210,7 @@ text = "Increase Training by 7%"
 
 [node name="wage" type="RichTextLabel" parent="StaffSlot2"]
 visible = false
+layout_mode = 0
 offset_left = 448.0
 offset_top = 49.0
 offset_right = 872.0
@@ -248,6 +251,7 @@ bbcode_enabled = true
 
 [node name="name" type="RichTextLabel" parent="StaffSlot3"]
 visible = false
+layout_mode = 0
 offset_left = 95.3969
 offset_top = 12.0
 offset_right = 525.397
@@ -259,6 +263,7 @@ text = "Name Namerson"
 
 [node name="info" type="RichTextLabel" parent="StaffSlot3"]
 visible = false
+layout_mode = 0
 offset_left = 94.8707
 offset_top = 77.1792
 offset_right = 518.871
@@ -271,6 +276,7 @@ text = "Increase Training by 7%"
 
 [node name="wage" type="RichTextLabel" parent="StaffSlot3"]
 visible = false
+layout_mode = 0
 offset_left = 448.0
 offset_top = 49.0
 offset_right = 872.0
@@ -420,6 +426,7 @@ color = Color(0.166334, 0.384206, 0.35117, 1)
 
 [node name="Employee1" type="TextureButton" parent="Selector"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 47.0
 offset_top = 65.0
 offset_right = 705.0
@@ -471,6 +478,7 @@ animation = &"Trainer"
 
 [node name="Employee2" type="TextureButton" parent="Selector"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 44.0
 offset_top = 235.0
 offset_right = 703.0
@@ -509,6 +517,7 @@ sprite_frames = SubResource("SpriteFrames_7r3aw")
 animation = &"Trainer"
 
 [node name="wage" type="RichTextLabel" parent="Selector/Employee2"]
+layout_mode = 0
 offset_left = 523.495
 offset_top = 49.8696
 offset_right = 947.495
@@ -521,6 +530,7 @@ text = "$200/wk"
 
 [node name="Employee3" type="TextureButton" parent="Selector"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 44.0
 offset_top = 416.0
 offset_right = 702.0
@@ -559,6 +569,7 @@ sprite_frames = SubResource("SpriteFrames_7r3aw")
 animation = &"Trainer"
 
 [node name="wage" type="RichTextLabel" parent="Selector/Employee3"]
+layout_mode = 0
 offset_left = 523.495
 offset_top = 49.8696
 offset_right = 947.495
@@ -570,6 +581,7 @@ theme_override_font_sizes/normal_font_size = 26
 text = "$200/wk"
 
 [node name="Skip" type="TextureButton" parent="Selector"]
+layout_mode = 0
 offset_left = 155.0
 offset_top = 593.0
 offset_right = 454.0

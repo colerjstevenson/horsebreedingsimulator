@@ -1,0 +1,58 @@
+name: CI – Bump Version & Export Web
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    outputs:
+      bumped: ${{ steps.bump.outputs.new_version }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Bump version in project.godot
+        id: bump
+        run: |
+          # Extract version string (strip quotes)
+          version_line=$(grep '^version=' project.godot)
+          version=${version_line#*\"}
+          version=${version%\"}
+          IFS='.' read -r major minor patch <<< "$version"
+          patch=$((patch + 1))
+          new_version="$major.$minor.$patch"
+          # Replace line with quoted version
+          sed -i "s/^version=.*/version=\"${new_version}\"/" project.godot
+          echo "::set-output name=new_version::$new_version"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add project.godot
+          git commit -m "chore: bump version to ${new_version} [skip ci]"
+
+      - name: Push version bump
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  export-web:
+    needs: bump-version
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Export HTML5 (Web)
+        uses: dulvui/godot-4-html-export@v1
+        with:
+          godot-version: 4.2.2
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/html5
+          commit_message: "Deploy HTML5 build — version ${{ needs.bump-version.outputs.bumped }}"
