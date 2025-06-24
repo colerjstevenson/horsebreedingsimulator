@@ -1,10 +1,7 @@
-name: Export Godot Project to HTML5
+name: Export Godot 4 Project to HTML5
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
@@ -17,7 +14,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Export Godot project to HTML5
-        uses: dulvui/godot-4-html-export@v1
+        uses: glochtefeld/godot-4-web-export@v0.0.2
         with:
           godot-version: 4.2.2
           working-directory: ./
