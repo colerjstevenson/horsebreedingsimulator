@@ -1,67 +1,49 @@
-name: CI – Bump Version & Export Web
+# .github/workflows/ci.yml
+name: CI – Bump Version, Export & Deploy Web
 
 on:
   push:
     branches: [main]
 
 permissions:
-  contents: write
-  pages: write
+  contents: write        # allow tagging and pushing
+  pages: write           # allow GitHub Pages deploy
 
 jobs:
-  bump-version:
+  versioning:
     runs-on: ubuntu-latest
     outputs:
-      bumped: ${{ steps.bump.outputs.new_version }}
+      new_tag: ${{ steps.tag.outputs.new_tag }}
+      new_version: ${{ steps.tag.outputs.new_version }}
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      - name: Bump version in project.godot
-        id: bump
+      - name: Bump version & tag
+        id: tag
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch   # change to major/minor as needed
+
+      - name: Sync Godot version string
         run: |
-          # Extract version string without quotes
-          version_line=$(grep '^version=' project.godot)
-          version=${version_line#*\"}
-          version=${version%\"}
-          IFS='.' read -r major minor patch <<< "$version"
-
-          # Increment patch version
-          patch=$((patch + 1))
-          new_version="$major.$minor.$patch"
-
-          # Write the new version back with quotes
-          sed -i "s/^version=.*/version=\"${new_version}\"/" project.godot
-
-          # Export output parameter using the new environment file syntax
-          echo "new_version=$new_version" >> $GITHUB_OUTPUT  # :contentReference[oaicite:1]{index=1}
-
-          # Commit bump (skip CI)
+          tag="${{ steps.tag.outputs.new_tag }}"
+          version="${tag#v}"  # remove 'v' prefix if present
+          sed -i "s/^version=.*/version=\"${version}\"/" project.godot
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add project.godot
-          git commit -m "chore: bump version to ${new_version} [skip ci]"
+          git commit -am "chore: sync project version to ${version} [skip ci]"
+          git push
 
-      - name: Push version bump
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-  export-web:
-    needs: bump-version
+  export-and-deploy:
+    needs: versioning
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
-      - name: Export HTML5 (Web)
-        uses: dulvui/godot-4-html-export@v1
-        with:
-          godot-version: 4.2.2
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/html5
-          commit_message: "Deploy HTML5 build – version ${{ needs.bump-version.outputs.bumped }}"
+      - name: Export HTML5 Build
+        uses: dulv
