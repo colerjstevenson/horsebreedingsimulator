@@ -1,7 +1,7 @@
 extends Node
 
 var size: Vector2
-var version="0.12.1"
+
 
 func get_greeting():
 	var greetings =[
