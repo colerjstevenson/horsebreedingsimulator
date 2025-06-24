@@ -13,22 +13,30 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       bumped: ${{ steps.bump.outputs.new_version }}
+
     steps:
       - uses: actions/checkout@v3
 
       - name: Bump version in project.godot
         id: bump
         run: |
-          # Extract version string (strip quotes)
+          # Extract version string without quotes
           version_line=$(grep '^version=' project.godot)
           version=${version_line#*\"}
           version=${version%\"}
           IFS='.' read -r major minor patch <<< "$version"
+
+          # Increment patch version
           patch=$((patch + 1))
           new_version="$major.$minor.$patch"
-          # Replace line with quoted version
+
+          # Write the new version back with quotes
           sed -i "s/^version=.*/version=\"${new_version}\"/" project.godot
-          echo "::set-output name=new_version::$new_version"
+
+          # Export output parameter using the new environment file syntax
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT  # :contentReference[oaicite:1]{index=1}
+
+          # Commit bump (skip CI)
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add project.godot
@@ -42,6 +50,7 @@ jobs:
   export-web:
     needs: bump-version
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
@@ -55,4 +64,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/html5
-          commit_message: "Deploy HTML5 build — version ${{ needs.bump-version.outputs.bumped }}"
+          commit_message: "Deploy HTML5 build – version ${{ needs.bump-version.outputs.bumped }}"
