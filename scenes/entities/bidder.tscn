@@ -126,4 +126,4 @@ script = ExtResource("1_fak17")
 position = Vector2(84, 136)
 scale = Vector2(0.408333, 0.395139)
 sprite_frames = SubResource("SpriteFrames_pe5jf")
-animation = &"bidder5_active"
+animation = &"bidder2_active"

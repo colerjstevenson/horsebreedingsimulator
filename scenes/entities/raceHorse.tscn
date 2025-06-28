@@ -12,8 +12,8 @@ script = ExtResource("1_w6egy")
 
 [node name="HorseAnim" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
-position = Vector2(-1.99998, -54)
-scale = Vector2(4.121, 4.5)
+position = Vector2(-1.93598, -54)
+scale = Vector2(4.123, 4.5)
 sprite_frames = ExtResource("2_bofcs")
 animation = &"black_right_running"
 
