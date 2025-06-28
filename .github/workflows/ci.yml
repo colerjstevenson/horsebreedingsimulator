@@ -1,25 +1,25 @@
-name: Export Godot 4.4 Project to HTML5
+# name: Export Godot 4.4 Project to HTML5
 
-on:
-  push:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  export:
-    runs-on: ubuntu-latest
+# jobs:
+#   export:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      - name: Export Godot project to HTML5
-        uses: firebelley/godot-export@v6.0.0
-        with:
-          godot_executable_download_url: https://godotengine.org/download/archive/4.4-stable/
-          godot_export_templates_download_url: https://sourceforge.net/projects/godot-engine.mirror/files/4.4-stable/Godot_v4.4-stable_export_templates.tpz/download
-          relative_project_path: ./
-          archive_output: true
-          cache: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       - name: Export Godot project to HTML5
+#         uses: firebelley/godot-export@v6.0.0
+#         with:
+#           godot_executable_download_url: https://godotengine.org/download/archive/4.4-stable/
+#           godot_export_templates_download_url: https://sourceforge.net/projects/godot-engine.mirror/files/4.4-stable/Godot_v4.4-stable_export_templates.tpz/download
+#           relative_project_path: ./
+#           archive_output: true
+#           cache: true
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
