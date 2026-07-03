@@ -19,8 +19,8 @@ func load_game():
 	Settings.difficulty = dict["difficulty"]
 	if "openning" in dict.keys():
 		Settings.openning = dict["openning"]
-	if "tutorial" in dict.keys():
-		Tutorial.tracker = dict["tutorial"]
+	#if "tutorial" in dict.keys():
+		#Tutorial.tracker = dict["tutorial"]
 	if "achievments" in dict.keys():
 		AchievmentManager.tracker = dict["achievments"]
 		

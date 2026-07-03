@@ -6,7 +6,8 @@ var horse: Horse
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Tutorial.tutorial("stats_window")
+	pass
+	#Tutorial.tutorial("stats_window")
 	
 func setup(horse_in: Horse):
 	horse = horse_in
